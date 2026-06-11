@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Spiel &amp; Quiz on KABU – Die Kinder-Info-App</title>
-		<link>http://localhost:1313/spiel_quiz/</link>
+		<link>//localhost:1313/spiel_quiz/</link>
 		<description>Recent content in Spiel &amp; Quiz on KABU – Die Kinder-Info-App</description>
 		<generator>Hugo</generator>
 		<language>de-DE</language>
@@ -12,348 +12,348 @@
 		
 			<lastBuildDate>Sat, 09 May 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/spiel_quiz/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="//localhost:1313/spiel_quiz/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Quiz zum Mutter- und Vatertag</title>
-				<link>http://localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag-2/</link>
+				<link>//localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag-2/</link>
 				<pubDate>Sat, 09 May 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag-2/</guid>
+				<guid>//localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag-2/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Frühlingsquiz</title>
-				<link>http://localhost:1313/spiel_quiz/fruehlingsquiz/</link>
+				<link>//localhost:1313/spiel_quiz/fruehlingsquiz/</link>
 				<pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/fruehlingsquiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/fruehlingsquiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Mikroskop-Paare finden</title>
-				<link>http://localhost:1313/spiel_quiz/mikroskop-paare-finden/</link>
+				<link>//localhost:1313/spiel_quiz/mikroskop-paare-finden/</link>
 				<pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/mikroskop-paare-finden/</guid>
+				<guid>//localhost:1313/spiel_quiz/mikroskop-paare-finden/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=p9h7brbpj25&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Tierquiz</title>
-				<link>http://localhost:1313/spiel_quiz/tierquiz/</link>
+				<link>//localhost:1313/spiel_quiz/tierquiz/</link>
 				<pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/tierquiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/tierquiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Quiz zum Mutter- und Vatertag</title>
-				<link>http://localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag/</link>
+				<link>//localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag/</link>
 				<pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag/</guid>
+				<guid>//localhost:1313/spiel_quiz/quiz-zum-mutter-und-vatertag/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Faschingsquiz</title>
-				<link>http://localhost:1313/spiel_quiz/faschingsquiz/</link>
+				<link>//localhost:1313/spiel_quiz/faschingsquiz/</link>
 				<pubDate>Sat, 01 Mar 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/faschingsquiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/faschingsquiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Minecraft-Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/minecraft-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/minecraft-quiz/</link>
 				<pubDate>Sun, 19 Jan 2025 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/minecraft-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/minecraft-quiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>KABU Halloween Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/kabu-halloween-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/kabu-halloween-quiz/</link>
 				<pubDate>Wed, 30 Oct 2024 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/kabu-halloween-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/kabu-halloween-quiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Memory</title>
-				<link>http://localhost:1313/spiel_quiz/memory/</link>
+				<link>//localhost:1313/spiel_quiz/memory/</link>
 				<pubDate>Fri, 13 Oct 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/memory/</guid>
+				<guid>//localhost:1313/spiel_quiz/memory/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pwx2f5hha23&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Wen suchen wir?</title>
-				<link>http://localhost:1313/spiel_quiz/wen-suchen-wir/</link>
+				<link>//localhost:1313/spiel_quiz/wen-suchen-wir/</link>
 				<pubDate>Sat, 19 Aug 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/wen-suchen-wir/</guid>
-				<description>&lt;h1 id=&#34;kannst-du-herausfinden-wen-oder-was-wir-suchen&#34;&gt;Kannst du herausfinden wen oder was wir suchen?&lt;/h1&gt;&#xA;&lt;p&gt;Die KABU-Redaktion hat ein paar Hinweise für dich zusammengesucht! Kannst du anhand der Reime herausfinden wen oder was wir suchen?&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202361_119.png&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Konntest du das Rätsel lösen?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💭 &lt;strong&gt;Denkblase&lt;/strong&gt;&#xA;Konntest du das Rätsel lösen?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Hast du auch ein Rätsel für uns? Dann schreibe gerne der KABU-Redaktion!&lt;/p&gt;</description>
+				<guid>//localhost:1313/spiel_quiz/wen-suchen-wir/</guid>
+				<description>&lt;h1 id=&#34;kannst-du-herausfinden-wen-oder-was-wir-suchen&#34;&gt;Kannst du herausfinden wen oder was wir suchen?&lt;/h1&gt;&#xA;&lt;p&gt;Die KABU-Redaktion hat ein paar Hinweise für dich zusammengesucht! Kannst du anhand der Reime herausfinden wen oder was wir suchen?&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202361_119.png&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Konntest du das Rätsel lösen?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💭 &lt;strong&gt;Denkblase&lt;/strong&gt;&#xA;Konntest du das Rätsel lösen?&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Hast du auch ein Rätsel für uns? Dann schreibe gerne der KABU-Redaktion!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Oster-Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/oster-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/oster-quiz/</link>
 				<pubDate>Sat, 08 Apr 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/oster-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/oster-quiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Wie gut kennst du Spider-Man?</title>
-				<link>http://localhost:1313/spiel_quiz/wie-gut-kennst-du-spider-man/</link>
+				<link>//localhost:1313/spiel_quiz/wie-gut-kennst-du-spider-man/</link>
 				<pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/wie-gut-kennst-du-spider-man/</guid>
+				<guid>//localhost:1313/spiel_quiz/wie-gut-kennst-du-spider-man/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Digitale Spiele</title>
-				<link>http://localhost:1313/spiel_quiz/digitale-spiele/</link>
+				<link>//localhost:1313/spiel_quiz/digitale-spiele/</link>
 				<pubDate>Sat, 28 Jan 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/digitale-spiele/</guid>
+				<guid>//localhost:1313/spiel_quiz/digitale-spiele/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pjp493ehk23&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Kannst du die Tiere erraten?</title>
-				<link>http://localhost:1313/spiel_quiz/kannst-du-die-tiere-erraten/</link>
+				<link>//localhost:1313/spiel_quiz/kannst-du-die-tiere-erraten/</link>
 				<pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/kannst-du-die-tiere-erraten/</guid>
+				<guid>//localhost:1313/spiel_quiz/kannst-du-die-tiere-erraten/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Serien und Filme erraten</title>
-				<link>http://localhost:1313/spiel_quiz/serien-und-filme-erraten/</link>
+				<link>//localhost:1313/spiel_quiz/serien-und-filme-erraten/</link>
 				<pubDate>Sat, 17 Sep 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/serien-und-filme-erraten/</guid>
+				<guid>//localhost:1313/spiel_quiz/serien-und-filme-erraten/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=p31gw088322&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Osterquiz</title>
-				<link>http://localhost:1313/spiel_quiz/osterquiz/</link>
+				<link>//localhost:1313/spiel_quiz/osterquiz/</link>
 				<pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/osterquiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/osterquiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Freizeit-Rätselspaß</title>
-				<link>http://localhost:1313/spiel_quiz/freizeit-raetselspass/</link>
+				<link>//localhost:1313/spiel_quiz/freizeit-raetselspass/</link>
 				<pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/freizeit-raetselspass/</guid>
+				<guid>//localhost:1313/spiel_quiz/freizeit-raetselspass/</guid>
 				<description>&lt;h1 id=&#34;kannst-du-das-rätsel-lösen&#34;&gt;Kannst du das Rätsel lösen?&lt;/h1&gt;&#xA;&lt;p&gt;Vorletzte Wochen haben wir über &lt;strong&gt;Freizeit-Tipps&lt;/strong&gt; von Kindern für Kinder berichtet. Diese Woche hat sich KABU was ganz Besonderes für dich überlegt: ein kleines &lt;strong&gt;Rätsel&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Kannst du herausfinden, was die Kinder heute Nachmittag gemeinsam machen möchten?&lt;/p&gt;&#xA;&lt;p&gt;Heute ist Wochenende und die beiden Kinder wissen nicht, was sie unternehmen möchten. Sie tragen zusammen, wie sie heute den gemeinsamen Tag planen könnten:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Eis essen&lt;/li&gt;&#xA;&lt;li&gt;Tennis spielen&lt;/li&gt;&#xA;&lt;li&gt;Skaten gehen&lt;/li&gt;&#xA;&lt;li&gt;Pizza essen&lt;/li&gt;&#xA;&lt;li&gt;Smoothie trinken&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Nach kurzer Überlegung &lt;strong&gt;schnappen sich die zwei Kinder etwas&lt;/strong&gt; und laufen los.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Was ist eigentlich ein Supermond?</title>
-				<link>http://localhost:1313/spiel_quiz/was-ist-eigentlich-ein-supermond/</link>
+				<link>//localhost:1313/spiel_quiz/was-ist-eigentlich-ein-supermond/</link>
 				<pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/was-ist-eigentlich-ein-supermond/</guid>
+				<guid>//localhost:1313/spiel_quiz/was-ist-eigentlich-ein-supermond/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Quiz zum ersten April</title>
-				<link>http://localhost:1313/spiel_quiz/quiz-zum-ersten-april/</link>
+				<link>//localhost:1313/spiel_quiz/quiz-zum-ersten-april/</link>
 				<pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/quiz-zum-ersten-april/</guid>
+				<guid>//localhost:1313/spiel_quiz/quiz-zum-ersten-april/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Neujahrs-Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/neujahrs-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/neujahrs-quiz/</link>
 				<pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/neujahrs-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/neujahrs-quiz/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=phes5m0vk21&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Onlinespiele während Corona</title>
-				<link>http://localhost:1313/spiel_quiz/onlinespiele-waehrend-corona/</link>
+				<link>//localhost:1313/spiel_quiz/onlinespiele-waehrend-corona/</link>
 				<pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/onlinespiele-waehrend-corona/</guid>
+				<guid>//localhost:1313/spiel_quiz/onlinespiele-waehrend-corona/</guid>
 				<description>&lt;p&gt;![Bild](/images/2020105_Design ohne Titel.jpg)&lt;/p&gt;&#xA;&lt;p&gt;Auch wenn du wegen Corona immer öfter zuhause sein musst, heißt das noch lange nicht, dass du dich langweilen musst. Du kannst nämlich auch zuhause über Videochat mit deinen Freunden eine Menge Spaß haben. KABU zeigt dir, wie!&lt;/p&gt;&#xA;&lt;h2 id=&#34;plattformen&#34;&gt;Plattformen:&lt;/h2&gt;&#xA;&lt;p&gt;Einen Videochat-Spieleabend mit Freunden kannst du zum Beispiel über &lt;strong&gt;WhatsApp Videoanruf&lt;/strong&gt;, die App &lt;strong&gt;Houseparty&lt;/strong&gt;, &lt;strong&gt;Skype&lt;/strong&gt; oder &lt;strong&gt;Zoom&lt;/strong&gt; machen.&lt;/p&gt;&#xA;&lt;h2 id=&#34;appsinternetseiten&#34;&gt;Apps/Internetseiten:&lt;/h2&gt;&#xA;&lt;p&gt;Es gibt einige tolle Onlinespiele, die du gemeinsam mit mehreren Personen spielen kannst. Hier unsere Vorschläge:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Herbstquiz</title>
-				<link>http://localhost:1313/spiel_quiz/herbstquiz/</link>
+				<link>//localhost:1313/spiel_quiz/herbstquiz/</link>
 				<pubDate>Wed, 14 Oct 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/herbstquiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/herbstquiz/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Künstliche Intelligenz - Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/kuenstliche-intelligenz-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/kuenstliche-intelligenz-quiz/</link>
 				<pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/kuenstliche-intelligenz-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/kuenstliche-intelligenz-quiz/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/view7838087&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Was weißt Du über die Antike?</title>
-				<link>http://localhost:1313/spiel_quiz/was-weisst-du-ueber-die-antike/</link>
+				<link>//localhost:1313/spiel_quiz/was-weisst-du-ueber-die-antike/</link>
 				<pubDate>Thu, 21 Nov 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/was-weisst-du-ueber-die-antike/</guid>
+				<guid>//localhost:1313/spiel_quiz/was-weisst-du-ueber-die-antike/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Rätsel zu Handydaten</title>
-				<link>http://localhost:1313/spiel_quiz/raetsel-zu-handydaten/</link>
+				<link>//localhost:1313/spiel_quiz/raetsel-zu-handydaten/</link>
 				<pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/raetsel-zu-handydaten/</guid>
+				<guid>//localhost:1313/spiel_quiz/raetsel-zu-handydaten/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/watch?app=7829101&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Daten-Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/daten-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/daten-quiz/</link>
 				<pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/daten-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/daten-quiz/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=ponybyr0519&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Medien umweltbewusst nutzen</title>
-				<link>http://localhost:1313/spiel_quiz/medien-umweltbewusst-nutzen/</link>
+				<link>//localhost:1313/spiel_quiz/medien-umweltbewusst-nutzen/</link>
 				<pubDate>Sun, 30 Jun 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/medien-umweltbewusst-nutzen/</guid>
+				<guid>//localhost:1313/spiel_quiz/medien-umweltbewusst-nutzen/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pdgin5g5318&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Foto-Paare finden</title>
-				<link>http://localhost:1313/spiel_quiz/foto-paare-finden/</link>
+				<link>//localhost:1313/spiel_quiz/foto-paare-finden/</link>
 				<pubDate>Fri, 10 May 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/foto-paare-finden/</guid>
+				<guid>//localhost:1313/spiel_quiz/foto-paare-finden/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/watch?app=6092302&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Bücher-Puzzle</title>
-				<link>http://localhost:1313/spiel_quiz/buecher-puzzle/</link>
+				<link>//localhost:1313/spiel_quiz/buecher-puzzle/</link>
 				<pubDate>Fri, 22 Feb 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/buecher-puzzle/</guid>
+				<guid>//localhost:1313/spiel_quiz/buecher-puzzle/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=py75h2d0a18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Medien-Memory</title>
-				<link>http://localhost:1313/spiel_quiz/medien-memory/</link>
+				<link>//localhost:1313/spiel_quiz/medien-memory/</link>
 				<pubDate>Thu, 22 Nov 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/medien-memory/</guid>
+				<guid>//localhost:1313/spiel_quiz/medien-memory/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=p25fnbwi318&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Krümel im Internet</title>
-				<link>http://localhost:1313/spiel_quiz/kruemel-im-internet/</link>
+				<link>//localhost:1313/spiel_quiz/kruemel-im-internet/</link>
 				<pubDate>Fri, 07 Sep 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/kruemel-im-internet/</guid>
+				<guid>//localhost:1313/spiel_quiz/kruemel-im-internet/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=puwugym3a18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Fremdsprachen-Test</title>
-				<link>http://localhost:1313/spiel_quiz/fremdsprachen-test/</link>
+				<link>//localhost:1313/spiel_quiz/fremdsprachen-test/</link>
 				<pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/fremdsprachen-test/</guid>
+				<guid>//localhost:1313/spiel_quiz/fremdsprachen-test/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pnjtpe6mj18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Sommer-Suchspiel</title>
-				<link>http://localhost:1313/spiel_quiz/sommer-suchspiel/</link>
+				<link>//localhost:1313/spiel_quiz/sommer-suchspiel/</link>
 				<pubDate>Fri, 10 Aug 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/sommer-suchspiel/</guid>
+				<guid>//localhost:1313/spiel_quiz/sommer-suchspiel/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Neue Scherzfragen</title>
-				<link>http://localhost:1313/spiel_quiz/neue-scherzfragen/</link>
+				<link>//localhost:1313/spiel_quiz/neue-scherzfragen/</link>
 				<pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/neue-scherzfragen/</guid>
+				<guid>//localhost:1313/spiel_quiz/neue-scherzfragen/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/view5240220&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Fußball-WM-Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/fussball-wm-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/fussball-wm-quiz/</link>
 				<pubDate>Fri, 15 Jun 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/fussball-wm-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/fussball-wm-quiz/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=ppz8hnh5v18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Schlauer Fuchs - das Tierquiz</title>
-				<link>http://localhost:1313/spiel_quiz/schlauer-fuchs-das-tierquiz/</link>
+				<link>//localhost:1313/spiel_quiz/schlauer-fuchs-das-tierquiz/</link>
 				<pubDate>Wed, 30 May 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/schlauer-fuchs-das-tierquiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/schlauer-fuchs-das-tierquiz/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pdv3wcs4n18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Ratespiel: Altersfreigaben</title>
-				<link>http://localhost:1313/spiel_quiz/ratespiel-altersfreigaben/</link>
+				<link>//localhost:1313/spiel_quiz/ratespiel-altersfreigaben/</link>
 				<pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/ratespiel-altersfreigaben/</guid>
+				<guid>//localhost:1313/spiel_quiz/ratespiel-altersfreigaben/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/watch?app=5140090&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Star-Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/star-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/star-quiz/</link>
 				<pubDate>Thu, 12 Apr 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/star-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/star-quiz/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/view4693809&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Scherzfragen</title>
-				<link>http://localhost:1313/spiel_quiz/scherzfragen/</link>
+				<link>//localhost:1313/spiel_quiz/scherzfragen/</link>
 				<pubDate>Sun, 01 Apr 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/scherzfragen/</guid>
+				<guid>//localhost:1313/spiel_quiz/scherzfragen/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=p33kyc08c18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Hauptstädte in Europa</title>
-				<link>http://localhost:1313/spiel_quiz/hauptstaedte-in-europa/</link>
+				<link>//localhost:1313/spiel_quiz/hauptstaedte-in-europa/</link>
 				<pubDate>Sat, 10 Mar 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/hauptstaedte-in-europa/</guid>
+				<guid>//localhost:1313/spiel_quiz/hauptstaedte-in-europa/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=p32hpy65j22&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Online oder offline?</title>
-				<link>http://localhost:1313/spiel_quiz/online-oder-offline/</link>
+				<link>//localhost:1313/spiel_quiz/online-oder-offline/</link>
 				<pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/online-oder-offline/</guid>
+				<guid>//localhost:1313/spiel_quiz/online-oder-offline/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/view4517767&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Rätsel zum Jahreswechsel</title>
-				<link>http://localhost:1313/spiel_quiz/raetsel-zum-jahreswechsel/</link>
+				<link>//localhost:1313/spiel_quiz/raetsel-zum-jahreswechsel/</link>
 				<pubDate>Sat, 30 Dec 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/raetsel-zum-jahreswechsel/</guid>
+				<guid>//localhost:1313/spiel_quiz/raetsel-zum-jahreswechsel/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/view4338193&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Quiz: Medien alt &amp; neu</title>
-				<link>http://localhost:1313/spiel_quiz/quiz-medien-alt-neu/</link>
+				<link>//localhost:1313/spiel_quiz/quiz-medien-alt-neu/</link>
 				<pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/quiz-medien-alt-neu/</guid>
+				<guid>//localhost:1313/spiel_quiz/quiz-medien-alt-neu/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/watch?app=4119739&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Buchstabensalat</title>
-				<link>http://localhost:1313/spiel_quiz/buchstabensalat/</link>
+				<link>//localhost:1313/spiel_quiz/buchstabensalat/</link>
 				<pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/buchstabensalat/</guid>
+				<guid>//localhost:1313/spiel_quiz/buchstabensalat/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/watch?app=4053424&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Teste dein Werbe-Wissen</title>
-				<link>http://localhost:1313/spiel_quiz/teste-dein-werbe-wissen/</link>
+				<link>//localhost:1313/spiel_quiz/teste-dein-werbe-wissen/</link>
 				<pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/teste-dein-werbe-wissen/</guid>
+				<guid>//localhost:1313/spiel_quiz/teste-dein-werbe-wissen/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Film- &amp; Fernseh-Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/film-fernseh-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/film-fernseh-quiz/</link>
 				<pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/film-fernseh-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/film-fernseh-quiz/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=p0dgwp51j17&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Weihnachtliches Rätsel</title>
-				<link>http://localhost:1313/spiel_quiz/weihnachtliches-raetsel/</link>
+				<link>//localhost:1313/spiel_quiz/weihnachtliches-raetsel/</link>
 				<pubDate>Tue, 05 Dec 2000 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/weihnachtliches-raetsel/</guid>
+				<guid>//localhost:1313/spiel_quiz/weihnachtliches-raetsel/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Quiz zu Sankt Martin</title>
-				<link>http://localhost:1313/spiel_quiz/quiz-zu-sankt-martin/</link>
+				<link>//localhost:1313/spiel_quiz/quiz-zu-sankt-martin/</link>
 				<pubDate>Thu, 09 Nov 2000 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/quiz-zu-sankt-martin/</guid>
+				<guid>//localhost:1313/spiel_quiz/quiz-zu-sankt-martin/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Halloween - das Quiz</title>
-				<link>http://localhost:1313/spiel_quiz/halloween-das-quiz/</link>
+				<link>//localhost:1313/spiel_quiz/halloween-das-quiz/</link>
 				<pubDate>Mon, 30 Oct 2000 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/spiel_quiz/halloween-das-quiz/</guid>
+				<guid>//localhost:1313/spiel_quiz/halloween-das-quiz/</guid>
 				<description></description>
 			</item>
 	</channel>

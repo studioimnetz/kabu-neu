@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Allgemeins on KABU – Die Kinder-Info-App</title>
-		<link>http://localhost:1313/allgemein/</link>
+		<link>//localhost:1313/allgemein/</link>
 		<description>Recent content in Allgemeins on KABU – Die Kinder-Info-App</description>
 		<generator>Hugo</generator>
 		<language>de-DE</language>
@@ -12,12 +12,12 @@
 		
 			<lastBuildDate>Thu, 11 Jun 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/allgemein/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="//localhost:1313/allgemein/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Markuptest (versteckt)</title>
-				<link>http://localhost:1313/allgemein/markuptest-versteckt/</link>
+				<link>//localhost:1313/allgemein/markuptest-versteckt/</link>
 				<pubDate>Thu, 11 Jun 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/allgemein/markuptest-versteckt/</guid>
+				<guid>//localhost:1313/allgemein/markuptest-versteckt/</guid>
 				<description>&lt;h1 id=&#34;headline&#34;&gt;Headline&lt;/h1&gt;&#xA;&lt;p&gt;Und etwas text&lt;/p&gt;&#xA;&lt;h2 id=&#34;unterheadline&#34;&gt;Unterheadline&lt;/h2&gt;&#xA;&lt;h3 id=&#34;unteruntertitel&#34;&gt;Unteruntertitel&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Punkt 1&lt;/li&gt;&#xA;&lt;li&gt;Punkt 2&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Text in &lt;em&gt;italic&lt;/em&gt; und in &lt;strong&gt;fett&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Test von Oliver&lt;/p&gt;</description>
 			</item>
 	</channel>

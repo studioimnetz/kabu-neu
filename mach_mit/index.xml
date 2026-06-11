@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Mach mit on KABU – Die Kinder-Info-App</title>
-		<link>http://localhost:1313/mach_mit/</link>
+		<link>//localhost:1313/mach_mit/</link>
 		<description>Recent content in Mach mit on KABU – Die Kinder-Info-App</description>
 		<generator>Hugo</generator>
 		<language>de-DE</language>
@@ -12,237 +12,237 @@
 		
 			<lastBuildDate>Sun, 24 May 2026 00:00:00 +0000</lastBuildDate>
 		
-			<atom:link href="http://localhost:1313/mach_mit/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="//localhost:1313/mach_mit/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Dem Mai auf der Spur!</title>
-				<link>http://localhost:1313/mach_mit/dem-mai-auf-der-spur/</link>
+				<link>//localhost:1313/mach_mit/dem-mai-auf-der-spur/</link>
 				<pubDate>Sun, 24 May 2026 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/dem-mai-auf-der-spur/</guid>
+				<guid>//localhost:1313/mach_mit/dem-mai-auf-der-spur/</guid>
 				<description>&lt;h1 id=&#34;dem-mai-auf-der-spur&#34;&gt;Dem Mai auf der Spur!&lt;/h1&gt;&#xA;&lt;p&gt;Draußen blüht und summt es, die Tage werden länger und die Sonne scheint öfter! Was gibt es schöneres, als draußen etwas zu Unternehmen und auf Entdeckungstour zu gehen?&lt;/p&gt;&#xA;&lt;p&gt;Deshalb hat sich die KABU-Redaktion ein paar kleine Aufgaben überlegt! Kannst du die gesuchten Sachen finden?&lt;/p&gt;&#xA;&lt;h2 id=&#34;los-gehts&#34;&gt;Los geht&amp;rsquo;s!&lt;/h2&gt;&#xA;&lt;p&gt;Suche folgende Sachen draußen in der Natur bei einem Spaziergang! Du kannst die Gegenstände auch fotografieren und daraus zum Beispiel eine kleine Mai-Collage erstellen!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Zaubertrick</title>
-				<link>http://localhost:1313/mach_mit/zaubertrick/</link>
+				<link>//localhost:1313/mach_mit/zaubertrick/</link>
 				<pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/zaubertrick/</guid>
+				<guid>//localhost:1313/mach_mit/zaubertrick/</guid>
 				<description>&lt;p&gt;![Bild](/images/202342_Dein Abschnittstext.jpg)&lt;/p&gt;&#xA;&lt;h1 id=&#34;zaubertrick&#34;&gt;Zaubertrick&lt;/h1&gt;&#xA;&lt;p&gt;Hast du Lust deine Freunde zum Staunen zu bringen? Dann hat KABU heute genau das richtige für dich! KABU zeigt dir heute einen Zaubertrick, mit dem du deine Mitmenschen sicher überraschen kannst!&lt;/p&gt;&#xA;&lt;p&gt;Wenn du jetzt wissen willst, wie genau der Trick funktioniert, dann schau dir das &lt;strong&gt;Erklärvideo&lt;/strong&gt; an:&lt;/p&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/837613800?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Kennst du auch einen tollen Trick? Dann schreib gerne der KABU-Redaktion! Das geht ganz einfach! Tippe hierzu auf den &lt;strong&gt;blauen Button&lt;/strong&gt;!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Witz des Monats</title>
-				<link>http://localhost:1313/mach_mit/witz-des-monats-2/</link>
+				<link>//localhost:1313/mach_mit/witz-des-monats-2/</link>
 				<pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/witz-des-monats-2/</guid>
-				<description>&lt;h1 id=&#34;kabus-witz-des-monats&#34;&gt;KABUS Witz des Monats&lt;/h1&gt;&#xA;&lt;p&gt;Heute hat sich KABU für euch etwas ganz Besonderes ausgedacht, was euch sicher zum Lachen bringen wird! KABU stellt euch heute nämlich den Witz des Monats vor:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202352_129.png&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hast du dich auch so köstlich wie KABU amüsiert?&lt;/p&gt;&#xA;&lt;p&gt;Wenn du einen Witz hast, mit dem du gerne anderen Kindern den Tag erheitern möchtest, dann schicke diesen gerne der KABU-Redaktion. Das geht ganz einfach indem du auf den blauen Button &lt;strong&gt;Schreib dem KABU-Team&lt;/strong&gt; tippst!&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/witz-des-monats-2/</guid>
+				<description>&lt;h1 id=&#34;kabus-witz-des-monats&#34;&gt;KABUS Witz des Monats&lt;/h1&gt;&#xA;&lt;p&gt;Heute hat sich KABU für euch etwas ganz Besonderes ausgedacht, was euch sicher zum Lachen bringen wird! KABU stellt euch heute nämlich den Witz des Monats vor:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202352_129.png&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hast du dich auch so köstlich wie KABU amüsiert?&lt;/p&gt;&#xA;&lt;p&gt;Wenn du einen Witz hast, mit dem du gerne anderen Kindern den Tag erheitern möchtest, dann schicke diesen gerne der KABU-Redaktion. Das geht ganz einfach indem du auf den blauen Button &lt;strong&gt;Schreib dem KABU-Team&lt;/strong&gt; tippst!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Märchenhafte Geschichten</title>
-				<link>http://localhost:1313/mach_mit/maerchenhafte-geschichten/</link>
+				<link>//localhost:1313/mach_mit/maerchenhafte-geschichten/</link>
 				<pubDate>Sat, 14 Jan 2023 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/maerchenhafte-geschichten/</guid>
+				<guid>//localhost:1313/mach_mit/maerchenhafte-geschichten/</guid>
 				<description>&lt;h1 id=&#34;märchenhafte-geschichten&#34;&gt;Märchenhafte Geschichten&lt;/h1&gt;&#xA;&lt;p&gt;Gemeinsam mit einer Kinderredaktion haben wir ein Schloss in Bayern besucht. Vor Ort haben wir uns auf eine digitale Schnitzeljagd begeben und gemeinsam nach &lt;strong&gt;Geheimnissen, Geschichten&lt;/strong&gt; und &lt;strong&gt;Schätzen&lt;/strong&gt; gesucht.&lt;/p&gt;&#xA;&lt;p&gt;Hierbei hat sich die Kinderredaktion von der Atmosphäre und den Geschichten inspirieren lassen und selbst zwei kleine, &lt;strong&gt;märchenhafte Geschichten&lt;/strong&gt; für dich erfunden!&lt;/p&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/780336338?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Sind die Geschichten nicht toll geworden?&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💭 &lt;strong&gt;Denkblase&lt;/strong&gt;&#xA;Sind die Geschichten nicht toll geworden?&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Vorgelesene Geschichten</title>
-				<link>http://localhost:1313/mach_mit/vorgelesene-geschichten/</link>
+				<link>//localhost:1313/mach_mit/vorgelesene-geschichten/</link>
 				<pubDate>Thu, 17 Nov 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/vorgelesene-geschichten/</guid>
+				<guid>//localhost:1313/mach_mit/vorgelesene-geschichten/</guid>
 				<description>&lt;h1 id=&#34;vorgelesene-geschichten&#34;&gt;Vorgelesene Geschichten&lt;/h1&gt;&#xA;&lt;p&gt;Heute ist ein ganz besonderer Tag. Heute ist nämlich der &lt;strong&gt;bundesweite Vorlesetag&lt;/strong&gt; und passend hierzu hat sich KABU zusammen mit einer Kinderredaktion was ganz Besonderes überlegt.&lt;/p&gt;&#xA;&lt;p&gt;Um auf die &lt;strong&gt;Bedeutung des Lesens&lt;/strong&gt; aufmerksam zu machen, haben sich die Kinder eine eigene Geschichte &lt;strong&gt;ausgedacht&lt;/strong&gt;, diese &lt;strong&gt;vorgelesen&lt;/strong&gt; und anschließend sogar noch mithilfe der StopMotion-Technik &lt;strong&gt;verfilmt!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;aber-schaut-selbst&#34;&gt;Aber schaut selbst:&lt;/h2&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/771910309?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Das Motto ist dieses Jahr übrigens &lt;strong&gt;„Gemeinsam einzigartig“&lt;/strong&gt;. Und genauso einzigartig und besonders sind auch die Geschichten worden! KABU ist total begeistert!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Witz des Monats Oktober</title>
-				<link>http://localhost:1313/mach_mit/witz-des-monats-oktober/</link>
+				<link>//localhost:1313/mach_mit/witz-des-monats-oktober/</link>
 				<pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/witz-des-monats-oktober/</guid>
-				<description>&lt;h1 id=&#34;witz-des-monats&#34;&gt;Witz des Monats&lt;/h1&gt;&#xA;&lt;p&gt;Es ist wieder soweit! Heute erzählt dir KABU seinen neuen Lieblingswitz für den Monat Oktober! Der Witz wurde KABU übrigens von einer &lt;strong&gt;KABU-Leserin&lt;/strong&gt; zugeschickt, die euch alle zum Lachen bringen wollte!&lt;/p&gt;&#xA;&lt;p&gt;KABU hat herzlich gelacht. Bringen wir auch dich zum lachen?&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202295_50.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wenn du auch einen Witz für uns hast, mit dem du gerne andere Kinder zum Lachen bringen möchtest, dann schicke diesen gerne der KABU-Redaktion. Das geht ganz einfach indem du  auf den blauen Button &lt;strong&gt;Schreib dem KABU-Team&lt;/strong&gt; tippst!&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/witz-des-monats-oktober/</guid>
+				<description>&lt;h1 id=&#34;witz-des-monats&#34;&gt;Witz des Monats&lt;/h1&gt;&#xA;&lt;p&gt;Es ist wieder soweit! Heute erzählt dir KABU seinen neuen Lieblingswitz für den Monat Oktober! Der Witz wurde KABU übrigens von einer &lt;strong&gt;KABU-Leserin&lt;/strong&gt; zugeschickt, die euch alle zum Lachen bringen wollte!&lt;/p&gt;&#xA;&lt;p&gt;KABU hat herzlich gelacht. Bringen wir auch dich zum lachen?&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202295_50.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wenn du auch einen Witz für uns hast, mit dem du gerne andere Kinder zum Lachen bringen möchtest, dann schicke diesen gerne der KABU-Redaktion. Das geht ganz einfach indem du  auf den blauen Button &lt;strong&gt;Schreib dem KABU-Team&lt;/strong&gt; tippst!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Witz des Monats</title>
-				<link>http://localhost:1313/mach_mit/witz-des-monats/</link>
+				<link>//localhost:1313/mach_mit/witz-des-monats/</link>
 				<pubDate>Sat, 10 Sep 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/witz-des-monats/</guid>
-				<description>&lt;h1 id=&#34;kabus-witz-des-monats&#34;&gt;KABUS Witz des Monats&lt;/h1&gt;&#xA;&lt;p&gt;Für heute haben sich die Kinder aus der KABU-Kinderredaktion was ganz besonderes für dich überlegt! Zur Aufheiterung gibt es den Witz des Monats:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202285_KABU.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hahahahahah&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💭 &lt;strong&gt;Sprechblase&lt;/strong&gt;&#xA;Hahahahahah&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Hast du dich auch so köstlich wie KABU amüsiert?&lt;/p&gt;&#xA;&lt;p&gt;Wenn du einen Witz hast, mit dem du gerne anderen Kindern den Tag erheitern möchtest, dann schicke diesen gerne der KABU-Redaktion. Das geht ganz einfach indem du auf den blauen Button &lt;strong&gt;Schreib dem KABU-Team&lt;/strong&gt; tippst!&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/witz-des-monats/</guid>
+				<description>&lt;h1 id=&#34;kabus-witz-des-monats&#34;&gt;KABUS Witz des Monats&lt;/h1&gt;&#xA;&lt;p&gt;Für heute haben sich die Kinder aus der KABU-Kinderredaktion was ganz besonderes für dich überlegt! Zur Aufheiterung gibt es den Witz des Monats:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202285_KABU.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Hahahahahah&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💭 &lt;strong&gt;Sprechblase&lt;/strong&gt;&#xA;Hahahahahah&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Hast du dich auch so köstlich wie KABU amüsiert?&lt;/p&gt;&#xA;&lt;p&gt;Wenn du einen Witz hast, mit dem du gerne anderen Kindern den Tag erheitern möchtest, dann schicke diesen gerne der KABU-Redaktion. Das geht ganz einfach indem du auf den blauen Button &lt;strong&gt;Schreib dem KABU-Team&lt;/strong&gt; tippst!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Muttertag</title>
-				<link>http://localhost:1313/mach_mit/muttertag/</link>
+				<link>//localhost:1313/mach_mit/muttertag/</link>
 				<pubDate>Sat, 07 May 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/muttertag/</guid>
+				<guid>//localhost:1313/mach_mit/muttertag/</guid>
 				<description>&lt;h1 id=&#34;muttertag&#34;&gt;Muttertag&lt;/h1&gt;&#xA;&lt;p&gt;Na, hast du auch schon dran gedacht?&lt;/p&gt;&#xA;&lt;p&gt;Heute ist &lt;strong&gt;Muttertag&lt;/strong&gt;! Jährlich findet am zweiten Sonntag im Mai der Tag zu &lt;strong&gt;Ehren&lt;/strong&gt; unserer Mütter und der Mutterschaft statt.&lt;/p&gt;&#xA;&lt;p&gt;Das bedeutet, dass am heutigen Tag unsere Mütter &lt;strong&gt;gefeiert&lt;/strong&gt; werden und zum Beispiel kleine (selbst gebastelte) Geschenke, Gutscheine, Pralinen, Gedichte oder sogar Blumen von uns bekommen.&lt;/p&gt;&#xA;&lt;h2 id=&#34;aus-diesem-grund-wünscht-kabu-allen-müttern&#34;&gt;Aus diesem Grund wünscht KABU allen Müttern:&lt;/h2&gt;&#xA;&lt;p&gt;Alles Gute zum Muttertag!&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💭 &lt;strong&gt;Sprechblase&lt;/strong&gt;&#xA;Alles Gute zum Muttertag!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Umwelt und Nachhaltigkeit</title>
-				<link>http://localhost:1313/mach_mit/umwelt-und-nachhaltigkeit/</link>
+				<link>//localhost:1313/mach_mit/umwelt-und-nachhaltigkeit/</link>
 				<pubDate>Fri, 04 Feb 2022 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/umwelt-und-nachhaltigkeit/</guid>
+				<guid>//localhost:1313/mach_mit/umwelt-und-nachhaltigkeit/</guid>
 				<description>&lt;h1 id=&#34;umwelt-und-nachhaltigkeit&#34;&gt;Umwelt und Nachhaltigkeit&lt;/h1&gt;&#xA;&lt;p&gt;In den Medien, in der Schule und vielleicht auch nach der Schule bei Freunden: Hast du vielleicht schon von den Begriffen &lt;strong&gt;„Umwelt“&lt;/strong&gt; und &lt;strong&gt;„Nachhaltigkeit“&lt;/strong&gt; gehört?&lt;/p&gt;&#xA;&lt;p&gt;Auch KABU kennt die Begriffe, aber die Bedeutung ist ihm noch unklar. Aus diesem Grund hat KABU einen &lt;strong&gt;Hort in München&lt;/strong&gt; besucht und mit den Kindern nach der genauen Bedeutung gesucht.&lt;/p&gt;&#xA;&lt;p&gt;Mit dem Wort Umwelt ist die gesamte Natur gemeint. Auch alle Lebewesen und die Umgebung.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Freizeit-Tipps</title>
-				<link>http://localhost:1313/mach_mit/freizeit-tipps/</link>
+				<link>//localhost:1313/mach_mit/freizeit-tipps/</link>
 				<pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/freizeit-tipps/</guid>
+				<guid>//localhost:1313/mach_mit/freizeit-tipps/</guid>
 				<description>&lt;h1 id=&#34;freizeit-tipps&#34;&gt;Freizeit-Tipps&lt;/h1&gt;&#xA;&lt;p&gt;Die &lt;strong&gt;Ferien&lt;/strong&gt; sind um und das KABU-Team hat Kinder in deinem Alter gefragt, wie sie die Ferienzeit genutzt haben. Vielleicht sind ein paar gute &lt;strong&gt;Tipps&lt;/strong&gt; für dich dabei, die du nicht nur in den Ferien, sondern auch am &lt;strong&gt;Wochenende&lt;/strong&gt; nutzen kannst!&lt;/p&gt;&#xA;&lt;p&gt;Die Kinder haben zusätzlich tolle Bilder von ihren Lieblingsbeschäftigungen gemalt!&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;💭 &lt;strong&gt;RoboBoard&lt;/strong&gt;&#xA;Die Kinder haben zusätzlich tolle Bilder von ihren Lieblingsbeschäftigungen gemalt!&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;tipp-nummer-1-freunde-treffen&#34;&gt;Tipp Nummer 1: Freunde treffen&lt;/h2&gt;&#xA;&lt;p&gt;Egal, ob du bei einem Freund &lt;strong&gt;übernachtet&lt;/strong&gt; hast, ihr gemeinsam &lt;strong&gt;raus gegangen&lt;/strong&gt; oder &lt;strong&gt;Rad gefahren seid&lt;/strong&gt;, ihr am &lt;strong&gt;Zocken&lt;/strong&gt; wart oder vielleicht &lt;strong&gt;Fußball gespielt habt&lt;/strong&gt;: Gemeinsame Aktivitäten standen auch dieses Jahr in den Sommerferien im Mittelpunkt.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Wie zeichne ich KABU?</title>
-				<link>http://localhost:1313/mach_mit/wie-zeichne-ich-kabu/</link>
+				<link>//localhost:1313/mach_mit/wie-zeichne-ich-kabu/</link>
 				<pubDate>Sun, 06 Jun 2021 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/wie-zeichne-ich-kabu/</guid>
+				<guid>//localhost:1313/mach_mit/wie-zeichne-ich-kabu/</guid>
 				<description>&lt;p&gt;Heute zeigen wir dir, wie du unser Maskottchen KABU selbst zeichnen kannst.&lt;/p&gt;&#xA;&lt;p&gt;Wir haben das im Video erklärt, so dass du es mit einem Blatt Papier und einem Bleistift einfach nachmalen und später ausmalen kannst.&lt;/p&gt;&#xA;&lt;h2 id=&#34;die-video-malanleitung&#34;&gt;Die Video-Malanleitung:&lt;/h2&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/559986254?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Wir würden uns sehr freuen, wenn du uns dein tolles Bild schickst- klick einfach unten auf den blauen Button.&lt;/p&gt;&#xA;&lt;p&gt;Viel Spaß beim Nachmachen&#xA;wünscht dir das KABU-Team!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Zum 4. Advent </title>
-				<link>http://localhost:1313/mach_mit/zum-4-advent-2/</link>
+				<link>//localhost:1313/mach_mit/zum-4-advent-2/</link>
 				<pubDate>Fri, 18 Dec 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/zum-4-advent-2/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2020115_titelbild.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Weiße Weihnacht ist doch das Schönste, was es gibt. Doch was, wenn gar kein Schnee liegt? Dafür hat KABU eine Lösung: Er zeigt dir heute, wie du eine Schneeflocke aus Papier bastelst, die du dann anschließend an euren Weihnachtsbaum oder an euer Fenster hängen kannst.&lt;/p&gt;&#xA;&lt;p&gt;Außerdem gibt es wieder ein Video, diesmal zur Fragen, warum wir uns zu Weihnachten einen Baum ins Wohnzimmer stellen. Viel Spaß damit!&lt;/p&gt;&#xA;&lt;h2 id=&#34;video-weihnachtsbaum&#34;&gt;Video: Weihnachtsbaum&lt;/h2&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/492557504?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;schneeflocke-basteln&#34;&gt;Schneeflocke basteln&lt;/h2&gt;&#xA;&lt;p&gt;Diese Dinge brauchst du:&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/zum-4-advent-2/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;../images/2020115_titelbild.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Weiße Weihnacht ist doch das Schönste, was es gibt. Doch was, wenn gar kein Schnee liegt? Dafür hat KABU eine Lösung: Er zeigt dir heute, wie du eine Schneeflocke aus Papier bastelst, die du dann anschließend an euren Weihnachtsbaum oder an euer Fenster hängen kannst.&lt;/p&gt;&#xA;&lt;p&gt;Außerdem gibt es wieder ein Video, diesmal zur Fragen, warum wir uns zu Weihnachten einen Baum ins Wohnzimmer stellen. Viel Spaß damit!&lt;/p&gt;&#xA;&lt;h2 id=&#34;video-weihnachtsbaum&#34;&gt;Video: Weihnachtsbaum&lt;/h2&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/492557504?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;schneeflocke-basteln&#34;&gt;Schneeflocke basteln&lt;/h2&gt;&#xA;&lt;p&gt;Diese Dinge brauchst du:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Zum 2. Advent</title>
-				<link>http://localhost:1313/mach_mit/zum-2-advent/</link>
+				<link>//localhost:1313/mach_mit/zum-2-advent/</link>
 				<pubDate>Sat, 05 Dec 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/zum-2-advent/</guid>
+				<guid>//localhost:1313/mach_mit/zum-2-advent/</guid>
 				<description>&lt;p&gt;![Bild](/images/2020113_Titelbild Insta.jpg)&lt;/p&gt;&#xA;&lt;p&gt;Eine der schönsten Dinge an Weihnachten und an der Adventszeit ist doch, dass man leckere Plätzchen naschen kann. Aber woher kommt überhaupt die Tradition der Weihnachtsgebäcke? Das findest du in diesem Video heraus.&lt;/p&gt;&#xA;&lt;h2 id=&#34;video-weihnachtsgebäck&#34;&gt;Video: Weihnachtsgebäck&lt;/h2&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/486839418?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Du kannst leckere Plätzchen aber auch ganz einfach selbst machen. KABU zeigt dir heute, wie du nur mit 3 Zutaten ganz schnell, super leckere Plätzchen backst.&lt;/p&gt;&#xA;&lt;h2 id=&#34;du-brauchst&#34;&gt;Du brauchst:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;225 Gramm Weizenmehl&lt;/li&gt;&#xA;&lt;li&gt;110 Gramm Zucker&lt;/li&gt;&#xA;&lt;li&gt;150 Gramm Butter kalt und in kleinen Stückchen&lt;/li&gt;&#xA;&lt;li&gt;Wenn du möchtest: Streusel, Lebensmittelfarbe, Puderzucker&amp;hellip;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;![Bild](/images/2020113_Teig Trennbild.jpg)&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Circular Monday</title>
-				<link>http://localhost:1313/mach_mit/circular-monday/</link>
+				<link>//localhost:1313/mach_mit/circular-monday/</link>
 				<pubDate>Thu, 19 Nov 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/circular-monday/</guid>
+				<guid>//localhost:1313/mach_mit/circular-monday/</guid>
 				<description>&lt;h1 id=&#34;circular-monday&#34;&gt;Circular Monday&lt;/h1&gt;&#xA;&lt;h2 id=&#34;schütze-unsere-umwelt&#34;&gt;Schütze unsere Umwelt&lt;/h2&gt;&#xA;&lt;p&gt;![Bild](/images/2020105_Circular Monday.png)&lt;/p&gt;&#xA;&lt;h4 id=&#34;black-friday--kaufen-kaufen-kaufen&#34;&gt;„Black Friday“ – kaufen, kaufen, kaufen&lt;/h4&gt;&#xA;&lt;p&gt;Am Freitag ist wieder &lt;strong&gt;Black Friday&lt;/strong&gt; – also schwarzer Freitag. Der Black Friday kommt aus Amerika und findet seit einigen Jahren jedes Jahr Ende November statt. An diesem Tag geben viele Geschäfte – auch im Internet – einen &lt;strong&gt;großen Rabatt&lt;/strong&gt; auf ihre Produkte. Das bedeutet, man muss für die Produkte viel weniger bezahlen muss als sonst. Mit dieser Aktion wollen uns die Geschäfte locken, ganz viele Dinge zu kaufen. Dadurch, dass an diesem Tag dann viel mehr gekauft wird als an anderen Tagen, &lt;strong&gt;verdienen die Geschäfte&lt;/strong&gt; auch &lt;strong&gt;mehr Geld&lt;/strong&gt; als an „normalen“ Tagen. Leider ist der Black Friday aber &lt;strong&gt;gar nicht gut für die Umwelt&lt;/strong&gt;. Die Menschen kaufen an diesem Tag viel mehr als sonst, vielleicht sogar etwas, was sie gar nicht brauchen – nur weil es billiger ist.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Halloween trotz Corona</title>
-				<link>http://localhost:1313/mach_mit/halloween-trotz-corona/</link>
+				<link>//localhost:1313/mach_mit/halloween-trotz-corona/</link>
 				<pubDate>Thu, 29 Oct 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/halloween-trotz-corona/</guid>
+				<guid>//localhost:1313/mach_mit/halloween-trotz-corona/</guid>
 				<description>&lt;p&gt;&lt;strong&gt;„Süßes, sonst gibt’s Saures!“&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Dieses Jahr wirst du diesen Satz wahrscheinlich das aller erste Mal nicht sagen können, denn von Haus zu Haus gehen und dabei deine Lieblingssüßigkeiten sammeln, wird wegen der Ansteckungsgefahr des Corona-Virus leider nicht möglich sein. Aber das heißt noch lange nicht, dass dein Halloween deshalb langweilig wird. Es gibt nämlich eine Menge Dinge, die du zuhause, über das Internet oder mit deiner Familie machen kannst, damit dein Halloween ein schaurig schönes Erlebnis wird.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Lass Blumen blühen</title>
-				<link>http://localhost:1313/mach_mit/lass-blumen-bluehen/</link>
+				<link>//localhost:1313/mach_mit/lass-blumen-bluehen/</link>
 				<pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/lass-blumen-bluehen/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202032_Blumen-Vorschaubild2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Frühling ist die perfekte Jahreszeit um Blumen zu pflanzen und sie blühen zu lassen. Heute zeigen wir dir in unserem Video, wie du selber in einem kleinen Gewächshaus Blumen anpflanzen kannst.&lt;/p&gt;&#xA;&lt;p&gt;Dafür benötigst du:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ein kleines Gewächshaus&lt;/li&gt;&#xA;&lt;li&gt;Erde&lt;/li&gt;&#xA;&lt;li&gt;Blumensamen&lt;/li&gt;&#xA;&lt;li&gt;Wasser&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;video&#34;&gt;Video:&lt;/h2&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/403404385?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;andere-idee&#34;&gt;Andere Idee:&lt;/h2&gt;&#xA;&lt;p&gt;Natürlich kannst du die Blumen auch ohne ein Gewächshaus anzüchten.&lt;/p&gt;&#xA;&lt;p&gt;Dafür benötigst du nur:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;eine leere Eierschachtel&lt;/li&gt;&#xA;&lt;li&gt;Erde&lt;/li&gt;&#xA;&lt;li&gt;Blumensamen&lt;/li&gt;&#xA;&lt;li&gt;Wasser&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202032_Eierschachtel1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Die Eierschachtel füllst du zuerst zur Hälfte mit der Erde.&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/lass-blumen-bluehen/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;../images/202032_Blumen-Vorschaubild2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Frühling ist die perfekte Jahreszeit um Blumen zu pflanzen und sie blühen zu lassen. Heute zeigen wir dir in unserem Video, wie du selber in einem kleinen Gewächshaus Blumen anpflanzen kannst.&lt;/p&gt;&#xA;&lt;p&gt;Dafür benötigst du:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;ein kleines Gewächshaus&lt;/li&gt;&#xA;&lt;li&gt;Erde&lt;/li&gt;&#xA;&lt;li&gt;Blumensamen&lt;/li&gt;&#xA;&lt;li&gt;Wasser&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;video&#34;&gt;Video:&lt;/h2&gt;&#xA;&lt;div class=&#34;vimeo-wrap&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://player.vimeo.com/video/403404385?dnt=1&amp;color=F47920&#34;&#xA;    allowfullscreen&#xA;    allow=&#34;autoplay; fullscreen; picture-in-picture&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;andere-idee&#34;&gt;Andere Idee:&lt;/h2&gt;&#xA;&lt;p&gt;Natürlich kannst du die Blumen auch ohne ein Gewächshaus anzüchten.&lt;/p&gt;&#xA;&lt;p&gt;Dafür benötigst du nur:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;eine leere Eierschachtel&lt;/li&gt;&#xA;&lt;li&gt;Erde&lt;/li&gt;&#xA;&lt;li&gt;Blumensamen&lt;/li&gt;&#xA;&lt;li&gt;Wasser&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202032_Eierschachtel1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Die Eierschachtel füllst du zuerst zur Hälfte mit der Erde.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Mundschutz (ohne nähen!)</title>
-				<link>http://localhost:1313/mach_mit/mundschutz-ohne-naehen/</link>
+				<link>//localhost:1313/mach_mit/mundschutz-ohne-naehen/</link>
 				<pubDate>Fri, 03 Apr 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/mundschutz-ohne-naehen/</guid>
+				<guid>//localhost:1313/mach_mit/mundschutz-ohne-naehen/</guid>
 				<description>&lt;p&gt;![Bild](/images/202034_Mundschutz KABU Bild.png)&lt;/p&gt;&#xA;&lt;p&gt;Einen guten Mundschutz selbst machen und das auch noch ohne zu nähen, geht nicht?&lt;/p&gt;&#xA;&lt;p&gt;Doch, sehr wohl - und sogar richtig schnell!&#xA;Wie? Das zeigt dir KABU in seinem Video.&lt;/p&gt;&#xA;&lt;p&gt;Bastle die Maske gleich nach, mach mit bei der Aktion #Maskeauf und schütze dich und andere Menschen vor dem Coronavirus.&lt;/p&gt;&#xA;&lt;p&gt;Die Maske kannst du dann aufsetzen, wenn sich die Nähe zu fremden Personen nicht oder nur schwer vermeiden lässt, wie z.B. beim Einkaufen.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Tierische Gedanken</title>
-				<link>http://localhost:1313/mach_mit/tierische-gedanken/</link>
+				<link>//localhost:1313/mach_mit/tierische-gedanken/</link>
 				<pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/tierische-gedanken/</guid>
-				<description>&lt;p&gt;Wir haben euch gefragt, was wohl dem Elefanten oder den anderen Tieren in den Situationen auf den Bildern durch den Kopf gehen könnte.&lt;/p&gt;&#xA;&lt;p&gt;Das waren eure besten und witzigsten Ideen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202025_ElefantmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202025_CatmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202025_HuntmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202025_TigermitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/202025_PinguinmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/tierische-gedanken/</guid>
+				<description>&lt;p&gt;Wir haben euch gefragt, was wohl dem Elefanten oder den anderen Tieren in den Situationen auf den Bildern durch den Kopf gehen könnte.&lt;/p&gt;&#xA;&lt;p&gt;Das waren eure besten und witzigsten Ideen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202025_ElefantmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202025_CatmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202025_HuntmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202025_TigermitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/202025_PinguinmitText.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Weihnachtsgewinnspiel 2019</title>
-				<link>http://localhost:1313/mach_mit/weihnachtsgewinnspiel-2019/</link>
+				<link>//localhost:1313/mach_mit/weihnachtsgewinnspiel-2019/</link>
 				<pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/weihnachtsgewinnspiel-2019/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/2019105_KABU-Weihanchtsaufsteller-2019.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Liebe Kinder,&lt;/p&gt;&#xA;&lt;p&gt;das Weihnachtsgewinnspiel 2019 ist bereits beendet, die Gewinne sind verschickt - vielen Dank fürs Mitmachen!&lt;/p&gt;&#xA;&lt;p&gt;Ein frohes Fest und einen guten Start ins Jahr 2020 wünschen euch&lt;/p&gt;&#xA;&lt;p&gt;KABU und das Redaktionsteam&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;Mach mit:&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pünktlich zum Weihnachsfest gibt es in der KABU-App etwas zu gewinnen! Mach bei unserem dreiteiligen Weihnachtsgewinnspiel mit und gewinne eines von drei coolen Brettspielen.&lt;/p&gt;&#xA;&lt;h2 id=&#34;so-gehts&#34;&gt;So geht’s:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An den ersten drei Adventssonntagen erscheint ein KABU-Weihnachtsquiz für dich.&lt;/li&gt;&#xA;&lt;li&gt;Für jedes erfolgreich gespielte Quiz erhältst du einen Teil des Lösungswortes.&#xA;&amp;rsquo; Sammle alle drei Lösungen und du bekommst am dritten Advent das gesamte Lösungswort heraus.&lt;/li&gt;&#xA;&lt;li&gt;Wenn du uns die Lösung bis Mittwoch, 18.12.2019  zuschickst, kommst du in den Lostopf, aus dem wir noch vor Weihnachten die Gewinner ziehen.&lt;/li&gt;&#xA;&lt;li&gt;Zu gewinnen gibt es drei coole Brettspiele, die dir gerade jetzt im Winter die Zeit drinnen versüßen. (An dieser Stelle nochmals herzlichen Dank an den &amp;ldquo;Hans im Glück&amp;rdquo;-Verlag für die Unterstützung.)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Wir wünschen dir viel Spaß beim Knobeln und viel Glück beim Gewinnspiel!&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/weihnachtsgewinnspiel-2019/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;../images/2019105_KABU-Weihanchtsaufsteller-2019.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Liebe Kinder,&lt;/p&gt;&#xA;&lt;p&gt;das Weihnachtsgewinnspiel 2019 ist bereits beendet, die Gewinne sind verschickt - vielen Dank fürs Mitmachen!&lt;/p&gt;&#xA;&lt;p&gt;Ein frohes Fest und einen guten Start ins Jahr 2020 wünschen euch&lt;/p&gt;&#xA;&lt;p&gt;KABU und das Redaktionsteam&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;&lt;em&gt;Mach mit:&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Pünktlich zum Weihnachsfest gibt es in der KABU-App etwas zu gewinnen! Mach bei unserem dreiteiligen Weihnachtsgewinnspiel mit und gewinne eines von drei coolen Brettspielen.&lt;/p&gt;&#xA;&lt;h2 id=&#34;so-gehts&#34;&gt;So geht’s:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;An den ersten drei Adventssonntagen erscheint ein KABU-Weihnachtsquiz für dich.&lt;/li&gt;&#xA;&lt;li&gt;Für jedes erfolgreich gespielte Quiz erhältst du einen Teil des Lösungswortes.&#xA;&amp;rsquo; Sammle alle drei Lösungen und du bekommst am dritten Advent das gesamte Lösungswort heraus.&lt;/li&gt;&#xA;&lt;li&gt;Wenn du uns die Lösung bis Mittwoch, 18.12.2019  zuschickst, kommst du in den Lostopf, aus dem wir noch vor Weihnachten die Gewinner ziehen.&lt;/li&gt;&#xA;&lt;li&gt;Zu gewinnen gibt es drei coole Brettspiele, die dir gerade jetzt im Winter die Zeit drinnen versüßen. (An dieser Stelle nochmals herzlichen Dank an den &amp;ldquo;Hans im Glück&amp;rdquo;-Verlag für die Unterstützung.)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Wir wünschen dir viel Spaß beim Knobeln und viel Glück beim Gewinnspiel!&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Lasse einen Drachen steigen </title>
-				<link>http://localhost:1313/mach_mit/lasse-einen-drachen-steigen/</link>
+				<link>//localhost:1313/mach_mit/lasse-einen-drachen-steigen/</link>
 				<pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/lasse-einen-drachen-steigen/</guid>
+				<guid>//localhost:1313/mach_mit/lasse-einen-drachen-steigen/</guid>
 				<description>&lt;p&gt;![Bild](/images/201995_Drachen Kabu.jpg)&lt;/p&gt;&#xA;&lt;p&gt;Die ersten bunten Blätter fallen von den Bäumen und der Wind weht durch die Straßen. Daran erkennst du, dass der Herbst da ist.&lt;/p&gt;&#xA;&lt;p&gt;Der Herbst ist die perfekte Jahreszeit zum Drachensteigen lassen. Dafür brauchst du auch gar nicht viel, nur einen Drachen, eine freie grüne Fläche, Wind und etwas Geduld. Einen Drachen kannst du dir entweder kaufen oder selbst basteln. Zum Basteln gibt es im Internet verschiedene Anleitungen, die meistens ganz einfach sind und für die du nicht mal viel Material benötigst.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Vermeide Plastik</title>
-				<link>http://localhost:1313/mach_mit/vermeide-plastik/</link>
+				<link>//localhost:1313/mach_mit/vermeide-plastik/</link>
 				<pubDate>Mon, 05 Aug 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/vermeide-plastik/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Plastik-Titelbild.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Schone die Umwelt und vermeide Plastikmüll!&lt;/p&gt;&#xA;&lt;p&gt;Wir haben dazu einige Tipps für dich!&lt;/p&gt;&#xA;&lt;p&gt;Zunächst erklären wir dir aber, warum wir alle weniger Plastik verbrauchen sollten.&lt;/p&gt;&#xA;&lt;h2 id=&#34;plastik-ist-überall&#34;&gt;Plastik ist überall&lt;/h2&gt;&#xA;&lt;p&gt;Hast du heute schon ein Produkt aus Plastik verwendet?&lt;br&gt;&#xA;Bestimmt! Denn in unserem Alltag gibt es so viel Plastik.&lt;/p&gt;&#xA;&lt;p&gt;Joghurtbecher, Zahnbürsten oder Trinkflaschen zum Beispiel.&lt;/p&gt;&#xA;&lt;p&gt;Auch Obst, Gemüse und andere Lebensmittel sind oft in Plastik verpackt.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Plastik-1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;was-ist-so-schlimm-an-plastik&#34;&gt;Was ist so schlimm an Plastik?&lt;/h2&gt;&#xA;&lt;p&gt;Wenn Plastik im Müll landet und verbrannt wird, entstehen zahlreiche Giftstoffe in der Luft.&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/vermeide-plastik/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;../images/Plastik-Titelbild.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Schone die Umwelt und vermeide Plastikmüll!&lt;/p&gt;&#xA;&lt;p&gt;Wir haben dazu einige Tipps für dich!&lt;/p&gt;&#xA;&lt;p&gt;Zunächst erklären wir dir aber, warum wir alle weniger Plastik verbrauchen sollten.&lt;/p&gt;&#xA;&lt;h2 id=&#34;plastik-ist-überall&#34;&gt;Plastik ist überall&lt;/h2&gt;&#xA;&lt;p&gt;Hast du heute schon ein Produkt aus Plastik verwendet?&lt;br&gt;&#xA;Bestimmt! Denn in unserem Alltag gibt es so viel Plastik.&lt;/p&gt;&#xA;&lt;p&gt;Joghurtbecher, Zahnbürsten oder Trinkflaschen zum Beispiel.&lt;/p&gt;&#xA;&lt;p&gt;Auch Obst, Gemüse und andere Lebensmittel sind oft in Plastik verpackt.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Plastik-1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;was-ist-so-schlimm-an-plastik&#34;&gt;Was ist so schlimm an Plastik?&lt;/h2&gt;&#xA;&lt;p&gt;Wenn Plastik im Müll landet und verbrannt wird, entstehen zahlreiche Giftstoffe in der Luft.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Sommer-Gewinnspiel</title>
-				<link>http://localhost:1313/mach_mit/sommer-gewinnspiel/</link>
+				<link>//localhost:1313/mach_mit/sommer-gewinnspiel/</link>
 				<pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/sommer-gewinnspiel/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sommerkabu.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;hallo-kabu-fan&#34;&gt;Hallo KABU-Fan,&lt;/h3&gt;&#xA;&lt;p&gt;bist du noch in den Sommerferien oder hat bei dir die Schule wieder begonnen? Das hängt davon ab, wo du wohnst. In jedem Fall sind wir gespannt auf deine Sommer-Erlebnisse und würden uns freuen, wenn du uns ein tolles Foto oder eine Zeichnung schickst!&lt;/p&gt;&#xA;&lt;h3 id=&#34;gewinnspiel&#34;&gt;Gewinnspiel&lt;/h3&gt;&#xA;&lt;p&gt;Wenn du mitmachst, landest du im großen Lostopf und kannst ein &amp;ldquo;Carcassonne&amp;rdquo;-Brettspiel aus dem &amp;ldquo;Hans im Glück&amp;rdquo;-Verlag gewinnen.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/sommer-gewinnspiel.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;mach-mit&#34;&gt;Mach mit!&lt;/h4&gt;&#xA;&lt;p&gt;Schicke uns ein schönes &lt;strong&gt;Sommerbild&lt;/strong&gt;, das du in den Ferien geknipst oder gemalt hast:&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/sommer-gewinnspiel/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;../images/sommerkabu.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;hallo-kabu-fan&#34;&gt;Hallo KABU-Fan,&lt;/h3&gt;&#xA;&lt;p&gt;bist du noch in den Sommerferien oder hat bei dir die Schule wieder begonnen? Das hängt davon ab, wo du wohnst. In jedem Fall sind wir gespannt auf deine Sommer-Erlebnisse und würden uns freuen, wenn du uns ein tolles Foto oder eine Zeichnung schickst!&lt;/p&gt;&#xA;&lt;h3 id=&#34;gewinnspiel&#34;&gt;Gewinnspiel&lt;/h3&gt;&#xA;&lt;p&gt;Wenn du mitmachst, landest du im großen Lostopf und kannst ein &amp;ldquo;Carcassonne&amp;rdquo;-Brettspiel aus dem &amp;ldquo;Hans im Glück&amp;rdquo;-Verlag gewinnen.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/sommer-gewinnspiel.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h4 id=&#34;mach-mit&#34;&gt;Mach mit!&lt;/h4&gt;&#xA;&lt;p&gt;Schicke uns ein schönes &lt;strong&gt;Sommerbild&lt;/strong&gt;, das du in den Ferien geknipst oder gemalt hast:&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Spieletipp Wolkenpusten</title>
-				<link>http://localhost:1313/mach_mit/spieletipp-wolkenpusten/</link>
+				<link>//localhost:1313/mach_mit/spieletipp-wolkenpusten/</link>
 				<pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/spieletipp-wolkenpusten/</guid>
-				<description>&lt;h1 id=&#34;wolkenpusten&#34;&gt;Wolkenpusten&lt;/h1&gt;&#xA;&lt;p&gt;Wenn du deinen Kopf mal nicht anstrengen, sondern deine Geschicklichkeit überprüfen willst, ist &lt;strong&gt;Wolkenpusten&lt;/strong&gt; genau das Richtige für dich. Es geht darum, eine Wattebausch-Kugel schneller als der Gegner mit einem Strohhalm durch einen Parcours zu pusten.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Strohhalmspiel.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;anzahl-der-spieler&#34;&gt;Anzahl der Spieler:&lt;/h2&gt;&#xA;&lt;p&gt;2 Spieler, die gegeneinander antreten oder mehrere Spieler, die in Teams gegeneinander spielen (es muss aber immer eine gerade Anzahl sein)&lt;/p&gt;&#xA;&lt;h2 id=&#34;material&#34;&gt;Material:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;1 bis 2 Wattebausch-Kugeln&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;1 Strohhalm pro Spieler&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/spieletipp-wolkenpusten/</guid>
+				<description>&lt;h1 id=&#34;wolkenpusten&#34;&gt;Wolkenpusten&lt;/h1&gt;&#xA;&lt;p&gt;Wenn du deinen Kopf mal nicht anstrengen, sondern deine Geschicklichkeit überprüfen willst, ist &lt;strong&gt;Wolkenpusten&lt;/strong&gt; genau das Richtige für dich. Es geht darum, eine Wattebausch-Kugel schneller als der Gegner mit einem Strohhalm durch einen Parcours zu pusten.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Strohhalmspiel.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;anzahl-der-spieler&#34;&gt;Anzahl der Spieler:&lt;/h2&gt;&#xA;&lt;p&gt;2 Spieler, die gegeneinander antreten oder mehrere Spieler, die in Teams gegeneinander spielen (es muss aber immer eine gerade Anzahl sein)&lt;/p&gt;&#xA;&lt;h2 id=&#34;material&#34;&gt;Material:&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;1 bis 2 Wattebausch-Kugeln&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;1 Strohhalm pro Spieler&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Was du im Herbst tun musst</title>
-				<link>http://localhost:1313/mach_mit/was-du-im-herbst-tun-musst/</link>
+				<link>//localhost:1313/mach_mit/was-du-im-herbst-tun-musst/</link>
 				<pubDate>Tue, 06 Nov 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/was-du-im-herbst-tun-musst/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/herbst-kabu.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wenn du die vielen bunten Blätter auf der Straße liegen siehst, weißt du genau: Der Sommer ist vorbei, dafür ist der Herbst gekommen!&lt;/p&gt;&#xA;&lt;p&gt;Bevor bald der dunkle, kalte Winter Einzug hält, solltest du so einige Dinge erledigen. Wir haben eine Liste mit einigen Sachen erstellt, die im Herbst besonders viel Spaß machen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Herbst-Liste-1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Herbst-Liste-2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Einen gemütlichen Herbst wünscht dir die KABU-Kinderredaktion&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/was-du-im-herbst-tun-musst/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;../images/herbst-kabu.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Wenn du die vielen bunten Blätter auf der Straße liegen siehst, weißt du genau: Der Sommer ist vorbei, dafür ist der Herbst gekommen!&lt;/p&gt;&#xA;&lt;p&gt;Bevor bald der dunkle, kalte Winter Einzug hält, solltest du so einige Dinge erledigen. Wir haben eine Liste mit einigen Sachen erstellt, die im Herbst besonders viel Spaß machen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Herbst-Liste-1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Herbst-Liste-2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Einen gemütlichen Herbst wünscht dir die KABU-Kinderredaktion&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Wie wichtig ist dein Handy?</title>
-				<link>http://localhost:1313/mach_mit/wie-wichtig-ist-dein-handy/</link>
+				<link>//localhost:1313/mach_mit/wie-wichtig-ist-dein-handy/</link>
 				<pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/wie-wichtig-ist-dein-handy/</guid>
+				<guid>//localhost:1313/mach_mit/wie-wichtig-ist-dein-handy/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pjput6xwt18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Wer bin ich?</title>
-				<link>http://localhost:1313/mach_mit/wer-bin-ich/</link>
+				<link>//localhost:1313/mach_mit/wer-bin-ich/</link>
 				<pubDate>Thu, 30 Aug 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/wer-bin-ich/</guid>
-				<description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/SpieletippsVorschaubild.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Deine Freunde und du brauchen neue Spielideen? Dann hat KABU genau das Richtige für dich. Er gibt dir heute nämlich einen &lt;strong&gt;Spieletipp&lt;/strong&gt;.&#xA;Wer weiß: Vielleicht wird der Tipp sogar euer neues Lieblingsspiel!&lt;/p&gt;&#xA;&lt;h1 id=&#34;wer-bin-ich&#34;&gt;Wer bin ich?&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Wer bin ich?&lt;/strong&gt; ist ein lustiges Ratespiel, bei dem du herausfinden musst, wer du bist. Und das wiederum bestimmt einer der Mitspieler.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Werbinich.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;anzahl-der-spieler&#34;&gt;Anzahl der Spieler:&lt;/h2&gt;&#xA;&lt;p&gt;2 oder mehr Spieler&lt;/p&gt;&#xA;&lt;h2 id=&#34;vorbereitungen&#34;&gt;Vorbereitungen:&lt;/h2&gt;&#xA;&lt;p&gt;Jeder Spieler denkt sich für EINEN anderen Spieler einen Begriff aus und schreibt ihn auf einen kleinen Zettel mit Klebestreifen. Bei dem Begriff, den du dir ausdenkst, kann es sich zum Beispiel um ein Tier, einen Sänger, eine Sängerin, einen Schauspieler, eine Schauspielerin, einen Sportler, eine Sportlerin, eine Filmfigur oder einen Gegenstand handeln. Legt einfach vor dem Spiel fest, was alles erlaubt ist.&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/wer-bin-ich/</guid>
+				<description>&lt;p&gt;&lt;img src=&#34;../images/SpieletippsVorschaubild.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Deine Freunde und du brauchen neue Spielideen? Dann hat KABU genau das Richtige für dich. Er gibt dir heute nämlich einen &lt;strong&gt;Spieletipp&lt;/strong&gt;.&#xA;Wer weiß: Vielleicht wird der Tipp sogar euer neues Lieblingsspiel!&lt;/p&gt;&#xA;&lt;h1 id=&#34;wer-bin-ich&#34;&gt;Wer bin ich?&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Wer bin ich?&lt;/strong&gt; ist ein lustiges Ratespiel, bei dem du herausfinden musst, wer du bist. Und das wiederum bestimmt einer der Mitspieler.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Werbinich.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;anzahl-der-spieler&#34;&gt;Anzahl der Spieler:&lt;/h2&gt;&#xA;&lt;p&gt;2 oder mehr Spieler&lt;/p&gt;&#xA;&lt;h2 id=&#34;vorbereitungen&#34;&gt;Vorbereitungen:&lt;/h2&gt;&#xA;&lt;p&gt;Jeder Spieler denkt sich für EINEN anderen Spieler einen Begriff aus und schreibt ihn auf einen kleinen Zettel mit Klebestreifen. Bei dem Begriff, den du dir ausdenkst, kann es sich zum Beispiel um ein Tier, einen Sänger, eine Sängerin, einen Schauspieler, eine Schauspielerin, einen Sportler, eine Sportlerin, eine Filmfigur oder einen Gegenstand handeln. Legt einfach vor dem Spiel fest, was alles erlaubt ist.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>Fortnite-Umfrage</title>
-				<link>http://localhost:1313/mach_mit/fortnite-umfrage/</link>
+				<link>//localhost:1313/mach_mit/fortnite-umfrage/</link>
 				<pubDate>Thu, 24 May 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/fortnite-umfrage/</guid>
+				<guid>//localhost:1313/mach_mit/fortnite-umfrage/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=p95g2utw318&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Tierisches Geplapper</title>
-				<link>http://localhost:1313/mach_mit/tierisches-geplapper/</link>
+				<link>//localhost:1313/mach_mit/tierisches-geplapper/</link>
 				<pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/tierisches-geplapper/</guid>
-				<description>&lt;p&gt;Wir haben euch gebeten, uns zu schreiben, was diese Tiere gerade sagen oder denken könnten.&lt;/p&gt;&#xA;&lt;p&gt;Wie versprochen, seht ihr nun hier die coolsten Einsendungen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Affen1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Affen2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Robben1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Robben2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/V%C3%B6gel1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/V%C3%B6gel3.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/tierisches-geplapper/</guid>
+				<description>&lt;p&gt;Wir haben euch gebeten, uns zu schreiben, was diese Tiere gerade sagen oder denken könnten.&lt;/p&gt;&#xA;&lt;p&gt;Wie versprochen, seht ihr nun hier die coolsten Einsendungen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Affen1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Affen2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Robben1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Robben2.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/V%C3%B6gel1.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/V%C3%B6gel3.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>KABUs Faschings-Fragerunde</title>
-				<link>http://localhost:1313/mach_mit/kabus-faschings-fragerunde/</link>
+				<link>//localhost:1313/mach_mit/kabus-faschings-fragerunde/</link>
 				<pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/kabus-faschings-fragerunde/</guid>
+				<guid>//localhost:1313/mach_mit/kabus-faschings-fragerunde/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pvpwopu6j18&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Umfrage: Deine Kindheit</title>
-				<link>http://localhost:1313/mach_mit/umfrage-deine-kindheit/</link>
+				<link>//localhost:1313/mach_mit/umfrage-deine-kindheit/</link>
 				<pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/umfrage-deine-kindheit/</guid>
+				<guid>//localhost:1313/mach_mit/umfrage-deine-kindheit/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;https://learningapps.org/display?v=pav8sttw317&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Apps: Was ist in &amp; out?</title>
-				<link>http://localhost:1313/mach_mit/apps-was-ist-in-out/</link>
+				<link>//localhost:1313/mach_mit/apps-was-ist-in-out/</link>
 				<pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/apps-was-ist-in-out/</guid>
+				<guid>//localhost:1313/mach_mit/apps-was-ist-in-out/</guid>
 				<description></description>
 			</item>
 			<item>
 				<title>Umfrage: Was magst du?</title>
-				<link>http://localhost:1313/mach_mit/umfrage-was-magst-du/</link>
+				<link>//localhost:1313/mach_mit/umfrage-was-magst-du/</link>
 				<pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/umfrage-was-magst-du/</guid>
+				<guid>//localhost:1313/mach_mit/umfrage-was-magst-du/</guid>
 				<description>&lt;div class=&#34;learningapp-wrap&#34;&gt;&#xA;  &lt;iframe src=&#34;http://learningapps.org/display?v=pb8farrh517&#34; allowfullscreen&gt;&lt;/iframe&gt;&#xA;&lt;/div&gt;</description>
 			</item>
 			<item>
 				<title>Luftballon-Tausch-Tanz</title>
-				<link>http://localhost:1313/mach_mit/luftballon-tausch-tanz/</link>
+				<link>//localhost:1313/mach_mit/luftballon-tausch-tanz/</link>
 				<pubDate>Sun, 12 Mar 2017 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/mach_mit/luftballon-tausch-tanz/</guid>
-				<description>&lt;p&gt;Lust auf ein Spiel? Dann schnapp dir deine Freunde, ein paar bunte Luftballons, Musik - und es kann losgehen!&lt;/p&gt;&#xA;&lt;p&gt;Jeder von euch bekommt einen farbigen, aufgepusteten Luftballon, den ihr festhalten müsst. Einem Kind werden die Augen verbunden. Dann legt ihr fest, wer das Spiel leitet. Jetzt könnt ihr anfangen, Musik abzuspielen.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Luftballons-pixabay-CC0.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Alle Kinder tanzen durch den Raum und tauschen dabei gegenseitig ihre farbigen Luftballons hin und her. Das Kind mit den verbundenen Augen ruft laut ein vorher abgesprochenes Wort, zum Beispiel „Stopp“. Auf dieses Zeichen hin bleiben alle Kinder wie versteinert stehen. Der Spieler mit den verbundenen Augen ruft jetzt laut eine Farbe. Alle Kinder, die den Luftballon dieser Farbe halten, bekommen einen Punkt.&lt;/p&gt;</description>
+				<guid>//localhost:1313/mach_mit/luftballon-tausch-tanz/</guid>
+				<description>&lt;p&gt;Lust auf ein Spiel? Dann schnapp dir deine Freunde, ein paar bunte Luftballons, Musik - und es kann losgehen!&lt;/p&gt;&#xA;&lt;p&gt;Jeder von euch bekommt einen farbigen, aufgepusteten Luftballon, den ihr festhalten müsst. Einem Kind werden die Augen verbunden. Dann legt ihr fest, wer das Spiel leitet. Jetzt könnt ihr anfangen, Musik abzuspielen.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/Luftballons-pixabay-CC0.jpg&#34; alt=&#34;Bild&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Alle Kinder tanzen durch den Raum und tauschen dabei gegenseitig ihre farbigen Luftballons hin und her. Das Kind mit den verbundenen Augen ruft laut ein vorher abgesprochenes Wort, zum Beispiel „Stopp“. Auf dieses Zeichen hin bleiben alle Kinder wie versteinert stehen. Der Spieler mit den verbundenen Augen ruft jetzt laut eine Farbe. Alle Kinder, die den Luftballon dieser Farbe halten, bekommen einen Punkt.&lt;/p&gt;</description>
 			</item>
 	</channel>
 </rss>
