@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steinzeit - Auflösung  – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Steinzeit - Auflösung 
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Steinzeit - Auflösung </h1>
+      <div class="meta">09. July 2022</div>
+    </div>
+    
+      <img src="/images/202261_Vorschau.jpg" alt="Steinzeit - Auflösung " style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="steinzeit">Steinzeit</h1>
+<p>Letzte Woche gab es ein kleines Foto-Rätsel für dich! Weißt du, was auf diesem Bild zu sehen ist?</p>
+<p>Hinweis: Es ist nichts, was du essen kannst und es kommt aus der Steinzeit!</p>
+<p><img src="/images/202261_frage-3.jpg" alt="Bild"></p>
+<p>Hast du das Rätsel gelöst?</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Hast du das Rätsel gelöst?</p>
+</blockquote>
+<h2 id="achtung-hier-kommt-die-auflösung">Achtung: Hier kommt die Auflösung!</h2>
+<p>Es handelt sich um den <strong>Backenzahn</strong> eines <strong>Mammuts</strong>! Ist das nicht cool?</p>
+<h1 id="mammuts">Mammuts</h1>
+<p>Mammuts sind das <strong>häufigste</strong> und <strong>bekannteste</strong> Tier aus der Steinzeit. Sie sind die Vorfahren der Elefanten und lebten überwiegend in Europa, Asien und Nordamerika.</p>
+<p><img src="/images/202261_Gewicht.jpg" alt="Bild"></p>
+<h2 id="doch-wie-hat-ein-mammut-ausgesehen">Doch wie hat ein Mammut ausgesehen?</h2>
+<ul>
+<li>Mammuts waren große bis sehr große Säugetiere</li>
+<li>Ihr Körperbau erinnert an die eines Elefanten mit einem großen Kopf und säulenartigen Beinen</li>
+<li>Das Gewicht eines Wollhaarmammuts lag bei ca. 5 – 8 Tonnen, das Steppenmammut konnte sogar ein Gewicht von bis zu 15 Tonnen erreichen. <strong>Zum Vergleich:</strong> Das Gewicht eines weiblichen Elefanten liegt bei gerade einmal 3 Tonnen.</li>
+<li>Mammuts wurden bis zu ca. 4,5 Meter hoch.</li>
+</ul>
+<p>Übrigens: 1000 Kilo sind 1 Tonne.</p>
+<blockquote>
+<p>💭 <strong>Denkblase</strong>
+Übrigens: 1000 Kilo sind 1 Tonne.</p>
+</blockquote>
+<p><img src="/images/202261_merkmale.jpg" alt="Bild"></p>
+<p>Die Mammuts stammen von den <strong>Rüsseltieren</strong> ab und waren gut an die damalige, sehr kalte, Umwelt angepasst. So schützten sie sich beispielsweise durch ihr Fell vor der Kälte! Die <strong>Wollhaarmammuts</strong> sind besondere Mammuts, die ein großes <strong>Fell</strong> haben.</p>
+<p><strong>Auch in den Höhlenmalereien wurden Mammuts abgebildet. Das kannst du auf diesem Bild sehen:</strong></p>
+<p>![Bild](/images/202264_202261_höhlen Kopie.jpg)</p>
+<p>8000 Jahre vor Christus starben die letzten Mammuts in Europa und Asien aus, aber auf einer ostsibirischen Insel Lebten sie 6300 Jahre länger.</p>
+<h2 id="gebiss-des-mammuts">Gebiss des Mammuts</h2>
+<p>Um nochmal auf den Mammutzahn zurück zukommen, schauen wir uns außerdem das Gebiss eines Mammuts an:</p>
+<ul>
+<li>Das Gebiss eines Mammuts ist vergleichbar mit dem eines Elefanten heutzutage</li>
+<li>Sie haben zwei Stoßzähne, die sich aus anderen Zähnen gebildet haben</li>
+<li>Mammuts konnten ihre Backenzähne fünfmal erneuern. Ist das nicht spannend? Wir Menschen können das nur einmal!</li>
+</ul>
+<p><strong>Wusstest du, dass der größte gefundene Stoßzahn 4,9 Meter groß ist?
+Das ist fast so groß wie eine Giraffe!</strong></p>
+<p><img src="/images/202261_giraffe.jpg" alt="Bild"></p>
+<p>Du weißt auch spannende Fakten über Mammuts? Dann schreib doch gerne der KABU-Redaktion. Das geht ganz einfach in dem du auf den blauen Button <strong>Schreib dem KABU-Team</strong> klickst.</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

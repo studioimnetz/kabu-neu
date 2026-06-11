@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nein zu Cybermobbing! – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    Nein zu Cybermobbing!
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>Nein zu Cybermobbing!</h1>
+      <div class="meta">20. February 2019</div>
+    </div>
+    
+      <img src="/images/mobbing1.png" alt="Nein zu Cybermobbing!" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/mobbing1.png" alt="Bild"></p>
+<p>Du hast vielleicht auch schon mal von Mobbing und Cybermobbing gehört. Wir erklären dir heute genau, was das ist und was du dagegen tun kannst.</p>
+<p>Unsere Kinderredaktion hat einen Videoclip dazu gestaltet. Unten kannst du den Text nochmal in Ruhe nachlesen.</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/314825571?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p><strong>Mobbing</strong> ist, wenn sich Freunde oder andere Kinder gegen dich stellen, dich ausgrenzen, gemein zu dir sind oder dich beleidigen, obwohl du ihnen nichts getan hast. Alle sind auf einmal gegen dich, ärgern dich und machen dich fertig – und du weißt nicht einmal, warum!</p>
+<p>Mobbing kann öffentlich oder hinter deinem Rücken geschehen und meistens geht es über einen längeren Zeitraum.</p>
+<p>Auch über das Handy kann Mobbing stattfinden: Du bekommst ständig beleidigende Nachrichten? Es werden peinliche Fotos von dir verschickt? Oder es gibt sogar Hass-Gruppen gegen dich? Dann handelt es sich um <strong>Cybermobbing</strong>. Hier können die Mobber sogar anonym bleiben. Dann weißt du nicht einmal, von wem du beleidigt wirst.</p>
+<p><img src="/images/mobbing4.png" alt="Bild"></p>
+<p>Mobbing tut ganz schön weh, und zwar in deinem Inneren, in deiner Seele. Viele Kinder, die gemobbt werden, trauen sich dann gar nicht mehr in die Schule oder aus dem Haus. Im schlimmsten Fall kann es zum Selbstmord führen. Mobbing ist also kein harmloser Spaß, sondern sehr verletzend und einfach nur blöd.</p>
+<h2 id="was-kannst-du-dagegen-tun">Was kannst du dagegen tun?</h2>
+<ul>
+<li>Wenn du mitbekommst, dass jemand fertig gemacht wird, mach auf keinen Fall mit.</li>
+<li>Du darfst aber auch nicht einfach wegschauen und so tun, als geht dich das nichts an.</li>
+<li>Greife lieber gleich ein und versuche, den Streit zu schlichten.</li>
+<li>Wenn ihr die Sache nicht untereinander lösen könnt, frag einen Erwachsenen um Hilfe.</li>
+</ul>
+<p><img src="/images/mobbing3.png" alt="Bild"></p>
+<h2 id="und-was-kannst-du-machen-wenn-du-selbst-gemobbt-wirst">Und was kannst du machen, wenn du selbst gemobbt wirst?</h2>
+<ul>
+<li>Lass dich nicht einschüchtern! Reagiere nicht auf beleidigende Kommentare, sondern versuche, sie einfach zu ignorieren.</li>
+<li>Am Handy kannst du Mobber auch blockieren, damit sie dich nicht mehr anschreiben können. Lösche aber die Mobbing-Nachrichten nicht, sondern mach Screenshots davon. Diese dienen als Beweise.</li>
+<li>Lass dir helfen: Erzähle deinen Freunden, Eltern, Lehrkräften, Sozialpädagog*innen oder einer anderen Vertrauensperson von den Beleidigungen. Wenn du gemeine Nachrichten auf dem Handy hast, zeige sie den anderen.</li>
+<li>Gemeinsam seid ihr stark: Mit der Unterstützung deiner Freunde, Familie oder der Schule kannst du das Mobbing beenden!</li>
+<li>In sehr schlimmen Fällen kannst du Mobber bei der Polizei anzeigen. Zum Beispiel, wenn sie Fotos oder Videos von dir ohne deine Erlaubnis verbreiten oder dich übel beleidigen und belästigen.</li>
+<li>Beuge Cybermobbing vor, indem du genau darüber nachdenkst, welche Daten, Fotos und Videos du von dir ins Internet stellst und was du generell im Internet über dich verrätst.</li>
+</ul>
+<p>Wichtig ist: Sei immer tolerant und respektvoll! Schließe niemanden aus und sei nicht gemein zu anderen, sondern versucht, miteinander klar zu kommen. Du musst nicht mit allen Kindern befreundet sein, aber du solltest jeden freundlich behandeln.</p>
+<p>Denn jeder hat das Recht, so akzeptiert zu werden wie er ist! Auch du könntest plötzlich zum Opfer von Mobbing werden. Aber wenn du nett zu anderen bist, sind sie auch nett zu dir!</p>
+<p><img src="/images/mobbing2.png" alt="Bild"></p>
+<p>Die Sprüche „Was du nicht willst, das man dir tut, das füg auch keinem anderen zu!“ und „Behandle andere so, wie du selbst auch von ihnen behandelt werden möchtest“ helfen, sich das richtige Verhalten immer wieder in Erinnerung zu rufen und danach zu handeln.</p>
+<p>Die KABU-Kinderredaktion wünscht dir alles Gute!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

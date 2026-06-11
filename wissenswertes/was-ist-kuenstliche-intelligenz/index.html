@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was ist Künstliche Intelligenz? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Was ist Künstliche Intelligenz?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Was ist Künstliche Intelligenz?</h1>
+      <div class="meta">29. January 2020</div>
+    </div>
+    
+      <img src="/images/202005_KI_Screenshot2.jpg" alt="Was ist Künstliche Intelligenz?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/202005_KI_Screenshot3.jpg" alt="Bild"></p>
+<p>Bei dem Wort <strong>Künstliche Intelligenz</strong> denkst du vielleicht an Roboter aus Hollywoodfilmen, wie zum Beispiel Wall-E.
+Aber auch in unserem alltäglichen Leben begleitet uns Künstliche Intelligenz überall und entwickelt sich rasant weiter.</p>
+<h2 id="video">Video</h2>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/352891804?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<h2 id="was-genau-ist-eine-künstliche-intelligenz">Was genau ist eine Künstliche Intelligenz?</h2>
+<ul>
+<li>
+<p>Eine <strong>Künstliche Intelligenz</strong>, kurz <strong>KI</strong>, ist ein Computerprogramm, das Aufgaben und Probleme selbstständig lösen kann.</p>
+</li>
+<li>
+<p>Das Wort „künstlich“ kommt daher, dass das Computerprogramm von Menschen erschaffen worden ist. Es ist also eine künstlich erzeugte Intelligenz.</p>
+</li>
+<li>
+<p>Man kann in eine <strong>schwache KI</strong> und eine <strong>starke KI</strong> unterscheiden.</p>
+</li>
+<li>
+<p>Die <strong>schwache KI</strong> ist nur in einem bestimmten Bereich intelligent. Dazu zählt beispielsweise ein Schachcomputer, der mit Leichtigkeit den besten Schachspieler der Welt schlagen kann. Ansonsten kann der Schachcomputer aber nichts.</p>
+</li>
+<li>
+<p>Die <strong>starke KI</strong> hingegen könnte genauso schlau sein wie ein Mensch oder vielleicht noch schlauer. Aber so etwas gibt es bis jetzt noch nicht.</p>
+</li>
+<li>
+<p>Ein anderer wichtiger Unterschied ist, dass eine Künstliche Intelligenz <strong>keine menschlichen Gefühle</strong> hat. Vielleicht wird sie nie verstehen, was Gefühle überhaupt sind.</p>
+</li>
+</ul>
+<p><img src="/images/202005_KI_Screenshot1.jpg" alt="Bild"></p>
+<h2 id="wie-kann-ein-computerprogramm-überhaupt-so-intelligent-werden">Wie kann ein Computerprogramm überhaupt so intelligent werden?</h2>
+<ul>
+<li>
+<p>Eine künstliche Intelligenz kann etwas lernen. Man spricht auch von <strong>maschinellem Lernen</strong>. Wir Menschen lernen als Kinder von unsern Eltern und Lehrkräften, eine KI lernt von ihrem Schöpfer, das heißt der Person, die sie programmiert hat.</p>
+</li>
+<li>
+<p><strong>Ein Beispiel:</strong> Wenn eine KI lernen soll, was ein Gorilla ist, dann zeigt man ihr zunächst ganz viele Bilder von Gorillas. Je mehr Bilder die KI sieht und speichert, desto genauer kann sie einen Gorilla von anderen Affen unterscheiden.</p>
+</li>
+</ul>
+<p><img src="/images/202005_KI_Screenshot5.jpg" alt="Bild"></p>
+<h2 id="wo-kann-man-künstliche-intelligenz-heute-schon-finden">Wo kann man Künstliche Intelligenz heute schon finden?</h2>
+<ul>
+<li>
+<p>In unserem Alltag haben wir es oft mit Künstlicher Intelligenz zu tun. Sie steckt zum Beispiel in <strong>Sprachassistenten</strong>, wie Alexa oder auch in <strong>Suchmaschinen</strong>, wie Google und Bing.</p>
+</li>
+<li>
+<p>Ein anderes Beispiel sind <strong>Roboter</strong>, die laufen lernen, im <strong>Haushalt</strong> helfen oder kranken Menschen ihre Tabletten geben.</p>
+</li>
+<li>
+<p>In der Wissenschaft werden oftmals <strong>Roboter</strong> auf <strong>Forschungsreisen</strong> geschickt, die für Menschen zu gefährlich wären. Sie können beispielsweise in die Tiefsee tauchen, dort Messungen durchführen und ihre Ergebnisse nach oben funken.</p>
+</li>
+<li>
+<p>Mit KI kann man aber auch in <strong>Filmen</strong> Gesichter verändern oder Menschen einen falschen Text in den Mund legen, so dass es schwer wird, es als Fälschung zu erkennen.</p>
+</li>
+<li>
+<p>Ein Beispiel, über das viel geschrieben wird, sind <strong>autonome Autos</strong>: Ihre KI kann selbstständig alles erfassen, so dass die Autos ohne Hilfe von Menschen fahren können. Erste Modelle gibt es  bereits, aber bis selbstfahrende Autos auf den Straßen erlaubt sind, müssen noch viele Tests durchgeführt und Regeln festgelegt werden.</p>
+</li>
+</ul>
+<p><img src="/images/202005_KI_Screenshot4.jpg" alt="Bild"></p>
+<p><strong>Künstliche Intelligenz ist aus unserem Leben nicht mehr wegzudenken und wird auch in Zukunft eine immer größere Rolle spielen. Aber fest steht, die letzte Entscheidung muss immer ein Mensch treffen.</strong></p>
+<p>Wenn du Lust hast, kannst du dein Wissen über Künstliche Intelligenz nun in KABUs Rätsel testen, das du unter <strong>Spiel &amp; Quiz</strong> findest. Viel Spaß!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

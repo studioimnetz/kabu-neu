@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanzen heute Nacht die Hexen und Hexenmeister? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Tanzen heute Nacht die Hexen und Hexenmeister?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Tanzen heute Nacht die Hexen und Hexenmeister?</h1>
+      <div class="meta">29. April 2022</div>
+    </div>
+    
+      <img src="/images/202232_Vorschau_Walpurgisjpg.jpg" alt="Tanzen heute Nacht die Hexen und Hexenmeister?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="tanzen-die-hexen-und-hexenmeister-heute-nacht-wirklich-auf-dem-blocksberg">Tanzen die Hexen und Hexenmeister heute Nacht wirklich auf dem Blocksberg?</h1>
+<p>Hast du schon einmal was von der <strong>Walpurgisnacht</strong> gehört? Seit Hunderten von Jahren hält sich der Glaube, dass sich in der Nacht vom <strong>30. April auf den 01. Mai</strong> alle Hexen und Hexenmeister auf dem <strong>Blocksberg</strong> treffen.</p>
+<p>Kommt dir der Name Blocksberg bekannt vor?</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Kommt dir der Name Blocksberg bekannt vor?</p>
+</blockquote>
+<p>Kein Wunder, denn der Nachname von unserer sehr beliebten kleinen <strong>Hexe Bibi Blocksberg</strong> ist auf diesen Berg zurückzuführen. <strong>Hex Hex!</strong> Zu finden ist der „Brocken“ übrigens im Harz-Gebirge!</p>
+<p><img src="/images/202232_Walpurgisnacht_Brocken.jpg" alt="Bild"></p>
+<p>Doch was hat es jetzt eigentlich mit der <strong>Walpurgisnacht</strong> auf sich? Laut Legenden treffen sich die Hexen und Hexenmeister in dieser Nacht auf dem Blocksberg, um gemeinsam zu <strong>tanzen</strong> und die Hexenkräfte zu sammeln! Natürlich handelt es sich hier nur um eine <strong>Sage</strong> und <strong>kaum eine Person</strong> glaubt noch an diese mystischen Wesen! Trotzdem ist an diesem Tag in vielen Orten noch einiges geboten und viele feiern verkleidet bis zum Morgengrauen den <strong>„Tanz in den Mai&quot;</strong>.</p>
+<p><img src="/images/202232_Walpurgisnacht_3.jpg" alt="Bild"></p>
+<p>Glaubst du, dass sich heute Nacht die Hexen und Hexenmeister zu einem gemeinsamen Tanz auf dem „Brocken“ treffen?</p>
+<p>Wenn du noch weitere Legenden kennst, schreibe gerne der KABU-Redaktion. Das geht ganz einfach, indem du unten auf den blauen Button <strong>Schreib dem KABU-Team</strong> klickst!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

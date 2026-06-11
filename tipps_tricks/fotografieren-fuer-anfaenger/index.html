@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fotografieren für Anfänger – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    Fotografieren für Anfänger
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>Fotografieren für Anfänger</h1>
+      <div class="meta">16. April 2020</div>
+    </div>
+    
+      <img src="/images/202032_photographie-vorschau.jpg" alt="Fotografieren für Anfänger" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/202032_photographie-vorschau2.jpg" alt="Bild"></p>
+<h1 id="fotografieren-für-anfänger">Fotografieren für Anfänger</h1>
+<p>Dir ist langweilig? Alles kommt dir bekannt und uninteressant vor? Dann probier es mal mit einem Perspektivwechsel!</p>
+<p>Beim Fotografieren spielt die Perspektive eine wichtige Rolle. Um interessante Fotos zu schießen, ist es wichtig, eine Perspektive einzunehmen, die für das Auge ungewohnt ist.</p>
+<p><strong>Was brauche ich alles dafür?</strong></p>
+<p>Das meiste, was du brauchst, ist bereits in deinem Kopf! Schnapp dir jetzt ein Handy oder eine Kamera und schon bist du bereit.</p>
+<p><strong>Wie fange ich denn jetzt an?</strong></p>
+<p>Das ist eine gute Frage, denn aller Anfang ist schwer. Deshalb erklären wir dir Schritt für Schritt, wie du selbstständig kreativ werden kannst. Lass dich gerne von unseren Beispielen inspirieren!</p>
+<p><strong>Schritt 1:</strong></p>
+<p>Nimm dir zunächst einfach dein Handy oder deine Kamera und suche dir ein Motiv. Es kann sich dabei um alltägliche, langweilige Dinge handeln. Ändere dabei aber deine Sicht auf die Welt, denn das Schöne ist: Bei genauerem Betrachten sind fast alle Dinge interessant. Wir haben für unser Beispielbild eine ganz normale Vase mit alten Blumen darin verwendet.</p>
+<p>![Bild](/images/202024_Motiv 1.png)</p>
+<p><strong>Schritt 2:</strong></p>
+<p>Du hast ein Motiv gefunden? Sehr gut! Designe dir dein Foto selbst. Stelle das ausgewählte Motiv in schönes Licht, vor einen schönen Hintergrund, oder nimm andere Sachen hinzu, die dein Motiv unterstützen. In unserem Fall entschieden wir uns dazu, die Vase in ein schönes Licht zu setzen. Werde hier gerne selbst kreativ!</p>
+<p><img src="/images/202024_Screenshot_2.jpg" alt="Bild"></p>
+<p><strong>Schritt 3:</strong></p>
+<p>Das sieht doch schon gut aus, doch irgendwas fehlt noch&hellip; Verpasse deinem Foto nun den nötigen Feinschliff, indem du mit der Kamera eine andere Perspektive einnimmst: Geh in die Knie, stell dich auf einen Stuhl oder leg dich auf den Bauch, um eine neue Perspektive zu erhalten. Für unser nächstes Bild haben wir uns für eine nahe Perspektive mit Blick von unten entschieden. Das Sonnenlicht und der verschwommener Hintergrund lassen das Foto interessanter erscheinen.</p>
+<p><img src="/images/202035_IMG_20200324_021014.jpg" alt="Bild"></p>
+<p><strong>Schritt 4:</strong></p>
+<p>Nutze nun dein neues Wissen und werde kreativ. Suche dir interessante Motive, gestalte deine Bilder, probiere dich aus und hab Spaß dabei! Gehe mit offenen Augen durchs Leben und du wirst feststellen, wie interessant es sogar bei dir zuhause oder auch vor deiner Haustür ist.</p>
+<p>Hier noch ein paar Beispielfotos:</p>
+<p><img src="/images/202035_IMG_20200324_020447.jpg" alt="Bild"></p>
+<p><img src="/images/202035_20200324_014245.jpg" alt="Bild"></p>
+<p><img src="/images/202035_2020-03-24-01-55-21.jpg" alt="Bild"></p>
+<p><strong>Weitere Tipps:</strong></p>
+<ul>
+<li>&ldquo;Vordergrund macht Bild gesund&rdquo;: Verpasse deinem Bild einen schönen Vordergrund, um es lebendiger wirken zu lassen</li>
+<li>Arbeite mit Farbkontrasten zwischen Motiv und Hintergrund, z.B. hell und dunkel.</li>
+<li>Nutze das Licht: Abends und morgens ist es besonders schön!</li>
+<li>Benutze &ldquo;Linien&rdquo;, die deine Bildebenen verbinden (z.B. Riss, Stock, Fluss)</li>
+<li>Dein Motiv sieht links und rechts gleich aus? Nutze das zu deinem Vorteil!</li>
+</ul>
+<p><strong>Profi Tipp:</strong></p>
+<p>Spiele mit dem Fokus um den Hintergrund unscharf werden zu lassen, das lenkt die Aufmerksamkeit auf dein Motiv und lässt das Bild professioneller wirken!</p>
+<p><strong>Inspiration:</strong></p>
+<p>Deiner Phantasie sind keine Grenzen gesetzt! Falls dir Ideen fehlen, haben wir hier einige Bilder zusammengestellt, die dich inspirieren können.</p>
+<p><img src="/images/202035_IMG_20200324_020927.jpg" alt="Bild"></p>
+<p><img src="/images/202035_202024_20200323_210614.jpg" alt="Bild"></p>
+<p><img src="/images/202035_IMG_20200324_020730.jpg" alt="Bild"></p>
+<p><img src="/images/202035_2020-03-23-12-57-49.jpg" alt="Bild"></p>
+<p><strong>Wir sind auch neugierig!</strong></p>
+<p>Schick uns gerne deine Bilder und wir veröffentlichen sie in der KABU-App. Und wenn du noch Fragen hast, kannst du uns gerne schreiben!</p>
+<p>Viel Spaß beim Entdecken und Fotografieren wünscht dir
+Die KABU-Redaktion</p>
+<p>Das sieht aber interessant aus. Das will ich auch probieren</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Das sieht aber interessant aus. Das will ich auch probieren</p>
+</blockquote>
+<p>(Danke für die Tipps und die tollen Fotos an Tobias Konopac!)</p>
+<h2 id="videobeitrag-fotografieren-für-anfänger">Videobeitrag: Fotografieren für Anfänger</h2>
+<p>Hier findet ihr noch ein Video wie KABU seiner Freundin Betty das Fotografieren erklärt!</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/408774051?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

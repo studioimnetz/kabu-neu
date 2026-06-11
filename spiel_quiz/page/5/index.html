@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiel &amp; Quiz – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <h1>Spiel &amp; Quiz</h1>
+  <p>49 Beiträge</p>
+</div>
+
+<div class="posts-section">
+  <div class="posts-grid">
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zum-mutter-und-vatertag-2/">
+  
+    <img class="post-card-img" src="/images/202631_Vorschaubild%20ohne%20KABU.png" alt="Quiz zum Mutter- und Vatertag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zum Mutter- und Vatertag</h2>
+    <div class="post-card-date">09.05.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/fruehlingsquiz/">
+  
+    <img class="post-card-img" src="/images/202633_Fr%c3%bchlingsquiz%20ohne%20KABU.png" alt="Frühlingsquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Frühlingsquiz</h2>
+    <div class="post-card-date">07.04.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/mikroskop-paare-finden/">
+  
+    <img class="post-card-img" src="/images/202592_KABU-Grafiken.png" alt="Mikroskop-Paare finden" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Mikroskop-Paare finden</h2>
+    <div class="post-card-date">15.11.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/tierquiz/">
+  
+    <img class="post-card-img" src="/images/202574_Vorschau_Quiz_.png" alt="Tierquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Tierquiz</h2>
+    <div class="post-card-date">24.09.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zum-mutter-und-vatertag/">
+  
+    <img class="post-card-img" src="/images/202423_KABU-Grafiken%20%2812%29.png" alt="Quiz zum Mutter- und Vatertag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zum Mutter- und Vatertag</h2>
+    <div class="post-card-date">10.05.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/faschingsquiz/">
+  
+    <img class="post-card-img" src="/images/202521_Bild%20Faschingsparty%202%20-%20Kleinere%20Aufl%c3%b6sung.jpg" alt="Faschingsquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Faschingsquiz</h2>
+    <div class="post-card-date">01.03.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/minecraft-quiz/">
+  
+    <img class="post-card-img" src="/images/202474_Vorschaubild.png" alt="Minecraft-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Minecraft-Quiz</h2>
+    <div class="post-card-date">19.01.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/kabu-halloween-quiz/">
+  
+    <img class="post-card-img" src="/images/202492_KABU-Grafiken%20%2813%29.png" alt="KABU Halloween Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>KABU Halloween Quiz</h2>
+    <div class="post-card-date">30.10.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/memory/">
+  
+    <img class="post-card-img" src="/images/202392_115.png" alt="Memory" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Memory</h2>
+    <div class="post-card-date">13.10.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/wen-suchen-wir/">
+  
+    <img class="post-card-img" src="/images/202361_118.png" alt="Wen suchen wir?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Wen suchen wir?</h2>
+    <div class="post-card-date">19.08.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/oster-quiz/">
+  
+    <img class="post-card-img" src="/images/202325_KABU-Grafiken%20%282%29.jpg" alt="Oster-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Oster-Quiz</h2>
+    <div class="post-card-date">08.04.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/wie-gut-kennst-du-spider-man/">
+  
+    <img class="post-card-img" src="/images/202324_115.jpg" alt="Wie gut kennst du Spider-Man?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Wie gut kennst du Spider-Man?</h2>
+    <div class="post-card-date">18.03.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/digitale-spiele/">
+  
+    <img class="post-card-img" src="/images/202303_KABU-Grafiken%281%29.png" alt="Digitale Spiele" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Digitale Spiele</h2>
+    <div class="post-card-date">28.01.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/kannst-du-die-tiere-erraten/">
+  
+    <img class="post-card-img" src="/images/202294_87.jpg" alt="Kannst du die Tiere erraten?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Kannst du die Tiere erraten?</h2>
+    <div class="post-card-date">15.10.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/serien-und-filme-erraten/">
+  
+    <img class="post-card-img" src="/images/202285_Vorachaubild.jpg" alt="Serien und Filme erraten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Serien und Filme erraten</h2>
+    <div class="post-card-date">17.09.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/osterquiz/">
+  
+    <img class="post-card-img" src="/images/202222_Vorschau1.jpg" alt="Osterquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Osterquiz</h2>
+    <div class="post-card-date">16.04.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/freizeit-raetselspass/">
+  
+    <img class="post-card-img" src="/images/202184_Vorschau-Ratsel.jpg" alt="Freizeit-Rätselspaß" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Freizeit-Rätselspaß</h2>
+    <div class="post-card-date">03.10.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/was-ist-eigentlich-ein-supermond/">
+  
+    <img class="post-card-img" src="/images/202141_KABU%20Titelbild.jpg" alt="Was ist eigentlich ein Supermond?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Was ist eigentlich ein Supermond?</h2>
+    <div class="post-card-date">07.05.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zum-ersten-april/">
+  
+    <img class="post-card-img" src="/images/202122_wiese1.jpg" alt="Quiz zum ersten April" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zum ersten April</h2>
+    <div class="post-card-date">31.03.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/neujahrs-quiz/">
+  
+    <img class="post-card-img" src="/images/202105_Kabu-Neujahr.jpg" alt="Neujahrs-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Neujahrs-Quiz</h2>
+    <div class="post-card-date">06.01.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/onlinespiele-waehrend-corona/">
+  
+    <img class="post-card-img" src="/images/2020105_videochat%20bild%20Kabu.png" alt="Onlinespiele während Corona" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Onlinespiele während Corona</h2>
+    <div class="post-card-date">21.11.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/herbstquiz/">
+  
+    <img class="post-card-img" src="/images/202095_DSC04333.jpg" alt="Herbstquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Herbstquiz</h2>
+    <div class="post-card-date">14.10.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/kuenstliche-intelligenz-quiz/">
+  
+    <img class="post-card-img" src="/images/202005_KI_Screenshot2.jpg" alt="Künstliche Intelligenz - Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Künstliche Intelligenz - Quiz</h2>
+    <div class="post-card-date">29.01.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/was-weisst-du-ueber-die-antike/">
+  
+    <img class="post-card-img" src="/images/compass-3408928_1920.jpg" alt="Was weißt Du über die Antike?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Was weißt Du über die Antike?</h2>
+    <div class="post-card-date">21.11.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/raetsel-zu-handydaten/">
+  
+    <img class="post-card-img" src="/images/201993_Bild%20Handy.jpg" alt="Rätsel zu Handydaten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Rätsel zu Handydaten</h2>
+    <div class="post-card-date">01.11.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/daten-quiz/">
+  
+    <img class="post-card-img" src="/images/networks-1987215_960_720.jpg" alt="Daten-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Daten-Quiz</h2>
+    <div class="post-card-date">25.09.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/medien-umweltbewusst-nutzen/">
+  
+    <img class="post-card-img" src="/images/medien-umwelt.jpg" alt="Medien umweltbewusst nutzen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Medien umweltbewusst nutzen</h2>
+    <div class="post-card-date">30.06.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/foto-paare-finden/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Foto-Paare finden</h2>
+    <div class="post-card-date">10.05.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/buecher-puzzle/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Bücher-Puzzle</h2>
+    <div class="post-card-date">22.02.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/medien-memory/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Medien-Memory</h2>
+    <div class="post-card-date">22.11.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/kruemel-im-internet/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Krümel im Internet</h2>
+    <div class="post-card-date">07.09.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/fremdsprachen-test/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Fremdsprachen-Test</h2>
+    <div class="post-card-date">24.08.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/sommer-suchspiel/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Sommer-Suchspiel</h2>
+    <div class="post-card-date">10.08.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/neue-scherzfragen/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Neue Scherzfragen</h2>
+    <div class="post-card-date">18.07.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/fussball-wm-quiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Fußball-WM-Quiz</h2>
+    <div class="post-card-date">15.06.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/schlauer-fuchs-das-tierquiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Schlauer Fuchs - das Tierquiz</h2>
+    <div class="post-card-date">30.05.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/ratespiel-altersfreigaben/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Ratespiel: Altersfreigaben</h2>
+    <div class="post-card-date">11.05.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/star-quiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Star-Quiz</h2>
+    <div class="post-card-date">12.04.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/scherzfragen/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Scherzfragen</h2>
+    <div class="post-card-date">01.04.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/hauptstaedte-in-europa/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Hauptstädte in Europa</h2>
+    <div class="post-card-date">10.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/online-oder-offline/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Online oder offline?</h2>
+    <div class="post-card-date">01.02.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/raetsel-zum-jahreswechsel/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Rätsel zum Jahreswechsel</h2>
+    <div class="post-card-date">30.12.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/quiz-medien-alt-neu/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz: Medien alt &amp; neu</h2>
+    <div class="post-card-date">01.11.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/buchstabensalat/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Buchstabensalat</h2>
+    <div class="post-card-date">26.08.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/teste-dein-werbe-wissen/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Teste dein Werbe-Wissen</h2>
+    <div class="post-card-date">05.07.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/film-fernseh-quiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Film- &amp; Fernseh-Quiz</h2>
+    <div class="post-card-date">20.04.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/weihnachtliches-raetsel/">
+  
+    <img class="post-card-img" src="/images/2025102_26.png" alt="Weihnachtliches Rätsel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Weihnachtliches Rätsel</h2>
+    <div class="post-card-date">05.12.2000</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zu-sankt-martin/">
+  
+    <img class="post-card-img" src="/images/2025102_21.png" alt="Quiz zu Sankt Martin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zu Sankt Martin</h2>
+    <div class="post-card-date">09.11.2000</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/halloween-das-quiz/">
+  
+    <img class="post-card-img" src="/images/202595_18.png" alt="Halloween - das Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Halloween - das Quiz</h2>
+    <div class="post-card-date">30.10.2000</div>
+  </div>
+</a>
+
+    
+  </div>
+
+  
+		<ul class="pagination pagination-default">
+			<li class="page-item">
+				<a href="/spiel_quiz/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item">
+			<a href="/spiel_quiz/page/4/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/spiel_quiz/" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item">
+				<a href="/spiel_quiz/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+			<li class="page-item">
+				<a href="/spiel_quiz/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+			</li>
+			<li class="page-item">
+				<a href="/spiel_quiz/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+			</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 5" class="page-link" role="button">5</a>
+			</li>
+		<li class="page-item disabled">
+			<a aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item disabled">
+				<a aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

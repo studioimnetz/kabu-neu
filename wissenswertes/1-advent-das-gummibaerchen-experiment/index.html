@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Advent: Das Gummibärchen-Experiment – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    1. Advent: Das Gummibärchen-Experiment
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>1. Advent: Das Gummibärchen-Experiment</h1>
+      <div class="meta">29. November 2000</div>
+    </div>
+    
+      <img src="/images/2025100_Vorschau.png" alt="1. Advent: Das Gummibärchen-Experiment" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="das-gummibärchen-experiment">Das Gummibärchen-Experiment</h1>
+<p>Heute ist der 1. Advent - jeden Adventssonntag erscheint hier nun ein neuer KABU-Beitrag.</p>
+<p>Für die diesjährige <strong>Weihnachtszeit</strong> hat sich KABU was ganz besonderes überlegt:
+für diesen und die nächsten 3 Sonntage gibt es jeweils ein kleines <strong>Experiment</strong> hier in der App!</p>
+<h2 id="gummibärchen-experiment">Gummibärchen-Experiment</h2>
+<p>Heute zeigt dir KABU, wie du Gummibärchen über Nacht wachsen lassen kannst!</p>
+<p>Du brauchst dafür nur:</p>
+<ul>
+<li>Gummibärchen</li>
+<li>eine Schale mit Wasser</li>
+</ul>
+<p>![Bild](/images/2025100_was man braucht.png)</p>
+<h3 id="los-gehts">Los geht&rsquo;s</h3>
+<ol>
+<li>Lege die Gummibärchen in die Schale mit Wasser.</li>
+<li>Nach ein paar Stunden kannst du bereits nachsehen, ob sich schon etwas verändert hat.</li>
+<li>Nach zwei Tagen hat sich die Größe der Gummibärchen stark verändert.</li>
+</ol>
+<h4 id="juhu-jetzt-sind-es-riesige-gummibärchen-wusstest-du-bereits-wie-du-gummibärchen-wachsen-lassen-kannst">Juhu, jetzt sind es riesige Gummibärchen! Wusstest du bereits, wie du Gummibärchen wachsen lassen kannst?</h4>
+<p><img src="/images/2025100_vorher_Nachher.png" alt="Bild"></p>
+<p>Schmeiße die Gummibärchen nach dem Versuch weg! Diese sind nicht mehr zum Verzehr geeignet!</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Schmeiße die Gummibärchen nach dem Versuch weg! Diese sind nicht mehr zum Verzehr geeignet!</p>
+</blockquote>
+<p>Wenn du weitere Ideen für Experimente hast, dann schreibe gerne der KABU-Redaktion!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

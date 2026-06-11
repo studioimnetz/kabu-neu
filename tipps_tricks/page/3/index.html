@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tipps &amp; Tricks – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <h1>Tipps &amp; Tricks</h1>
+  <p>32 Beiträge</p>
+</div>
+
+<div class="posts-section">
+  <div class="posts-grid">
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/medien-nachhaltig-nutzen/">
+  
+    <img class="post-card-img" src="/images/202611_Titelblatt_ohne_Kabu.png" alt="Medien nachhaltig nutzen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Medien nachhaltig nutzen</h2>
+    <div class="post-card-date">28.04.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/cybergrooming/">
+  
+    <img class="post-card-img" src="/images/202614_Grafik%20ohne%20KABU.png" alt="Cybergrooming" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Cybergrooming</h2>
+    <div class="post-card-date">25.02.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/werbung/">
+  
+    <img class="post-card-img" src="/images/202521_WERBUNG.png" alt="Werbung " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Werbung </h2>
+    <div class="post-card-date">03.01.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/handy-fake-nachrichten/">
+  
+    <img class="post-card-img" src="/images/202512_SID%2025%20Vorschaubild%20.png" alt="Handy Fake-Nachrichten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Handy Fake-Nachrichten</h2>
+    <div class="post-card-date">10.02.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/online-spiele-kostenlos/">
+  
+    <img class="post-card-img" src="/images/202471_Vorschaubild%20Online-Spiele_mit%20Titel_klein.png" alt="Online-Spiele - kostenlos?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Online-Spiele - kostenlos?</h2>
+    <div class="post-card-date">07.10.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/8-tipps-fuer-deine-ferien/">
+  
+    <img class="post-card-img" src="/images/202472_Vorschau.png" alt="8 Tipps für deine Ferien" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>8 Tipps für deine Ferien</h2>
+    <div class="post-card-date">17.08.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/weisst-du-warum-tiktok-nichts-fuer-kinder-ist/">
+  
+    <img class="post-card-img" src="/images/202424_TikTok%20KABU.png" alt="Weißt du, warum TikTok nichts für Kinder ist?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Weißt du, warum TikTok nichts für Kinder ist?</h2>
+    <div class="post-card-date">25.03.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/mein-handy-und-ich/">
+  
+    <img class="post-card-img" src="/images/202012_Mein-Handy-und-Ich---Titelbild.png" alt="Mein Handy und ich" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Mein Handy und ich</h2>
+    <div class="post-card-date">05.02.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/whatsapp-kettenbriefe/">
+  
+    <img class="post-card-img" src="/images/202335_Kettenbrief-Vorschaubild2.jpg" alt="WhatsApp-Kettenbriefe" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>WhatsApp-Kettenbriefe</h2>
+    <div class="post-card-date">15.04.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/sid-23-gestresst-im-netz/">
+  
+    <img class="post-card-img" src="/images/202301_KABU-Grafiken%282%29.png" alt="SID 23: Gestresst im Netz? " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>SID 23: Gestresst im Netz? </h2>
+    <div class="post-card-date">06.02.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/eselsbruecke-zur-zeitumstellung/">
+  
+    <img class="post-card-img" src="/images/202224_Vorschau_Zeitumstellung.jpg" alt="Eselsbrücke zur Zeitumstellung " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Eselsbrücke zur Zeitumstellung </h2>
+    <div class="post-card-date">29.10.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-4/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 4&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 4&#39;</h2>
+    <div class="post-card-date">14.08.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/was-ist-fakt-was-ist-fake/">
+  
+    <img class="post-card-img" src="/images/202115_fakes-2021.jpg" alt="Was ist Fakt, was ist Fake?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Was ist Fakt, was ist Fake?</h2>
+    <div class="post-card-date">07.02.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-3/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 3&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 3&#39;</h2>
+    <div class="post-card-date">21.01.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/passwortschutz/">
+  
+    <img class="post-card-img" src="/images/202085_Titelbild%20wei%c3%9fer%20Rand2.jpg" alt="Passwortschutz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Passwortschutz</h2>
+    <div class="post-card-date">23.09.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-2/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 2&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 2&#39;</h2>
+    <div class="post-card-date">03.09.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/tipps-zum-streaming/">
+  
+    <img class="post-card-img" src="/images/202072_Vorschaubild_Streaming.jpg" alt="Tipps zum Streaming" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Tipps zum Streaming</h2>
+    <div class="post-card-date">21.08.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-1/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 1&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 1&#39;</h2>
+    <div class="post-card-date">08.07.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/fotografieren-fuer-anfaenger/">
+  
+    <img class="post-card-img" src="/images/202032_photographie-vorschau.jpg" alt="Fotografieren für Anfänger" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Fotografieren für Anfänger</h2>
+    <div class="post-card-date">16.04.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/was-weiss-dein-handy/">
+  
+    <img class="post-card-img" src="/images/handydaten-vorschaubild.jpg" alt="Was weiß dein Handy?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Was weiß dein Handy?</h2>
+    <div class="post-card-date">02.09.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/so-machst-du-tolle-fotos/">
+  
+    <img class="post-card-img" src="/images/perspektive-vorschaubild.jpg" alt="So machst du tolle Fotos" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>So machst du tolle Fotos</h2>
+    <div class="post-card-date">09.06.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/urheberrecht-das-ist-wichtig/">
+  
+    <img class="post-card-img" src="/images/UrheberrechtVorschaubild.jpg" alt="Urheberrecht - das ist wichtig" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Urheberrecht - das ist wichtig</h2>
+    <div class="post-card-date">22.03.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/nein-zu-cybermobbing/">
+  
+    <img class="post-card-img" src="/images/mobbing1.png" alt="Nein zu Cybermobbing!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Nein zu Cybermobbing!</h2>
+    <div class="post-card-date">20.02.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/medien-wie-wichtig-sind-sie/">
+  
+    <img class="post-card-img" src="/images/Studie.jpg" alt="Medien - Wie wichtig sind sie?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Medien - Wie wichtig sind sie?</h2>
+    <div class="post-card-date">04.10.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/alle-moegen-cookies-oder/">
+  
+    <img class="post-card-img" src="/images/cookies.jpg" alt="Alle mögen Cookies - oder!?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Alle mögen Cookies - oder!?</h2>
+    <div class="post-card-date">06.09.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/sind-meine-daten-sicher/">
+  
+    <img class="post-card-img" src="/images/Datenschutz1.jpg" alt="Sind meine Daten sicher?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Sind meine Daten sicher?</h2>
+    <div class="post-card-date">05.07.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/fake-news/">
+  
+    <img class="post-card-img" src="/images/FakeNewsVorschaubildNeu.jpg" alt="Fake News" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Fake News</h2>
+    <div class="post-card-date">07.04.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/safer-internet-sicher-im-netz/">
+  
+    <img class="post-card-img" src="/images/sid2018.jpg" alt="Safer Internet: Sicher im Netz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Safer Internet: Sicher im Netz</h2>
+    <div class="post-card-date">11.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/alles-ueber-altersfreigaben/">
+  
+    <img class="post-card-img" src="/images/USK-Titel.JPG" alt="Alles über Altersfreigaben" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Alles über Altersfreigaben</h2>
+    <div class="post-card-date">10.01.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/sei-nett-im-netz/">
+  
+    <img class="post-card-img" src="/images/nohatespeech.jpg" alt="Sei nett im Netz!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Sei nett im Netz!</h2>
+    <div class="post-card-date">02.12.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/was-sind-bildrechte/">
+  
+    <img class="post-card-img" src="/images/bildrecht.png" alt="Was sind Bildrechte?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Was sind Bildrechte?</h2>
+    <div class="post-card-date">21.07.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/hast-du-ein-sicheres-passwort/">
+  
+    <img class="post-card-img" src="/images/Passwort1.jpg" alt="Hast du ein sicheres Passwort?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Hast du ein sicheres Passwort?</h2>
+    <div class="post-card-date">22.04.2017</div>
+  </div>
+</a>
+
+    
+  </div>
+
+  
+		<ul class="pagination pagination-default">
+			<li class="page-item">
+				<a href="/tipps_tricks/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item">
+			<a href="/tipps_tricks/page/2/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/tipps_tricks/" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item">
+				<a href="/tipps_tricks/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 3" class="page-link" role="button">3</a>
+			</li>
+			<li class="page-item">
+				<a href="/tipps_tricks/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+			</li>
+		<li class="page-item">
+			<a href="/tipps_tricks/page/4/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/tipps_tricks/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

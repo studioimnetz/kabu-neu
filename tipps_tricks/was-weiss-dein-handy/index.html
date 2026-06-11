@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was weiß dein Handy? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    Was weiß dein Handy?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>Was weiß dein Handy?</h1>
+      <div class="meta">02. September 2019</div>
+    </div>
+    
+      <img src="/images/handydaten-vorschaubild.jpg" alt="Was weiß dein Handy?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/handydaten-titelbild.jpg" alt="Bild"></p>
+<p>Wenn du ein eigenes Handy oder Smartphone hast, trägst du das wahrscheinlich immer bei dir. Weißt du, dass das Gerät ständig Informationen über dich sammelt?
+Viele dieser Infos werden an große Firmen weitergegeben. Wie das genau funktioniert, möchten wir dir in diesem Video erklären.</p>
+<h2 id="video">Video:</h2>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/352890531?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<h2 id="dein-smartphone-besitzt-viele-funktionen">Dein Smartphone besitzt viele Funktionen:</h2>
+<ul>
+<li><strong>Standort:</strong> Das Handy weiß immer, wo auf der Welt du dich gerade befindest. Das ist praktisch, wenn du beispielsweise eine Navigations-App benutzt, um dich an einem fremden Ort zurechtzufinden. Auch auf Fotos, die du schießt, kann gespeichert werden, wo das Foto aufgenommen wurde.</li>
+<li><strong>Kontakte:</strong> In deinem Handy-Adressbuch hast du wahrscheinlich die Nummern und Adressen von deinen Freunden und deiner Familie gespeichert. Wenn du eine App wie WhatsApp benutzt, um anderen Leuten zu schreiben, greift diese App auf deine gespeicherten Kontakte zu.</li>
+<li><strong>Kamera und Mikrofon:</strong> Wie du weißt, kannst du mit deinem Handy alles aufnehmen. Viele Apps nutzen diese Funktion, beispielsweise wenn du Sprachnachrichten aufnimmst oder Fotos knipst und bearbeitest.</li>
+<li><strong>Vernetzung mit anderen Geräten:</strong> Viele Geräte sind heutzutage mit dem Internet verbunden und lassen sich über das Handy steuern: Dazu zählen die Soundanlage, der Smart-TV, der Staubsauger-Roboter, sogar manche Jalousien und Kühlschränke. Dein Handy weiß dann Bescheid, welche Geräte sich in deinem Haus befinden und wie oft du sie benutzt.</li>
+</ul>
+<p>Alle Informationen, die auf dem Handy gesammelt werden, können aber auch an andere Firmen weitergegeben werden. Die Handy-Hersteller wie Samsung, Apple und Google, aber auch App-Anbieter wie YouTube, Instagram und Spiele-Firmen wissen deshalb viel über dein Leben.</p>
+<p><img src="/images/handydaten1.jpg" alt="Bild"></p>
+<h2 id="wozu-brauchen-die-firmen-diese-infos">Wozu brauchen die Firmen diese Infos?</h2>
+<p>Viele Apps sind kostenlos, doch die Betreiber müssen auch Geld verdienen. Dieses Geld kommt oft aus der Werbung, und die Werbung wird auf jede einzelne Person angepasst. Je mehr Informationen eine Firma hat, umso besser kann sie die Werbung anpassen.</p>
+<h2 id="ein-paar-beispiele">Ein paar Beispiele:</h2>
+<ul>
+<li>Ein Mädchen, das viele Tanzvideos anschaut, online Tanzschuhe bestellt und oft in ein Tanzstudio geht, hat vermutlich das Hobby Tanzen.</li>
+<li>Ein Junge, der oft in Kliniken oder Arztpraxen ist und im Internet nach Medikamenten sucht, ist vielleicht schwer krank.</li>
+<li>Ein Mädchen, das in einem noblen Stadtteil wohnt, gerne reitet und oft in teure Restaurants geht, hat vermutlich viel Geld.</li>
+</ul>
+<p>So wissen die Firmen genau, wer welche Hobbys, Interessen und Bedürfnisse hat und können sich darauf einstellen.
+Hinzu kommt, dass die großen Firmen viele Dienste betreiben: Zu Google gehört neben der Suchmaschine auch das Videoportal YouTube und das Handy-Betriebssystem Android. Auch Facebook ist ein großer Konzern, zu dem noch WhatsApp und Instagram gehören. So können also besonders viele Daten zusammengeführt werden. Mit der Zeit wissen die Konzerne mehr über dich als deine Eltern oder deine Freunde.</p>
+<p><strong>Grundsätzlich gilt:</strong></p>
+<p><img src="/images/handydaten2.jpg" alt="Bild"></p>
+<h2 id="was-kannst-du-tun">Was kannst du tun?</h2>
+<ul>
+<li>Wenn du eine neue App installierst, achte gut darauf, welche Zugriffe sie haben will. Benötigen Spiele-Apps wirklich Zugriff auf alle deine Kontakte? Wenn sie Funktionen abfragt, die sie nicht unbedingt benötigt, solltest du diese App besser nicht installieren.</li>
+<li>In den Einstellungen deines Handys kannst du die Zugriffsberechtigungen deiner Apps überprüfen und verwalten. Du kannst den Apps auch später noch Zugriffe sperren: Ein Spiel muss nicht wissen, an welchem Ort du dich aufhältst.</li>
+<li>Viele Dienste haben dauerhaften Zugriff auf dein Mikrofon und deine Kamera. Du kannst dir also nie sicher sein, ob dich dein Handy gerade heimlich aufnimmt. Auch diese Berechtigungen kannst du entziehen.</li>
+<li>Außerdem solltest du dein WLAN, Bluetooth und GPS immer ausstellen, wenn du es nicht benötigst.</li>
+<li>Wenn du dir mal nicht sicher bist, frag deine Eltern um Rat, sie können dir sicher helfen.</li>
+</ul>
+<p>Nun weißt du Bescheid, was dein Handy alles von dir speichert und welche Daten weitergegeben werden.</p>
+<p><strong>Achte darauf, dass du dein Handy richtig einstellst und nutzt.</strong></p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

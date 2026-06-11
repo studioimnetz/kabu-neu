@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wahl in den USA - kurz erklärt – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Wahl in den USA - kurz erklärt
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Wahl in den USA - kurz erklärt</h1>
+      <div class="meta">06. November 2020</div>
+    </div>
+    
+      <img src="/images/2020105_us-wahl-02.jpg" alt="Wahl in den USA - kurz erklärt" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/2020100_us-wahl-01.jpg" alt="Bild"></p>
+<p>Alle vier Jahre wird in Amerika ein neuer Präsident oder eine neue Präsidentin gewählt. Am 3. November 2020 war es wieder so weit, und nach vier Tagen stand fest: Joe Biden wird der neue Präsident der USA.
+Doch warum hat es so lange gedauert, bis das Ergebnis bekannt wurde? Wie funktioniert diese Wahl eigentlich? Das erklären wir dir nun.</p>
+<h2 id="die-parteien">Die Parteien</h2>
+<p>In den USA gibt es nicht so viele verschiedene Parteien wie bei uns, sondern zwei große Parteien:</p>
+<ul>
+<li><strong>Die Republikaner</strong> sind eine konservative Partei, ähnlich wie bei uns die CDU.</li>
+<li><strong>Die Demokraten</strong> sind eine sozialdemokratische Partei, ähnlich wie bei uns die SPD.</li>
+</ul>
+<p>In diesem Jahr standen Donald Trump für die Republikaner und Joe Biden für die Demokraten zur Wahl. Trump war seit 2017 Präsident, Biden wird ihn nun ablösen. So sieht Joe Biden aus:</p>
+<p><img src="/images/2020106_us-wahl-biden.jpg" alt="Bild"></p>
+<h2 id="das-wahlsystem">Das Wahlsystem</h2>
+<p>Auch die Wahl läuft ganz anders ab als bei uns in Deutschland.  In Amerika gibt es verschiedene Bundesstaaten, ähnlich wie bei uns die Bundesländer, nur viel größer. Bei uns gibt es z.B. Bayern und Niedersachsen, in den USA gibt es Florida, Kalifornien und andere Staaten.</p>
+<p>Die Bürger eines Bundesstaates wählen unabhängig von den anderen Staaten. In jedem Staat werden ein paar Menschen ausgewählt, die dann den Präsidenten wählen. Diese Menschen heißen „Wahlleute“. Die Wahlleute werden nach der Bevölkerung in einem Bundesstaat eingeteilt. Ein großer Bundesstaat hat deshalb mehr Wahlleute als ein kleiner Staat.</p>
+<p>Die Wahlleute aus allen Staaten kommen im Dezember zusammen und wählen dann den Präsidenten. Eigentlich wurde aber schon am 3. November vom Volk entschieden, wer der Präsident wird.</p>
+<p><img src="/images/2020106_us-wahl-03.jpg" alt="Bild"></p>
+<h2 id="die-wahl-2020">Die Wahl 2020</h2>
+<p>Die Auszählung dauerte diesmal viel länger als bei den letzten Wahlen. Das liegt daran, dass die Ergebnisse in vielen Staaten so knapp sind und alle Stimmzettel genau geprüft und gezählt werden müssen. Insgesamt mussten fast 150 Millionen Stimmzettel ausgewertet werden.
+Hinzu kam, dass das Team von Donald Trump immer wieder behauptet, es gab Betrug bei der Auszählung. Trump hat außerdem schon angekündigt, dass er nicht einfach aufgeben wird, sondern dass viele Stimmzettel noch einmal gezählt werden.</p>
+<p>Wahrscheinlich müssen in den nächsten Wochen noch Gerichte darüber entscheiden müssen, ob alles mit rechten Dingen zuging.</p>
+<p>Am 20. Januar 2021 wird dann der Wahlgewinner zum Präsidenten gekürt. So, wie es derzeit aussieht, wird dann Joe Biden als neuer Präsident in das „Weiße Haus“ in Washington einziehen.</p>
+<p>(Alle Fotos sind gemeinfrei, sie stammen von Pixabay und Wikimedia-Commons.)</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

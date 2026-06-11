@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedeutung von Chatkürzeln – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Bedeutung von Chatkürzeln
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Bedeutung von Chatkürzeln</h1>
+      <div class="meta">30. May 2019</div>
+    </div>
+    
+      <img src="/images/Vorschaubild.jpg" alt="Bedeutung von Chatkürzeln" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/Vorschaubild.jpg" alt="Bild"></p>
+<p>Sicherlich bist du ab und zu im Internet unterwegs oder benutzt Apps, wie Whatsapp, Instagram oder Facebook. Oft verwendet man hier Emojis und Abkürzungen, um seine Emotionen auszudrücken. Aber hast du dich eigentlich schon mal gefragt, welche Bedeutung diese Abkürzungen haben? Um nicht wie KABU vor einem Rätsel zu stehen, lies jetzt unbedingt weiter. Denn hier erfährst du, wie du die Abkürzungen entschlüsseln kannst.</p>
+<p><img src="/images/texting-1490691_1920.jpg" alt="Bild"></p>
+<p><strong>LOL</strong>: jeder kennt es und jeder benutzt es, &ldquo;lol&rdquo; heißt ausgeschrieben „Loughing out Loud“ was übersetzt so viel wie „Laut lachen“ bedeutet. Diese Abkürzung benutzt du daher bei witzigen Sachen.</p>
+<p><strong>HDL</strong>:  heißt ausgeschrieben „Hab dich lieb“.</p>
+<p><strong>HDGDL</strong>: soll heißen „Hab dich ganz doll lieb“.</p>
+<p><strong>ROFL</strong>: heißt ausgeschrieben „Rolling on Floor Laughing“, was übersetzt bedeutet: „Ich kringel mich vor Lachen“, eine Steigerung von LOL.</p>
+<p><strong>AFK</strong>: heißt „Away from Keyboard“, übersetzt „Nicht an der Tastatur“. Das benutzt du, wenn du mal für eine gewisse Zeit nicht am Handy, Tablet oder Computer sein kannst, um mit deinen Freunden zu schreiben.</p>
+<p><strong>CU</strong>: Wenn du diese Buchstaben englisch aussprichst, klingt es so ähnlich wie „See You“ und das heißt übersetzt „Bis Später“, „Tschüss“ oder &ldquo;Wir sehen uns&rdquo;.</p>
+<p><strong>LG</strong>: heißt ausgeschrieben „Liebe Grüße“.</p>
+<p><strong>N8</strong>: N + 8 = Nacht, soll Gute Nacht bedeuten.</p>
+<p><strong>OMG</strong>: soll „Oh my God“ bedeuten und heißt übersetzt „Oh mein Gott“. Das benutzt du, wenn etwas Überraschendes passiert, was du gerade nicht fassen kannst.</p>
+<p><strong>SRRY</strong>: hier wurden die Vokale weggelassen. Es heißt ausgeschrieben „Sorry“ und übersetzt „Es tut mir leid“.</p>
+<p>Nun zeigt dir KABU noch in einem kurzen Video, wie diese Abkürzungen in einem Chat verwendet werden könnten:</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/339627960?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>KABU wünscht dir viel Spaß beim Chatten!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steinzeit – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Steinzeit
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Steinzeit</h1>
+      <div class="meta">02. July 2022</div>
+    </div>
+    
+      <img src="/images/202254_Vorschau1.jpg" alt="Steinzeit" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="steinzeit">Steinzeit</h1>
+<p>KABU hat ein kleines Rästel für dich! Kannst du erkennen, was auf dem Bild zu sehen ist?</p>
+<p><img src="/images/202254_r%C3%A4tsel.jpg" alt="Bild"></p>
+<p><strong>Ein kleiner Tipp</strong></p>
+<p>Das Rätsel hat etwas mit der <strong>Steinzeit</strong> zu tun! Passend hierzu hat sich KABU für dich schlaugemacht und dir einige Informationen zur Steinzeit zusammengesammelt!</p>
+<p>Die Auflösung gibt es nächste Woche!</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Die Auflösung gibt es nächste Woche!</p>
+</blockquote>
+<h2 id="doch-was-hat-es-jetzt-eigentlich-mit-der-steinzeit-auf-sich">Doch was hat es jetzt eigentlich mit der Steinzeit auf sich?</h2>
+<p>Die Steinzeit ist die früheste Epoche unserer Menschheitsgeschichte. Mit ihr war praktisch der <strong>Start der Menschen</strong>.</p>
+<p>Die Steinzeit fing vor über zwei Millionen Jahren an!</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Die Steinzeit fing vor über zwei Millionen Jahren an!</p>
+</blockquote>
+<p>Damals hießen die Menschen noch nicht so wie heute, sondern sie wurden „Homo“ genannt.</p>
+<p>Aus der Gattung Homo entstand mehrere Arten. Eine davon war der Homo Erectus, das heißt „der aufrecht gehende Mensch“. Aus ihm entwickelte sich der Homo Sapiens („Weise Mensch/ wissende Mensch“).</p>
+<p><img src="/images/202254_homo.jpg" alt="Bild"></p>
+<p>Ursprünglich lebten die Homo Sapiens in Afrika. Alle Menschen, die heute auf der Welt leben, sind Nachfahren des Homo Sapiens.</p>
+<p>Die Menschen lebten damals als Jäger und Sammler. Sie ernährten sich also von erlegten Tieren und schützten sich mit ihren Fellen gegen Kälte und Regen. Sie sammelten Beeren, Früchte und Wurzeln, welche sie in der Natur fanden. Diese Menschen hatten kein festes zuhause. Sie zogen ständig umher, meist den Tierherden nach oder dorthin, wo es am besten zur Jahreszeit passte.</p>
+<p>Früher konnten sie noch keine Fotos machen, stattdessen malten sie all ihre Erinnerungen an Höhlenwände.</p>
+<p><img src="/images/202254_h%C3%B6hlenma.jpg" alt="Bild"></p>
+<p>Neben den Homo Sapiens gab es auch noch verschiedene Tierarten. Allerdings nicht so viele wie heute. Denn nur die Tiere die kein Problem mit der Kälte hatten, konnten in dieser Zeit überleben.</p>
+<p>Wenn du erraten hast, was auf dem Bild zu sehen ist, dann schreibe gerne der KABU-Redaktion. Das geht ganz einfach, indem du unten auf den blauen Button <strong>Schreib dem KABU-Team</strong> klickst!</p>
+<p>Die <strong>Auflösung</strong> des Bilderrätsels gibt es <strong>nächste Woche</strong>! Also sei gespannt!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

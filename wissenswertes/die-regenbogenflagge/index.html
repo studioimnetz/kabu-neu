@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die Regenbogenflagge – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Die Regenbogenflagge
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Die Regenbogenflagge</h1>
+      <div class="meta">23. June 2021</div>
+    </div>
+    
+      <img src="/images/202155_Trennbild%202.jpg" alt="Die Regenbogenflagge" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p>![Bild](/images/202155_Regenbogenfahne Vorschau.jpg)</p>
+<h2 id="die-regenbogenflagge-als-zeichen-für-vielfalt">Die REGENBOGENFLAGGE als Zeichen für Vielfalt</h2>
+<p>![Bild](/images/202155_Trennbild 1.png)</p>
+<p>Diese <strong>bunte Flagge</strong> hast du bestimmt schon mal gesehen? KABU erklärt dir heute, welche <strong>wichtige Botschaft</strong> eigentlich dahintersteckt.</p>
+<p>Die Regenbogenflagge ist seit mehr als 40 Jahren in vielen Ländern ein <strong>Zeichen für die Vielfalt der Menschen</strong> und soll an mehr <strong>Toleranz</strong> untereinander erinnern. Das bedeutet, dass man Menschen, nur, weil sie anders sind als man selbst, trotzdem so leben lassen soll, wie sie es möchten. In diesem Sinne ruft die Flagge auch zu einem <strong>friedlichen Miteinander</strong> auf.</p>
+<p><img src="/images/202155_rainbow-world-map-1192306_1920.png" alt="Bild"></p>
+<p>Jedes Jahr <strong>im Juni</strong> wird diese <strong>Vielfalt</strong> der Gesellschaft <strong>gefeiert</strong>. Das bedeutet, dass man im Juni daran erinnern möchte, dass <strong>alle Menschen gleich viel wert</strong> sind, egal aus welchem Land sie kommen oder wen sie lieben. Denn jeder Mensch ist anders und darf so sein wie er es will. Es ist also egal, ob</p>
+<ul>
+<li>ein Mensch eine helle oder dunkle Hautfarbe hat.</li>
+<li>eine Person braune, grüne oder blaue Augen hat.</li>
+<li>jemand aus Afrika, Amerika, Asien, Australien oder Europa kommt.</li>
+<li>ein Mann mit einer Frau oder einem anderen Mann zusammen ist.</li>
+<li>eine Frau einen Mann oder eine andere Frau liebt.</li>
+<li>sich ein Mensch vorstellen kann, entweder mit einem Mann oder einer Frau zu leben.</li>
+<li>sich ein Mensch als Frau fühlt, obwohl er als Junge geboren wurde.</li>
+<li>sich ein Mensch als Mann fühlt, obwohl er als Mädchen geboren wurde.</li>
+<li>sich ein Mensch weder als Frau noch als Mann fühlt.</li>
+<li>ein Mann „Frauenkleidung“ anzieht.</li>
+<li>eine Frau „Männerkleidung“ trägt.</li>
+</ul>
+<p>Das einzige, was zählt, ist einfach immer nur: <strong>„Jeder Mensch darf sich wohlfühlen und so sein, wie er ist, ohne sich verstellen zu müssen!“</strong></p>
+<p><img src="/images/202155_gay-2507365_1920.jpg" alt="Bild"></p>
+<p>In den letzten Jahren setzen sich <strong>immer mehr Menschen</strong> für eine gerechte Welt ein und <strong>setzen ein Zeichen für Vielfalt und Toleranz</strong>. Das hat man auch bei der aktuellen Fußball-Europameisterschaft im Männerfußball gesehen, wo viele Fans und Städte Flagge zeigten – und zwar die Regenbogenflagge!</p>
+<p><img src="/images/202155_rainbow-149485_1280.png" alt="Bild"></p>
+<p><strong>Sei auch du tolerant und akzeptiere andere so wie sie sind!</strong> Dadurch hilfst du, dass viele Menschen ein glückliches Leben führen können und keine Angst davor haben müssen, ausgegrenzt zu werden.</p>
+<p>Denk bunt und merk dir am besten den Spruch: <strong>Niemand ist „anders“, denn nichts ist „normal“!</strong> Und erinnre auch andere Menschen immer wieder daran!</p>
+<p><strong>Viele bunte Grüße</strong> von deinem KABU-Team!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

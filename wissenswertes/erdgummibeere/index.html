@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erdgummibeere – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Erdgummibeere
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Erdgummibeere</h1>
+      <div class="meta">31. March 2024</div>
+    </div>
+    
+      <img src="/images/202224_Vorschau_erd.jpg" alt="Erdgummibeere" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><strong>Hinweis: Dieser Beitrag wurde am 01. April veröffentlicht</strong></p>
+<h1 id="erdgummibeere">Erdgummibeere</h1>
+<p><strong>Achtung, Achtung</strong> – heute schon genascht? Soeben hat KABU eine neue Nachricht erhalten.</p>
+<p>Hast du schon von der neuen Frucht gehört? Es ist eine Kreuzung aus <strong>Gummibären und Erdbeeren</strong> – die <strong>Erdgummibeere</strong>! Für die Anpflanzung wurden nur <strong>rote Gummibären</strong> verwendet, die der Frucht den typisch süßen Geschmack verleihen. Rein äußerlich ist die Frucht kaum von einer normalen Erdbeere zu unterscheiden.</p>
+<p>Klingt das nicht absolut lecker? KABU findet, dass ist die beste Frucht, die er sich vorstellen kann. Da die Frucht nicht in Deutschland beheimatet ist, ist diese leider  noch nicht in den heimischen Supermärkten zu finden. Hoffentlich ändert sich das bald!</p>
+<p><img src="/images/202224_Erdgummibeere.jpg" alt="Bild"></p>
+<p>Du glaubst uns nicht? Richtig – <strong>April, April!</strong> Das ist natürlich nur ein Aprilscherz und wir haben versucht, dich in den April zu schicken. Aber weißt du eigentlich, warum am <strong>1. April</strong> so viele Scherze gemacht werden?</p>
+<p>Der Ursprung der Aprilscherze ist nicht ganz bekannt. Es gibt viele unterschiedliche Erklärungen für die Entstehung dieser Tradition. Eine dieser Erklärungen ist auf das wechselhafte Wetter im April zurückzuführen, dass uns sozusagen an der Nase herumführt. Nicht umsonst gibt es die Redewendung <strong>„April, April, der weiß nicht, was er will“.</strong></p>
+<p>Heute ist der 1. April! Sei heute besonders vorsichtig!</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Heute ist der 1. April! Sei heute besonders vorsichtig!</p>
+</blockquote>
+<p>Wichtig ist jedoch, dass du heute besonders auf der Hut bist und dir keinen Bären aufbinden lässt! Doch nicht nur im April solltest du darauf achten, dass nicht alles, was du so im Internet findest, der Wahrheit entspricht. KABU hat hierzu schon einen Beitrag über <strong>Fake News</strong> veröffentlicht. Schau dir gerne das Video an!</p>
+<p>Hast du heute schon jemanden in den April geschickt? Wenn du einen guten Aprilscherz hast, schreibe gerne der KABU-Redaktion. Das geht ganz einfach, indem du auf den blauen Button <strong>Schreib dem KABU-Team</strong> tippst.</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

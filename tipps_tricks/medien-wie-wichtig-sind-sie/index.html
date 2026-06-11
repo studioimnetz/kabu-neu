@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medien - Wie wichtig sind sie? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    Medien - Wie wichtig sind sie?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>Medien - Wie wichtig sind sie?</h1>
+      <div class="meta">04. October 2018</div>
+    </div>
+    
+      <img src="/images/Studie.jpg" alt="Medien - Wie wichtig sind sie?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/292955007?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>Eine Frage: Wie viel Zeit verbringst du mit Handy, Fernseher, Spielkonsole usw.? Bist du damit lange beschäftigt oder nur ein paar Minuten am Tag? Hast du daneben noch andere Hobbys, wie Sport oder Musik? Triffst du regelmäßig deine Freunde?</p>
+<p><img src="/images/Studie.jpg" alt="Bild"></p>
+<p>Dazu haben wir ein paar Ergebnisse von der Kinder-Medien-Studie herausgesucht, damit du weißt, wie das bei anderen Kindern aussieht. Am Schluss bekommst du auch noch zwei wichtige Tipps und die Möglichkeit uns zu sagen, wie du mit der Medienzeit umgehst!</p>
+<h1 id="freizeit-on--und-offline">Freizeit on- und offline</h1>
+<p><img src="/images/Kindernatur.jpg" alt="Bild"></p>
+<p>Kinder im Alter von 4 bis 13 Jahren spielen am liebsten zusammen mit ihren Freunden und im Freien. Auch das digitale Spielen macht Spaß, denn viele Kinder nutzen mehrmals in der Woche ihr Smartphone oder Tablet. Je älter sie werden, desto lieber werden diese Medien genutzt.</p>
+<h1 id="aufwachsen-mit-medien">Aufwachsen mit Medien</h1>
+<p><img src="/images/Kuschelschaf.jpg" alt="Bild"></p>
+<p>Kuscheltiere werden von Kindern geliebt, fast alle von euch besitzen welche. Das Fahrrad ist euer ständiger Begleiter und das Sammeln von Figuren und Karten ist euch sehr wichtig, denn sie sind eure Schätze. Wenn ihr älter werdet, ab ca. 13 Jahren, ersetzen die Medien langsam das Kuscheltier oder andere Spielzeuge.</p>
+<h1 id="womit-teilst-du-dich-mit">Womit teilst du dich mit?</h1>
+<p><img src="/images/chat.png" alt="Bild"></p>
+<p>Du nutzt jede Möglichkeit, die dir das Smartphone gibt, um dich mitzuteilen. Du chattest mit deinen Freunden über WhatsApp und andere Messenger, und auch über das Telefon. Sprachnachrichten sind beliebt, aber auch Postkarten und Briefe werden von euch noch gerne geschrieben.</p>
+<h1 id="du-weißt-bescheid">Du weißt Bescheid!</h1>
+<p><img src="/images/MamaPapa.jpg" alt="Bild"></p>
+<p>Viele Kinder kennen sowohl die gute Seite des Internets als auch die schlechte. Ihr findet das Internet „cool“, weil es ist „wie ein Buch, wo alles drin steht, nur dass es eben auf einem Bildschirm ist“. Aber ihr wisst auch, dass das Internet Gefahren birgt und Zeit rauben kann, wenn der Papa oder die Mama nur noch am Handy hängen, dann findet ihr das sehr schnell „doof“ und „schlecht für die Menschen“.</p>
+<h1 id="zusammengefasst">Zusammengefasst</h1>
+<p><img src="/images/daumenhoch.png" alt="Bild"></p>
+<p>Die Kinder-Medien-Studie klingt so, als wüsstest du schon super gut über die Vorteile und Nachteile der Medien Bescheid. Die Ergebnisse sagen aus, dass du weißt, wie du ein gutes Gleichgewicht zwischen „online“ und „offline“ herstellst. Das finden wir spitze! Vielleicht kannst du in einigen Bereichen noch etwas dazu lernen, deshalb haben wir hier zwei besonders wichtige Tipps für dich:</p>
+<h1 id="tipp-1">Tipp 1</h1>
+<p><img src="/images/Hausaufgaben.jpg" alt="Bild"></p>
+<p>Nutz‘ die Medien erst nach den Hausaufgaben, dann kannst du dich besser auf die Hausis konzentrieren und dich danach voll und ganz auf dein Spiel, deine Serie oder deinen Film einlassen. Wir finden vor allem Medienangebote gut, die du zusammen mit deinen Freunden nutzen kannst, so hast du noch viel mehr Spaß daran.</p>
+<h1 id="tipp-2">Tipp 2</h1>
+<p><img src="/images/MamaundKind.jpg" alt="Bild"></p>
+<p>Wenn du Medien nutzt, dann prüfe sie: Nutze am besten nur die Angebote, von denen du weißt, dass sie für Kinder gemacht wurden. Manchmal ist es auch wichtig, dass deine Eltern vorher nachsehen, ob der Inhalt überhaupt für dich geeignet ist, damit du nichts sehen musst, das du eigentlich gar nicht sehen möchtest.</p>
+<p><img src="/images/Fragezeichen.jpg" alt="Bild"></p>
+<p>Möchtest du uns nun deine eigene Meinung mitteilen? Dann geh doch zur Umfrage „Online oder Offline“ in der Rubrik „Spiel und Quiz“. Wir sind gespannt auf deine Antworten! Wir wünschen dir weiterhin viel Spaß im Umgang mit Medien!                                               Die KABU-Redaktion :)</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

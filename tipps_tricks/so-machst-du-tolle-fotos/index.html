@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So machst du tolle Fotos – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    So machst du tolle Fotos
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>So machst du tolle Fotos</h1>
+      <div class="meta">09. June 2019</div>
+    </div>
+    
+      <img src="/images/perspektive-vorschaubild.jpg" alt="So machst du tolle Fotos" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/perspektive-beitragsbild.jpg" alt="Bild"></p>
+<h2 id="wie-du-dein-foto-spannender-machst">Wie du dein Foto spannender machst</h2>
+<p>Kennst Du das: Du hast einen tollen Gegenstand gefunden und möchtest ein spannendes Bild davon machen, aber das Foto sieht irgendwie langweilig aus?
+Dann haben wir jetzt die Lösung für Dich!</p>
+<p>Fotos können nämlich aus ganz verschiedenen Positionen gemacht werden. Wie kann man aber das <strong>Motiv</strong> (= also das, was du fotografieren möchtest) faszinierender zeigen?</p>
+<p>Dazu musst Du Dein gewünschtes Motiv von einem anderen Ort oder auf einer anderen Höhe aufnehmen. Du kannst die Kamera zum Beispiel auf den Boden legen und dann ein Foto machen. Dann hast du den Blickwinkel verändert. Diesen Blickwinkel nennt man
+<strong>Perspektive</strong>.</p>
+<p>Welche Perspektiven gibt es noch? Was machen diese mit Dir, wenn Du sie ansiehst?
+Tipps findest du in diesem Video und unten im Text:</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/334929906?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<h3 id="normalperspektive">Normalperspektive</h3>
+<p>Die Normalperspektive erkennst Du daran, dass Dein Motiv auf Augenhöhe fotografiert wird. Fast alle Aufnahmen werden mit der Normalperspektive geschossen, da es für uns bequem und normal ist, aus dem Stand zu fotografieren.</p>
+<p><strong>Wann solltest Du diese Perspektive eigentlich benutzen?</strong></p>
+<p>Du solltest diese Perspektive benutzen, wenn Du Deine Umgebung abbilden 	willst, wie du sie mit Deinen Augen siehst. Außerdem benutzt Du die Normalperspektive, wenn Du von einer Person ein Portrait Foto machen willst.</p>
+<p><img src="/images/Normalperspektive.jpg" alt="Bild"></p>
+<h3 id="froschperspektive">Froschperspektive</h3>
+<p>Die Froschperspektive erkennst Du daran, dass das Bild unter der Augenhöhe fotografiert wird, wie ein Frosch, der von unten nach oben schaut. Dadurch kommen Gegenstände sehr groß raus.</p>
+<p><strong>Wann solltest Du diese Perspektive eigentlich benutzen?</strong></p>
+<p>Du solltest die Perspektive benutzen, wenn Du etwas sehr mächtig darstellen willst. Zum Beispiel wirkt eine Person von unten größer und vielleicht bedrohlich.</p>
+<p><img src="/images/Fr.jpg" alt="Bild"></p>
+<h3 id="vogelperspektive">Vogelperspektive</h3>
+<p>Die Vogelperspektive erkennst Du daran, dass man wie ein Vogel von oben nach unten schaut. Diese Perspektive erreichst Du, wenn Du auf einem etwas höheren Platz stehst und von dort nach unten fotografierst.</p>
+<p><strong>Wann solltest Du diese Perspektive eigentlich benutzen?</strong></p>
+<p>Diese Perspektive benutzt Du, um schöne Landschaften zu fotografieren oder etwas Größeres, wie z.B. eine Stadt. Das ist meistens nur möglich, wenn Du auf einer höheren Ebene bist.</p>
+<p><img src="/images/Vogelperspektive.JPG" alt="Bild"></p>
+<h3 id="kreativperspektive">Kreativperspektive</h3>
+<p>Die Kreativperspektive erkennst Du daran, dass das Bild so geschossen wurde, dass es scheint, als ob das Foto nicht echt sein kann. Da Personen oder Gegenstände überdimensional groß aussehen.</p>
+<p><strong>Wann solltest Du diese Perspektive eigentlich benutzen?</strong></p>
+<p>Diese Perspektive benutzt Du, wenn du kreative oder auch witzige Aufnahmen machen willst. Solche Fotos erreichst Du, indem Du zwei Objekte hast. Das eine Objekt ist im Hintergrund und das zweite Objekt ist im Vordergrund. Dadurch ist das Objekt im Hintergrund kleiner als das Objekt im Vordergrund und somit kannst Du viele lustige Fotos schießen.</p>
+<p><img src="/images/Krea.JPG" alt="Bild"></p>
+<h3 id="panoramaperspektive">Panoramaperspektive</h3>
+<p>Die Panoramaperspektive erkennst Du daran, dass das Bild als „Ganzes“ geschossen wurde und jedes Detail zu sehen ist.</p>
+<p><strong>Wann solltest Du diese Perspektive eigentlich benutzen?</strong></p>
+<p>Diese Perspektive benutzt Du, um Landschaften, Städten oder auch Personengruppen zu fotografieren, die sehr weitläufig sind.</p>
+<p><img src="/images/Pano.JPG" alt="Bild"></p>
+<h3 id="nahperspektivegroßaufnahme">Nahperspektive/Großaufnahme</h3>
+<p>Das ist eine sehr beliebte Perspektive. Meistens geht es um ein kleines Detail. Du gehst dabei ganz nah an den Gegenstand heran und schießt ein Foto. Auf dem Foto sieht das Detail dann sehr viel größer aus als in echt.</p>
+<p><strong>Wann solltest Du diese Perspektive eigentlich benutzen?</strong></p>
+<p>Wenn Du einen kleinen Gegenstand interessant machen oder anderen zeigen willst, wie dieser Gegenstand eigentlich groß aussieht.</p>
+<p><img src="/images/Nah.JPG" alt="Bild"></p>
+<p>Jetzt weißt du, was man alles mit verschiedenen Perspektiven anstellen kann und vor allem, welche Wirkung sie damit auslösen.</p>
+<p>Viel Spaß beim Fotografieren und Experimentieren
+wünscht dir
+die KABU-Redaktion</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Viel Spaß beim Fotografieren und Experimentieren
+wünscht dir
+die KABU-Redaktion</p>
+</blockquote>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was sind Bildrechte? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    Was sind Bildrechte?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>Was sind Bildrechte?</h1>
+      <div class="meta">21. July 2017</div>
+    </div>
+    
+      <img src="/images/bildrecht.png" alt="Was sind Bildrechte?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p>Es gibt viele Bildrechte zu beachten! Was darfst du mit Bildern und Fotos machen? Was darfst du nicht? Hier sind die wichtigsten Infos zum Veröffentlichen von Bildern im Netz:</p>
+<ul>
+<li>
+<p>Wenn dich jemand fotografieren möchte, muss er oder sie dich erst fragen. Es ist nicht erlaubt, einfach von jemandem einen Schnappschuss machen. Wenn du fotografiert wirst, kannst du die Fotografen dazu auffordern, das Bild sofort wieder zu löschen.</p>
+</li>
+<li>
+<p>Ein Foto, auf dem du zu sehen bist, darf niemand ins Netz stellen, ohne dich vorher zu fragen. Das gleiche gilt, wenn du ein Foto machst. Frage alle Personen, die darauf zu sehen sind, ob du das Bild veröffentlichen darfst.</p>
+</li>
+</ul>
+<p><img src="/images/bildrecht.png" alt="Bild"></p>
+<ul>
+<li>
+<p>Fotos, die du gemacht hast, gehören dir. Der Fotograf oder die Fotografin ist immer der Urheber oder die Urheberin. Als Urheber hast du das Recht an deinem Bild, das heißt, du darfst entscheiden, wer dein Foto verwenden oder kopieren darf.</p>
+</li>
+<li>
+<p>Wenn du zum Beispiel bei einem Ausflug ein Foto machst, sind oft auch andere Leute darauf zu sehen. Du musst nicht alle diese Leute fragen, wenn du das Foto veröffentlichen möchtest, denn meistens sind deren Gesichter nicht richtig zu erkennen. Du musst nur darauf achten, dass keine fremde Person im Mittelpunkt des Bildes steht.</p>
+</li>
+<li>
+<p>Bilder aus dem Internet darfst du nur verwenden, wenn du den Urheber nach seiner Erlaubnis gefragt hast. Meistens ist das unmöglich. Deswegen gibt es Webseiten, auf denen du „freie Bilder“ findest, z.B. <a href="https://www.find-das-bild.de">www.find-das-bild.de</a>.</p>
+</li>
+<li>
+<p>Fotos aus dem Netz darfst du auch nicht als dein eigenes Profilbild verwenden. Auch wenn das viele Leute machen, es ist nicht erlaubt. Du kannst selbst ein Foto schießen oder etwas malen und abfotografieren.</p>
+</li>
+</ul>
+<p><img src="/images/foto-bombing.png" alt="Bild"></p>
+<ul>
+<li>Zum Schluss noch ein Tipp: Beim &ldquo;Foto-Bombing&rdquo; springst du anderen Leuten vor die Kamera und grinst frech. Das kann nervig, aber auch mal lustig sein. Am besten machst du das aber nur bei Freunden, die das auch witzig finden. Viel Spaß wünscht dir KABU!</li>
+</ul>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

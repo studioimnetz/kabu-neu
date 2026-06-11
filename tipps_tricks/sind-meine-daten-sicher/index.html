@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sind meine Daten sicher? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    Sind meine Daten sicher?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>Sind meine Daten sicher?</h1>
+      <div class="meta">05. July 2018</div>
+    </div>
+    
+      <img src="/images/Datenschutz1.jpg" alt="Sind meine Daten sicher?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/Datenschutz1.jpg" alt="Bild"></p>
+<p>Viele Erwachsene reden von Datenschutz und Datensicherheit. Worum es dabei geht, möchten wir dir heute erklären.</p>
+<h2 id="was-sind-eigentlich-daten">Was sind eigentlich Daten?</h2>
+<p>Damit sind meist deine persönlichen Daten gemeint, also dein Wohnort, deine Telefonnummer, dein Geburtsdatum, deine Hobbys oder wo du zur Schule gehst. Eben alle Informationen, die etwas über dich persönlich aussagen.</p>
+<h2 id="warum-sollten-meine-daten-geschützt-werden">Warum sollten meine Daten geschützt werden?</h2>
+<p>Stell dir vor, dich fragt auf der Straße eine wildfremde Person, wo du wohnst und wann du geboren bist. Würdest du ihr das verraten? Wahrscheinlich nicht. Auch im Internet solltet du deshalb aufpassen, was du über dich verrätst und wem du etwas schreibst. Nicht alle Personen meinen es gut mit dir.</p>
+<p>Erst denken, dann schreiben&hellip;</p>
+<blockquote>
+<p>💭 <strong>Denkblase</strong>
+Erst denken, dann schreiben&hellip;</p>
+</blockquote>
+<h2 id="wieso-ist-datenschutz-im-internet-besonders-wichtig">Wieso ist Datenschutz im Internet besonders wichtig?</h2>
+<p>Das Internet vergisst nichts. Alles, was du dort schreibst, bleibt gespeichert - auch wenn du es wieder löschst. Einmal im Netz, hast du keine Macht mehr darüber, was mit deinen Informationen und Bildern passiert und wie oft sie weitergegeben werden. Deshalb ist es wichtig, dass du in Apps wie WhatsApp oder in Spielen nicht zu viele Informationen von dir für andere Leute preisgibst.
+Auch viele App-Anbieter und Spielehersteller speichern deine Daten und geben sie an ihre Partner weiter. Alles, was sie dazu brauchen, ist deine Berechtigung.</p>
+<h2 id="wo-muss-ich-besonders-gut-aufpassen">Wo muss ich besonders gut aufpassen?</h2>
+<p>Bei der Neuinstallation einer App oder der Registrierung auf einer Internetseite wirst du gefragt, ob du den Betreibern der App oder der Seite erlaubst, auf deine Daten zuzugreifen. Lies immer genau durch, welche Informationen ein Anbieter von dir haben möchte und entscheide dann, ob du dich registrierst oder die App herunterlädst.
+Bei manchen Apps hast du sogar die Möglichkeit, Zugriffsrechte zu verweigern. Gib am besten so wenige Daten wie möglich preis. Und wenn du dir nicht sicher bist, frag einfach deine Eltern.</p>
+<p><img src="/images/Datenschutz2.jpg" alt="Bild"></p>
+<h2 id="was-ist-eine-ortung">Was ist eine Ortung?</h2>
+<p>Bei der Ortung wird dein Standort ermittelt. So weiß man beispielsweise, ob du dich gerade in Hamburg oder München aufhältst.
+Deinen Standort solltest du <strong>immer</strong> ausschalten, damit du nicht von fremden Personen geortet werden kannst.
+Eine Ausnahme ist, wenn du den Standort extra für eine App aktivierst, die du gerade benutzt. Vergiss aber nicht, ihn direkt danach wieder auszuschalten.</p>
+<h2 id="was-ist-noch-wichtig">Was ist noch wichtig?</h2>
+<p>Ein letzter Tipp: Schütze deine privaten Informationen unbedingt durch ein gutes Passwort. Zum Sichern deines Handys oder Tablets solltest du dringend eine PIN oder einen Code einrichten.
+Sei schlau und wähle dafür nicht <em>1234</em> oder <em>abcd</em>. Besser sind lange Passwörter mit Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen (z.B. Fragezeichen, Raute, Sternchen). Auch lange Pass-Sätze sind gut. Und überlege dir einen Trick, um dir das Passwort zu merken.</p>
+<p><img src="/images/Datenschutz3.jpg" alt="Bild"></p>
+<p>Denke immer daran: Deine Daten sind nicht von vorn herein sicher! Du musst dich um deine persönlichen Daten kümmern und sie vor Fremden schützen.</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

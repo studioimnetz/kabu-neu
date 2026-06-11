@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foto-Tipps für Kinderfotopreis – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Foto-Tipps für Kinderfotopreis
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Foto-Tipps für Kinderfotopreis</h1>
+      <div class="meta">17. March 2022</div>
+    </div>
+    
+      <img src="/images/202226_Neues_Vorschaubild_KABU_Fototipps.png" alt="Foto-Tipps für Kinderfotopreis" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h2 id="fototipps">Fototipps</h2>
+<p>Weißt du schon, wie man ein richtig gutes Foto schießen kann? Wir haben dir einige Tipps zum Fotografieren zusammengestellt.</p>
+<p><img src="/images/202226_2.png" alt="Bild"></p>
+<h2 id="beim-fotografieren-solltest-du-unbedingt-auf-das-richtige-licht-achten">Beim Fotografieren solltest du unbedingt auf das richtige Licht achten!</h2>
+<p>Hier wurde direkt in die Sonne fotografiert, sodass das restliche Foto sehr dunkel ist.</p>
+<p>Achte darauf, dass das Licht von der Seite oder von hinten kommt. So wie hier:</p>
+<p>![Bild](/images/202226_Design ohne Titel.png)</p>
+<p><img src="/images/202226_3.png" alt="Bild"></p>
+<h2 id="experimentiere-mit-perspektiven">Experimentiere mit Perspektiven!</h2>
+<p>Versuche mal die Perspektive, also die Richtung, aus der du fotografierst, zu ändern.</p>
+<p>Dieses Bild wurde mit der „Normalperspektive“ aufgenommen, der Fotoapparat fotografiert einfach geradeaus, und folgt deinem Blick.</p>
+<p>Bei dem nächsten Bild wurde die „Froschperspektive“ verwendet. Man macht sich dafür ganz klein und hockt sich zum Fotografieren auf den Boden. Dadurch wirkt alles größer und mächtiger.</p>
+<p><img src="/images/202226_7.png" alt="Bild"></p>
+<p><img src="/images/202226_4.png" alt="Bild"></p>
+<h2 id="gib-deinen-fotos-mit-einem-filter-einen-besonderen-look">Gib deinen Fotos mit einem Filter einen besonderen Look!</h2>
+<p>Filter kann man auf ein Foto „rauflegen“, um sie nachträglich anders aussehen zu lassen. Dafür brauchst du nicht einmal ein Bildbearbeitungsprogramm.</p>
+<p>Nutze doch mal analoge Filter: Halte einfach mal einen Gegenstand vor die Kamera, wie beispielsweise eine volle Getränkeflasche oder eine Sonnenbrille.</p>
+<p>Bei dem folgenden Foto wurde auf das Originalfoto ein hellerer Filter gelegt.</p>
+<p><img src="/images/202226_5.png" alt="Bild"></p>
+<h2 id="knipsclub">Knipsclub</h2>
+<p>Diese und noch viel mehr Tipps rund um das Thema fotografieren findest du unter „knipstipps“ auf der Webseite vom „knipsclub“.
+Das ist eine Foto-Community in der Kinder zwischen 8 und 12 Jahren aus Deutschland ihre Fotos mit anderen teilen können.</p>
+<p>Vielleicht hast du schon mal von Instagram oder Snapchat gehört: Das sind ähnliche Fotoplattformen, allerdings bewegst du dich im knipsclub in einem geschützten Rahmen. Das bedeutet, dass nur andere, die beim knipsclub angemeldet sind, deine Fotos anschauen können.</p>
+<h2 id="kinderfotopreis">Kinderfotopreis</h2>
+<p>Der Kinderfotopreis ist ein Fotowettbewerb für Kinder zwischen 3 und 12 Jahren aus München/ Oberbayern. Dieses Jahr ist das Thema: <strong>&ldquo;rund &amp; eckig&rdquo;</strong>.</p>
+<p>Bis zum <strong>15. Mai 2023</strong> kannst du dein Foto zu dem Thema einsenden. Danach schaut sich eine Jury alle Einsendungen an und wählt die überzeugendsten Fotos aus.</p>
+<p>Die Preisverleihung vom Kinderfotopreis München/Oberbayern wird am <strong>14. Juli in München</strong> stattfinden.</p>
+<p>Wenn dir noch mehr Fotografie-Tipps einfallen, melde dich gerne bei der KABU-Redaktion.</p>
+<p>Viele Grüße von deinem KABU-Team!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

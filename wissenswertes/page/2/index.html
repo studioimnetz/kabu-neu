@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wissenswertes – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <h1>Wissenswertes</h1>
+  <p>57 Beiträge</p>
+</div>
+
+<div class="posts-section">
+  <div class="posts-grid">
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/zum-weihnachtsfest/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Zum Weihnachtsfest" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Zum Weihnachtsfest</h2>
+    <div class="post-card-date">22.12.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/halloween-das-steckt-dahinter/">
+  
+    <img class="post-card-img" src="/images/201994_halloween-vorschaubild.jpg" alt="Halloween: Das steckt dahinter" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Halloween: Das steckt dahinter</h2>
+    <div class="post-card-date">26.10.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/taschengeld/">
+  
+    <img class="post-card-img" src="/images/202563_Taschengeld%20KABU%20ohne%20KABU.png" alt="Taschengeld" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Taschengeld</h2>
+    <div class="post-card-date">28.07.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/ki-einfach-erklaert/">
+  
+    <img class="post-card-img" src="/images/202471_Vorschaubild%20KI_mit%20Titel_klein.png" alt="KI einfach erklärt" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>KI einfach erklärt</h2>
+    <div class="post-card-date">08.09.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-sind-die-olympischen-spiele/">
+  
+    <img class="post-card-img" src="/images/202465_KABU-olympia24.jpg" alt="Was sind die Olympischen Spiele?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was sind die Olympischen Spiele?</h2>
+    <div class="post-card-date">24.07.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-ist-die-europaeische-union/">
+  
+    <img class="post-card-img" src="/images/202431_KABU-Grafiken.jpg" alt="Was ist die Europäische Union?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist die Europäische Union?</h2>
+    <div class="post-card-date">02.06.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/april-im-zeitraffer/">
+  
+    <img class="post-card-img" src="/images/202434_KABU-Grafiken%20%281%29.jpg" alt="April im Zeitraffer" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>April im Zeitraffer</h2>
+    <div class="post-card-date">27.04.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/erdgummibeere/">
+  
+    <img class="post-card-img" src="/images/202224_Vorschau_erd.jpg" alt="Erdgummibeere" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Erdgummibeere</h2>
+    <div class="post-card-date">31.03.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-ist-ein-schaltjahr/">
+  
+    <img class="post-card-img" src="/images/202411_Vorschaubild.png" alt="Was ist ein Schaltjahr" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist ein Schaltjahr</h2>
+    <div class="post-card-date">21.02.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/hast-du-gepupst-tag/">
+  
+    <img class="post-card-img" src="/images/202401_KABU-Grafiken%20%2810%29.png" alt="Hast-du-gepupst?-Tag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Hast-du-gepupst?-Tag</h2>
+    <div class="post-card-date">03.02.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/herbstanfang/">
+  
+    <img class="post-card-img" src="/images/202385_121.png" alt="Herbstanfang" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Herbstanfang</h2>
+    <div class="post-card-date">02.09.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/der-heilige-sankt-martin/">
+  
+    <img class="post-card-img" src="/images/2021104_Lina.jpg" alt="Der heilige Sankt Martin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Der heilige Sankt Martin</h2>
+    <div class="post-card-date">10.11.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/queen-elisabeth-ii/">
+  
+    <img class="post-card-img" src="/images/202281_queen1.png" alt="Queen Elisabeth II" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Queen Elisabeth II</h2>
+    <div class="post-card-date">25.09.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/steinzeit-aufloesung/">
+  
+    <img class="post-card-img" src="/images/202261_Vorschau.jpg" alt="Steinzeit - Auflösung " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Steinzeit - Auflösung </h2>
+    <div class="post-card-date">09.07.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/steinzeit/">
+  
+    <img class="post-card-img" src="/images/202254_Vorschau1.jpg" alt="Steinzeit" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Steinzeit</h2>
+    <div class="post-card-date">02.07.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-ist-eigentlich-dieser-treibhauseffekt/">
+  
+    <img class="post-card-img" src="/images/202252_lab-g1943ed158_1920.jpg" alt="Was ist eigentlich dieser Treibhauseffekt? " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist eigentlich dieser Treibhauseffekt? </h2>
+    <div class="post-card-date">21.06.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/tanzen-heute-nacht-die-hexen-und-hexenmeister/">
+  
+    <img class="post-card-img" src="/images/202232_Vorschau_Walpurgisjpg.jpg" alt="Tanzen heute Nacht die Hexen und Hexenmeister?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tanzen heute Nacht die Hexen und Hexenmeister?</h2>
+    <div class="post-card-date">29.04.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/welttag-des-buches/">
+  
+    <img class="post-card-img" src="/images/202234_Welttag%20des%20Buches.png" alt="Welttag des Buches" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Welttag des Buches</h2>
+    <div class="post-card-date">22.04.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/foto-tipps-fuer-kinderfotopreis/">
+  
+    <img class="post-card-img" src="/images/202226_Neues_Vorschaubild_KABU_Fototipps.png" alt="Foto-Tipps für Kinderfotopreis" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Foto-Tipps für Kinderfotopreis</h2>
+    <div class="post-card-date">17.03.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/weltfrauentag/">
+  
+    <img class="post-card-img" src="/images/202222_Frauentag%20%28800%20%c3%97%20800%20px%29.png" alt="Weltfrauentag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Weltfrauentag</h2>
+    <div class="post-card-date">07.03.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/ukrainekrise/">
+  
+    <img class="post-card-img" src="/images/202225_Flagge.png" alt="Ukrainekrise" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Ukrainekrise</h2>
+    <div class="post-card-date">02.03.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/demokratie/">
+  
+    <img class="post-card-img" src="/images/202211_Demokratie_KABU.jpg" alt="Demokratie" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Demokratie</h2>
+    <div class="post-card-date">07.02.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-ist-kabu-fuer-ein-besonderes-tier/">
+  
+    <img class="post-card-img" src="/images/2021114_Fabelwesen.jpg" alt="Was ist KABU für ein besonderes Tier?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist KABU für ein besonderes Tier?</h2>
+    <div class="post-card-date">28.01.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/die-regenbogenflagge/">
+  
+    <img class="post-card-img" src="/images/202155_Trennbild%202.jpg" alt="Die Regenbogenflagge" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Die Regenbogenflagge</h2>
+    <div class="post-card-date">23.06.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/fruehlingsboten/">
+  
+    <img class="post-card-img" src="/images/202114_butterflies-1127666_1920.jpg" alt="Frühlingsboten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Frühlingsboten</h2>
+    <div class="post-card-date">18.02.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/frohes-neues-jahr/">
+  
+    <img class="post-card-img" src="/images/202105_silvest1.jpg" alt="Frohes Neues Jahr!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Frohes Neues Jahr!</h2>
+    <div class="post-card-date">06.01.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/wahl-in-den-usa-kurz-erklaert/">
+  
+    <img class="post-card-img" src="/images/2020105_us-wahl-02.jpg" alt="Wahl in den USA - kurz erklärt" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Wahl in den USA - kurz erklärt</h2>
+    <div class="post-card-date">06.11.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/sternbilder/">
+  
+    <img class="post-card-img" src="/images/202054_komprimiertstar-2630050_1920.jpg" alt="Sternbilder" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Sternbilder</h2>
+    <div class="post-card-date">23.06.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/hallo-ich-bin-kabu-2/">
+  
+    <img class="post-card-img" src="/images/roboter-mit-kabu-icon.jpg" alt="Hallo, ich bin KABU!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Hallo, ich bin KABU!</h2>
+    <div class="post-card-date">11.02.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-ist-kuenstliche-intelligenz/">
+  
+    <img class="post-card-img" src="/images/202005_KI_Screenshot2.jpg" alt="Was ist Künstliche Intelligenz?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist Künstliche Intelligenz?</h2>
+    <div class="post-card-date">29.01.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-sind-sprachassistenten/">
+  
+    <img class="post-card-img" src="/images/2019105_sprachassistent-vorschaubild.jpg" alt="Was sind Sprachassistenten?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was sind Sprachassistenten?</h2>
+    <div class="post-card-date">13.11.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/was-ist-fridays-for-future/">
+  
+    <img class="post-card-img" src="/images/Bild1JPG.JPG" alt="Was ist &#39;Fridays for Future&#39;?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist &#39;Fridays for Future&#39;?</h2>
+    <div class="post-card-date">19.09.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/amseln-am-fenster/">
+  
+    <img class="post-card-img" src="/images/amseln-am-fenster-4.jpg" alt="Amseln am Fenster" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Amseln am Fenster</h2>
+    <div class="post-card-date">12.07.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/bedeutung-von-chatkuerzeln/">
+  
+    <img class="post-card-img" src="/images/Vorschaubild.jpg" alt="Bedeutung von Chatkürzeln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Bedeutung von Chatkürzeln</h2>
+    <div class="post-card-date">30.05.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/japanische-kindermedien/">
+  
+    <img class="post-card-img" src="/images/pokemonvorschau.jpg" alt="Japanische Kindermedien" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Japanische Kindermedien</h2>
+    <div class="post-card-date">16.05.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/spielkonsolen-und-ihre-namen/">
+  
+    <img class="post-card-img" src="/images/VorschaubildKABU.jpg" alt="Spielkonsolen und ihre Namen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Spielkonsolen und ihre Namen</h2>
+    <div class="post-card-date">01.05.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/emoji-lexikon/">
+  
+    <img class="post-card-img" src="/images/VorschaubildEmojis.jpg" alt="Emoji-Lexikon" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Emoji-Lexikon</h2>
+    <div class="post-card-date">15.03.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/der-fall-der-berliner-mauer/">
+  
+    <img class="post-card-img" src="/images/berlinermauer1.jpg" alt="Der Fall der Berliner Mauer" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Der Fall der Berliner Mauer</h2>
+    <div class="post-card-date">07.11.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/ueber-qwerty-und-qwertz/">
+  
+    <img class="post-card-img" src="/images/VorschaubildTastatur.jpg" alt="Über QWERTY und QWERTZ" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Über QWERTY und QWERTZ</h2>
+    <div class="post-card-date">28.09.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/so-eine-hitze/">
+  
+    <img class="post-card-img" src="/images/kamel.jpg" alt="So eine Hitze..." loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>So eine Hitze...</h2>
+    <div class="post-card-date">18.08.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/tipps-zum-sonnenschutz/">
+  
+    <img class="post-card-img" src="/images/strandkabu.jpg" alt="Tipps zum Sonnenschutz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tipps zum Sonnenschutz</h2>
+    <div class="post-card-date">26.07.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/info-fuer-eltern/">
+  
+    <img class="post-card-img" src="/images/kabu&#43;robo.jpg" alt="Info für Eltern" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Info für Eltern</h2>
+    <div class="post-card-date">15.07.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/astro-alex-im-all/">
+  
+    <img class="post-card-img" src="/images/nasa2explore-15295337250-kabu.jpg" alt="Astro-Alex im All" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Astro-Alex im All</h2>
+    <div class="post-card-date">11.06.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/faszination-fortnite/">
+  
+    <img class="post-card-img" src="/images/FortniteVorschaubildNeu.jpg" alt="Faszination Fortnite" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Faszination Fortnite</h2>
+    <div class="post-card-date">24.05.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/1-2-oder-3-hinter-den-kulissen/">
+  
+    <img class="post-card-img" src="/images/1,2oder3VorschaubildKabu.jpg" alt="1, 2 oder 3: Hinter den Kulissen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>1, 2 oder 3: Hinter den Kulissen</h2>
+    <div class="post-card-date">03.05.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/verschneite-osterferien/">
+  
+    <img class="post-card-img" src="/images/schnee-ostern2017.jpg" alt="Verschneite Osterferien?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Verschneite Osterferien?</h2>
+    <div class="post-card-date">30.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/tierische-fakten/">
+  
+    <img class="post-card-img" src="/images/schmetterling.jpg" alt="Tierische Fakten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tierische Fakten</h2>
+    <div class="post-card-date">15.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/die-plastikreporter/">
+  
+    <img class="post-card-img" src="/images/Plastik-M%c3%bcll.jpg" alt="Die Plastikreporter" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Die Plastikreporter</h2>
+    <div class="post-card-date">03.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/helau-alaaf-schon-gewusst/">
+  
+    <img class="post-card-img" src="/images/202011_faschings-kabu.png" alt="Helau &amp; Alaaf: Schon gewusst?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Helau &amp; Alaaf: Schon gewusst?</h2>
+    <div class="post-card-date">07.02.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/big-five-gefaehrliche-wildtiere/">
+  
+    <div class="post-card-img-placeholder">📚</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Big Five: Gefährliche Wildtiere</h2>
+    <div class="post-card-date">10.01.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/welche-werbung-gibt-es/">
+  
+    <img class="post-card-img" src="/images/Zeitschriftenwerbung_Pixabay.jpg" alt="Welche Werbung gibt es?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Welche Werbung gibt es?</h2>
+    <div class="post-card-date">06.07.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/das-groesste-tier-der-welt/">
+  
+    <img class="post-card-img" src="/images/blauwal.png" alt="Das größte Tier der Welt" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Das größte Tier der Welt</h2>
+    <div class="post-card-date">18.04.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/tropfsteine/">
+  
+    <img class="post-card-img" src="/images/Tropfsteine1.jpg" alt="Tropfsteine" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tropfsteine</h2>
+    <div class="post-card-date">15.03.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/4-advent-das-vulkan-experiment/">
+  
+    <img class="post-card-img" src="/images/2025102_9.png" alt="4. Advent: Das Vulkan-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>4. Advent: Das Vulkan-Experiment</h2>
+    <div class="post-card-date">20.12.2000</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/3-advent-das-regenbogen-experiment/">
+  
+    <img class="post-card-img" src="/images/202574_Vorschau_regen.png" alt="3. Advent: Das Regenbogen-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>3. Advent: Das Regenbogen-Experiment</h2>
+    <div class="post-card-date">13.12.2000</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/2-advent-das-pfeffer-experiment/">
+  
+    <img class="post-card-img" src="/images/202574_VorschauPF.png" alt="2. Advent: Das Pfeffer-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>2. Advent: Das Pfeffer-Experiment</h2>
+    <div class="post-card-date">06.12.2000</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/wissenswertes/1-advent-das-gummibaerchen-experiment/">
+  
+    <img class="post-card-img" src="/images/2025100_Vorschau.png" alt="1. Advent: Das Gummibärchen-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>1. Advent: Das Gummibärchen-Experiment</h2>
+    <div class="post-card-date">29.11.2000</div>
+  </div>
+</a>
+
+    
+  </div>
+
+  
+		<ul class="pagination pagination-default">
+			<li class="page-item">
+				<a href="/wissenswertes/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item">
+			<a href="/wissenswertes/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/wissenswertes/" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+			<li class="page-item">
+				<a href="/wissenswertes/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+			</li>
+			<li class="page-item">
+				<a href="/wissenswertes/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+			</li>
+			<li class="page-item">
+				<a href="/wissenswertes/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+			</li>
+		<li class="page-item">
+			<a href="/wissenswertes/page/3/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/wissenswertes/page/6/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

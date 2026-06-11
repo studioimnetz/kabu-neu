@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astro-Alex im All – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Astro-Alex im All
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Astro-Alex im All</h1>
+      <div class="meta">11. June 2018</div>
+    </div>
+    
+      <img src="/images/nasa2explore-15295337250-kabu.jpg" alt="Astro-Alex im All" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/nasa2explore-15295337250-kabu.jpg" alt="Bild"></p>
+<p>Der deutsche Astronaut Alexander Gerst ist derzeit im All: Am 08. Juni 2018 um 15:01 Uhr erreichte er die Internationale Raumstation (ISS). Er flog zusammen mit seinen Kollegen Sergej Prokopjew (Russland) und Serena Auñón-Chancellor (USA).</p>
+<p><img src="/images/nasa2explore-28603380528.jpg" alt="Bild"></p>
+<p>Was machen Astronauten im All?</p>
+<p>Die Astronauten führen Experimente durch und forschen nach neuen Erkenntnissen. Gerst und seine Kollegen haben eine Mission namens „Horizons“ aufgetragen bekommen. Mehr als 50 Experimente sind geplant, dabei werden sie medizinische Versuche an sich selbst durchführen und speziell hergestellte Kleidung für Raumstationen testen. Aber auch die Erforschung unseres Sonnensystems mit Robotern, den sogenannten „Rovers“, wird ein Teil der Mission sein. Eine weitere Idee ist ein „Tor zum Weltraum“, das für einen leichten, sicheren Transport zum Mond sorgen soll.</p>
+<p><img src="/images/nasa2explore-15148710840.jpg" alt="Bild"></p>
+<p>Wie kann man eigentlich im All leben?</p>
+<p>Um ins All zu fliegen und sich außerhalb der Raumstation bewegen zu können, benötigen die Astronauten einen speziellen Weltraumanzug. Er besteht aus vielen Schichten von Textilien, Kunstostoffen und Metall. In der ersten Schicht sind Schläuche mit kaltem Wasser, damit der Anzug nicht überhitzt. Danach kommt eine Neoprenschicht, die für die Beweglichkeit des Astronauten sorgt. Im Helm befinden sich Anschlüsse für Sauerstoff, Abluft, Kühlwasser und Kommunikation. Der Helm ist kugelförmig und luftdicht an den Anzug angeschlossen, das Visier des Helms ist vergoldet und UV-geschützt, damit die starken Strahlen der Sonne nicht die Augen verbrennen.</p>
+<p><img src="/images/nasa2explore-14658964360.jpg" alt="Bild"></p>
+<p>Wie lange braucht man von der Erde bis zum All?</p>
+<p>Unglaublich, aber wahr: Der Flug ins All dauert nur acht Minuten! Die Rakete erreicht schon nach vier Minuten eine Geschwindigkeit von 28.000 km/h. Weitere vier Minuten später ist das Weltall erreicht und die Schwerelosigkeit setzt ein. Somit ist das All nur einen „Katzensprung“ entfernt. Um zur Raumstation zu gelangen, musste Alexander Gerst allerdings zwei Tage lang reisen und 34 mal um die Erde fliegen. Erst dann hatte er die richtige Umlaufbahn erreicht, um 400 Kilometer über der Erde an die Raumstation anzudocken. Nun bleibt er ein halbes Jahr im All, bevor er nach Deutschland zurückkehrt. KABU wünscht Alexander viel Spaß :-)</p>
+<p><img src="/images/nasa2explore-14347145905.jpg" alt="Bild"></p>
+<p>Hinweis: Alle Fotos stammen von der NASA (flickr.com/nasa2explore) und stehen unter freier Lizenz (CC BY-NC 2.0 bzw. CC BY-NC-ND 2.0). Vielen Dank für die tollen Bilder!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

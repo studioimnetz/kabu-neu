@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mein Handy und ich – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/tipps_tricks/">Tipps &amp; Tricks</a> ›
+    Mein Handy und ich
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-tipps_tricks" href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      <h1>Mein Handy und ich</h1>
+      <div class="meta">05. February 2024</div>
+    </div>
+    
+      <img src="/images/202012_Mein-Handy-und-Ich---Titelbild.png" alt="Mein Handy und ich" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/202015_Mein-Handy-und-Ich---Header.png" alt="Bild"></p>
+<h2 id="heute-ist-safer-internet-day">Heute ist &ldquo;Safer Internet Day&rdquo;</h2>
+<p>Diesen Tag gibt es jährlich, um die Menschen an mehr <strong>Sicherheit im Internet</strong> zu erinnern. Wir alle werden aufgerufen, über unseren Umgang mit dem Internet nachzudenken. KABU hat deshalb ein paar Fragen zum Handy, über die du nachdenken solltest:</p>
+<h2 id="handy-checkliste">Handy-Checkliste</h2>
+<ul>
+<li>Wie viel Zeit verbringe ich täglich am Handy? Ist das vielleicht zu viel Zeit?</li>
+</ul>
+<hr>
+<ul>
+<li>In welchen Situationen verbringe ich Zeit am Handy? Sind das vielleicht manchmal unpassende Situationen?</li>
+</ul>
+<hr>
+<ul>
+<li>Verbringe ich meine Freizeit auch mit Dingen, die nichts mit dem Handy oder dem Computer zu tun haben? Sind das genug andere Dinge?</li>
+</ul>
+<hr>
+<ul>
+<li>Wie ist mein Verhalten in Gruppenchats? War ich immer nett und fair zu jedem?</li>
+</ul>
+<hr>
+<ul>
+<li>Wie verhalte ich mich, wenn ich mitbekomme, dass jemand durch Kommentare oder Nachrichten schlecht behandelt wird? Halte ich mich raus oder stelle ich mich auf die Seite des Betroffenen?</li>
+</ul>
+<hr>
+<ul>
+<li>Habe ich sichere Passwörter? Halte ich meine Passwörter auch wirklich geheim?</li>
+</ul>
+<hr>
+<ul>
+<li>Kann man mich ausspionieren, weil ich die Ortung meines Standortes zulasse? Oder habe ich meinen Standort nur eingeschaltet, wenn ich ihn gerade brauche, um den richtigen Weg zu finden?</li>
+</ul>
+<hr>
+<ul>
+<li>Welche Fotos lade ich im Internet hoch und welche verschicke ich? Sind das Fotos, wo nur ich, Gebäude, Tiere oder die Landschaft zu sehen sind? Oder sind das Fotos, wo auch Freunde zu sehen sind, die ich vorher gar nicht um Erlaubnis gefragt habe?</li>
+</ul>
+<hr>
+<ul>
+<li>Wer kann meine Fotos sehen? Sind das nur Personen, die ich kenne oder auch fremde Personen?</li>
+</ul>
+<hr>
+<ul>
+<li>Welche Personen aus dem Internet kennen meinen Namen, meine Adresse oder meine Handynummer? Sind das nur meine Familie und Freunde oder auch unbekannte Personen?</li>
+</ul>
+<hr>
+<ul>
+<li>Glaube ich immer alle Informationen, die ich auf einer Internetseite finde? Oder überprüfe ich sie lieber nochmal wo anders?</li>
+</ul>
+<hr>
+<h2 id="tipps--tricks-von-kabu">Tipps &amp; Tricks von KABU</h2>
+<p>Um die Fragen besser beantworten zu können, hat KABU einige Tipps &amp; Tricks für dich zusammengestellt:</p>
+<p><img src="/images/202012_1.png" alt="Bild"></p>
+<p><img src="/images/202012_2.png" alt="Bild"></p>
+<p><img src="/images/202012_4.png" alt="Bild"></p>
+<p><img src="/images/202012_3.png" alt="Bild"></p>
+<p><img src="/images/202012_6.png" alt="Bild"></p>
+<p><img src="/images/202012_5.png" alt="Bild"></p>
+<p><img src="/images/202012_7.png" alt="Bild"></p>
+<p><img src="/images/202012_8.png" alt="Bild"></p>
+<p><img src="/images/202012_9.png" alt="Bild"></p>
+<p><img src="/images/202012_10.png" alt="Bild"></p>
+<p><img src="/images/202012_11.png" alt="Bild"></p>
+<p><img src="/images/202012_12.png" alt="Bild"></p>
+<p>Nutze den <strong>Safer Internet Day</strong>, um über dein Verhalten mit dem Handy nachzudenken! Und denke auch das restliche Jahr über daran: Um sich im Internet sicher fühlen zu können, gilt es Einges zu beachten.</p>
+<p>KABU wünscht dir viel Erfolg dabei :)</p>
+<p><img src="/images/202401_Unbenannt.JPG" alt="Bild"></p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was ist &#39;Fridays for Future&#39;? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Was ist &#39;Fridays for Future&#39;?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Was ist &#39;Fridays for Future&#39;?</h1>
+      <div class="meta">19. September 2019</div>
+    </div>
+    
+      <img src="/images/Bild1JPG.JPG" alt="Was ist &#39;Fridays for Future&#39;?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/Bild1JPG.JPG" alt="Bild"></p>
+<p>„Fridays for Future“ ist eine Bewegung von Kindern und Jugendlichen, die freitags nicht in die Schule gehen, sondern auf Demonstrationen. Jeder der will, kann mitmachen. Die Idee hatte ein Mädchen aus Schweden: Greta Thunberg. Vielleicht kennst du ihren Namen schon aus den Nachrichten. Greta und „Fridays for Future“ wollen mit ihrem Schulstreik auf den Klimawandel aufmerksam machen.</p>
+<p><img src="/images/medien+umwelt.jpg" alt="Bild"></p>
+<p>Klimawandel bedeutet, dass es auf der Erde langsam immer heißer wird. Das ist sehr gefährlich für alle Pflanzen, Tiere und Menschen. Das passiert, weil wir Menschen so viel dreckige Luft produzieren. Zum Beispiel beim Autofahren und wenn wir neue Sachen herstellen. Die Schüler von „Fridays for Future“ wollen, dass die ganze Welt mehr darauf achtet, weniger dreckige Luft zu erzeugen.</p>
+<p><img src="/images/Bild2.JPG" alt="Bild"></p>
+<p>Viele Kinder und Jugendlichen gehen deshalb freitags nicht in die Schule, sondern demonstrieren. Das machen sie, weil sie so die Aufmerksamkeit von Politikern bekommen. Die Schüler werfen der Politik nämlich vor, nicht genug gegen den Klimawandel zu unternehmen, weil ihnen der Kampf gegen den Klimawandel zu teuer ist.</p>
+<p><img src="/images/Bild3.JPG" alt="Bild"></p>
+<p>Mittlerweile sind es aber nicht mehr nur Schüler, die jeden Freitag demonstrieren. Auch viele Studenten, Eltern und Lehrer machen mit. Sie alle wollen unbedingt, dass etwas gegen den Klimawandel unternommen wird. Und sie sind auch schon erfolgreich gewesen. Es gibt jetzt eine neue Gruppe in der Regierung, die sich nur mit dem Klimawandel beschäftigt. Die arbeitet gerade auch schon an neuen Gesetzen, damit die Luft auf der Welt wieder sauberer wird.</p>
+<p>Denn eigentlich sind sich alle einig: Man muss den Klimawandel stoppen. Die Frage ist aber, was man dafür machen darf und wie schnell es gehen muss.</p>
+<p>Bilder von:</p>
+<ul>
+<li>© Fridays for Future Deutschland</li>
+<li>Pixabay Creative Commons CC0</li>
+</ul>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

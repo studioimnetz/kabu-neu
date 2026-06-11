@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weltfrauentag – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Weltfrauentag
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Weltfrauentag</h1>
+      <div class="meta">07. March 2022</div>
+    </div>
+    
+      <img src="/images/202222_Frauentag%20%28800%20%c3%97%20800%20px%29.png" alt="Weltfrauentag" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="am-8-märz-ist-weltfrauentag">Am 8. März ist Weltfrauentag!</h1>
+<p>Doch was bedeutet das?
+Dazu schauen wir uns erstmal die Geschichte dieses wertvollen Feiertags an:</p>
+<p>Früher durften Frauen nicht wählen gehen, dass ist heute glücklicherweise anders. Außerdem wurden Frauen viel schlechter als Männer bezahlt, wenn sie überhaupt arbeiten gehen durften.
+Im Jahr 1910 (das ist schon über 100 Jahre her) verbreiteten Amerikanerinnen auf der zweiten Weltweiten Frauenkonferenz die Idee eines Frauentags. Clara Zetkin aus Deutschland schrieb dann einen Antrag dafür.</p>
+<p>![Bild](/images/202225_Clara Zetkin.jpg)</p>
+<p>So war also die Idee eines Weltweiten Frauentags geboren. Ein genaues Datum dafür gab es jedoch noch nicht. Ziel war es sich weltweit für Gleichberechtigung, höhere Bezahlung und bessere Arbeitsbedingungen für Frauen sowie für ein Frauenwahlrecht und gegen Diskriminierung einzusetzen.</p>
+<p>Weißt du überhaupt was Diskriminierung bedeutet?</p>
+<blockquote>
+<p>💭 <strong>Denkblase</strong>
+Weißt du überhaupt was Diskriminierung bedeutet?</p>
+</blockquote>
+<p>Wenn du andere Menschen ausschließt oder nicht an etwas teilhaben lässt, dann diskriminierst du sie.</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Wenn du andere Menschen ausschließt oder nicht an etwas teilhaben lässt, dann diskriminierst du sie.</p>
+</blockquote>
+<p>1911 fand daraufhin in Dänemark, Deutschland, Österreich, der Schweiz und den USA der erste Internationale Frauentag statt.</p>
+<p>Heutzutage machen Frauen auf der ganzen Welt am 8.März mit Veranstaltungen, Feiern und Demonstrationen auf noch fehlende Frauenrechte aufmerksam.</p>
+<p><img src="/images/202225_Demo.webp" alt="Bild"></p>
+<p>Denn obwohl die Gleichberechtigung seit 1949 in unserem Grundgesetz steht, ist sie noch lange nicht überall in Deutschland.</p>
+<p>Weißt du überhaupt was Gleichberechtigung bedeutet?</p>
+<blockquote>
+<p>💭 <strong>Denkblase</strong>
+Weißt du überhaupt was Gleichberechtigung bedeutet?</p>
+</blockquote>
+<p>Gleichberechtigung heißt, dass alle Menschen die gleichen Rechte haben. Dabei ist es egal ob man Mann oder Frau ist, arm oder reich, alt oder jung, oder welche Hautfarbe man hat.</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Gleichberechtigung heißt, dass alle Menschen die gleichen Rechte haben. Dabei ist es egal ob man Mann oder Frau ist, arm oder reich, alt oder jung, oder welche Hautfarbe man hat.</p>
+</blockquote>
+<p>Übrigens: Seit 2019 haben die Berliner Schüler*innen am Weltfrauentag schulfrei. Denn seitdem ist in Berlin der 8. März ein gesetzlicher Feiertag.</p>
+<p>Am besten zeigt ihr heute also allen Frauen wie wichtig sie heute für euch sind! Sagt also eurer Mama, Oma, Schwester und/oder Freundin wie lieb ihr sie habt und wie dankbar ihr für sie seid!</p>
+<p>Auch die KABU-Redaktion wünscht allen Frauen und Mädchen da draußen einen schönen Weltfrauentag!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

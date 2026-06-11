@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4. Advent: Das Vulkan-Experiment – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    4. Advent: Das Vulkan-Experiment
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>4. Advent: Das Vulkan-Experiment</h1>
+      <div class="meta">20. December 2000</div>
+    </div>
+    
+      <img src="/images/2025102_9.png" alt="4. Advent: Das Vulkan-Experiment" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h2 id="4-advent-das-vulkan-experiment">4. Advent: Das Vulkan-Experiment</h2>
+<p>Heute ist der <strong>4. Advent</strong> und in drei Tagen ist Weihnachten! KABU ist schon ganz aufgeregt und freut sich, das <strong>letzte Experiment</strong> - für dieses Jahr - mit euch zu teilen!</p>
+<p>KABU zeigt dir heute, wie du deinen <strong>eigenen Vulkan</strong> bei dir zu Hause ausbrechen lassen kannst!</p>
+<h2 id="was-du-dazu-brauchst">Was du dazu brauchst</h2>
+<p>Führe Experimente immer gemeinsam mit deinen Eltern oder einer erziehungsberechtigten Person durch.</p>
+<p>Für das Experiment braucht ihr:</p>
+<ul>
+<li>Teller</li>
+<li>Schere</li>
+<li>2 Gläser</li>
+<li>Alufolie und Klebeband</li>
+<li>3 Päckchen Backpulver</li>
+<li>1 bis 2 Päckchen Lebensmittelfarbe (z.B. rot)</li>
+<li>Spülmittel</li>
+<li>ein halbes Glas Essig</li>
+<li>ein halbes Glas Wasser</li>
+<li>eine große, wasserdichte Unterlage (z. B. ein Tablett)</li>
+</ul>
+<p>![Bild](/images/2025111_Was man braucht.png)</p>
+<h1 id="so-geht-es">So geht es:</h1>
+<ol>
+<li>Klebt eines der beiden Gläser mit Klebeband auf die Mitte des Tellers.</li>
+<li>Legt zwei Lagen Alufolie darüber, sodass Teller und Glas bedeckt sind. Klebt die Folienränder an der Unterseite des Tellers fest.</li>
+<li>Schneidet ein Loch in die Alufolie in der Mitte der Glasöffnung. Knickt die Alufolie nach innen und klebt sie am Innenrand des Glases fest.</li>
+<li>Gebt das Backpulver in den Vulkankrater. Im zweiten Glas mischt ihr das Wasser und den Essig mit Lebensmittelfarbe, solange bis die Flüssigkeit verfärbt ist. Gebt dann einen Spritzer Spülmittel dazu.</li>
+</ol>
+<p><em>Wichtig</em>: Stellt euren Vulkan auf eine wasserdichte Unterlage, damit keine „Lava“ auf Tisch oder Boden läuft!</p>
+<ol start="5">
+<li>Gießt das bunte Gemisch in den Alufolienkrater – und schon beginnt der Vulkanausbruch🌋</li>
+</ol>
+<h2 id="video-anleitung">Video-Anleitung</h2>
+<p>Hier geht es zur Videoanleitung:</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/1145216743?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>Falls du das Video in der App nicht abspielen kannst, gibt es das ganze Experiment als Video und weitere KABU-Filme auch in unserem YouTube-Kanal!</p>
+<p>Frage deine Erziehungsberechtigten um Hilfe. Das Video finden sie in unserem YouTube-Account &ldquo;SIN - Studio im Netz&rdquo; in der Playlist &ldquo;Videos aus der Kinder-Info-App KABU&rdquo;.</p>
+<p>KABU wünscht allen, die Weihnachten feiern, ein schönes Fest und bedankt sich bei der Kinderredaktion für das tolle Video!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

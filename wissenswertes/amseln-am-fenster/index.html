@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amseln am Fenster – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/wissenswertes/">Wissenswertes</a> ›
+    Amseln am Fenster
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-wissenswertes" href="/wissenswertes/">Wissenswertes</a>
+      <h1>Amseln am Fenster</h1>
+      <div class="meta">12. July 2019</div>
+    </div>
+    
+      <img src="/images/amseln-am-fenster-4.jpg" alt="Amseln am Fenster" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/amseln-am-fenster.jpg" alt="Bild"></p>
+<p>In unserer Kabu-Redaktion konnten wir eine interessante Beobachtung machen: Vor ein paar Wochen hat sich ein Amselpärchen ein Nest in einem unserer Blumenkästen gebaut und hat dort Junge ausgebrütet und aufgezogen. Wir haben eine Kamera aufgestellt, hier seht ihr einige Aufnahmen.</p>
+<h2 id="videoclip">Videoclip:</h2>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/344956866?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>Die Amsel, auch <strong>Turdus merula</strong> genannt, gehört zur Familie der Singvögel und Drosseln. Amseln sind Zugvögel. Das heißt sie fliegen während dem Winter in den Süden, um der Kälte zu entgehen. Amseln sind in Europa, Asien und Afrika heimisch. Ausgewachsene Amseln können 25 Zentimeter groß werden. Sie haben eine Flügelspannweite von fast 40 Zentimeter und wiegen im Durchschnitt bis zu 110 Gramm.</p>
+<p><img src="/images/amseln-am-fenster-1.jpg" alt="Bild"></p>
+<p>Am liebsten bauen Amseln ihre <strong>Nester</strong> in Hecken, Sträuchern und Bäumen. Bei uns haben sie sich in einem Blumenkasten am Bürofenster niedergelassen. Amseln haben einen Trick um sich vor natürlichen Feinden wie Eichhörnchen oder anderen Vögeln zu schützen: Sie bauen jedes Mal ein neues Nest wenn sie brüten und bleiben somit nie lange an einem Ort.</p>
+<p><img src="/images/amseln-am-fenster-2.jpg" alt="Bild"></p>
+<p>Amseln <strong>brüten</strong> zwischen März und Juli drei bis vier Mal im Jahr. Sie legen dabei zwischen drei und sechs bläulich-grüne <strong>Eier</strong>. Diese Eier werden anschließend 14 Tage lang von der Amselmutter ausgebrütet. Nachdem die Jungvögel geschlüpft sind, verbringen sie zwei weitere Wochen im Nest. Dort werden sie von ihren Eltern versorgt und beschützt. Am liebsten essen die kleinen Nesthocker Würmer, Insekten und Larven, aber auch Beeren.</p>
+<p><img src="/images/amseln-am-fenster-3.jpg" alt="Bild"></p>
+<p>14 Tage, nachdem die Amseljungen geschlüpft sind, werden sie <strong>flügge</strong>. Das heißt, dass sie weit genug entwickelt sind, um das Fliegen lernen zu können. Innerhalb dieser Zeit haben die Jungvögel stark an Größe und Gewicht gewonnen und können nun mit ihren Eltern weiterziehen.</p>
+<p>So schnell, wie sich das Amselpärchen in unserem Blumenkasten eingenistet hat, so schnell war es mitsamt den drei Jungvögeln auch wieder weg. Aber wir haben zum Glück einige tolle Aufnahmen davon.</p>
+<p>Amseln sind einfach sehr niedliche Tiere und wir haben sie in kurzer Zeit in unser Herz geschlossen.</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Amseln sind einfach sehr niedliche Tiere und wir haben sie in kurzer Zeit in unser Herz geschlossen.</p>
+</blockquote>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

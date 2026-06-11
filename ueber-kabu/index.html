@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über KABU – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <div class="hero-inner">
+    <img class="hero-logo" src="/images/kabu-winkend.png" alt="KABU" onerror="this.style.display='none'">
+    <h1>Über KABU</h1>
+    <p>Die Info-App für Kinder – kostenlos und werbefrei</p>
+  </div>
+</div>
+
+<div class="ueber-page">
+
+  
+  <section class="ueber-section">
+    <h2>📱 Die App</h2>
+    <p>Die App KABU ist kostenlos und werbefrei auf folgenden Plattformen erhältlich:</p>
+    <div class="app-badges">
+      <a href="https://itunes.apple.com/de/app/kabu-die-kinder-info-app/id1225969496" target="_blank" rel="noopener">
+        <img src="/images/badge-app-store-de.png" alt="Im App Store laden" onerror="this.outerHTML='<span class=\'badge-text\'>App Store ↗</span>'">
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=de.sin_net.kabu" target="_blank" rel="noopener">
+        <img src="/images/badge-google-play-de.png" alt="Bei Google Play" onerror="this.outerHTML='<span class=\'badge-text\'>Google Play ↗</span>'">
+      </a>
+    </div>
+  </section>
+
+  
+  <section class="ueber-section">
+    <h2>ℹ️ Was ist KABU?</h2>
+    <p>KABU ist eine App, die Inhalte für Kinder im Grundschulalter unterhaltsam und lehrreich aufbereitet. Sie ist kostenlos und werbefrei und wurde von einem medienpädagogischen Team konzipiert.</p>
+    <p>Die App vermittelt Wissen zum sicheren Umgang mit digitalen Medien, informiert kindgerecht über spannende Themen und hält kurzweilige Rätselspiele bereit.</p>
+    <p>Das Motto lautet: <strong>„von Kindern für Kinder"</strong>. Die Beiträge werden von einer Kinderredaktion unter pädagogischer Anleitung erstellt.</p>
+
+    <h3>Die sechs Kategorien</h3>
+    <div class="category-grid" style="margin: 1.5rem 0;">
+      <a class="category-card cat-tipps"   href="/tipps_tricks/"><span class="emoji">💡</span><h3>Tipps &amp; Tricks</h3><p>Ideen und Anregungen für die sichere Mediennutzung</p></a>
+      <a class="category-card cat-spiel"   href="/spiel_quiz/"><span class="emoji">🎮</span><h3>Spiel &amp; Quiz</h3><p>Digitale Spiele und analoge Spielideen</p></a>
+      <a class="category-card cat-mach"    href="/mach_mit/"><span class="emoji">🙋</span><h3>Mach mit</h3><p>Umfragen und Abstimmungen für Kinder</p></a>
+      <a class="category-card cat-wissen"  href="/wissenswertes/"><span class="emoji">📚</span><h3>Wissenswertes</h3><p>Spannende Informationen zu interessanten Themen</p></a>
+      <a class="category-card cat-medien"  href="/medientipps/"><span class="emoji">📱</span><h3>Medientipps</h3><p>Empfehlenswerte Apps, Bücher, Games und Websites</p></a>
+      <a class="category-card cat-kreativ" href="/kreatives/"><span class="emoji">🎨</span><h3>Kreatives</h3><p>Ideen zum Basteln, Malen und Gestalten</p></a>
+    </div>
+  </section>
+
+  
+  <section class="ueber-section">
+    <h2>📖 Material</h2>
+    <div class="material-box">
+      <img src="/images/kabu-zeltplatzabenteuer-cover.png" alt="KABUs Zeltplatzabenteuer" class="material-img" onerror="this.style.display='none'">
+      <div>
+        <p>KABU ist nicht nur in seiner App aktiv, sondern erlebt in einem Taschenbuch und in Arbeitsblättern erste Offline-Abenteuer:</p>
+        <p><strong>„KABUs Zeltplatzabenteuer"</strong> ist ein kleines Taschenbuch, in dem Kinder die Geheimnisse des Internets auf spielerische Weise entdecken. Der Zeltplatz bildet dabei die Herausforderungen unserer digitalen Gesellschaft ab.</p>
+        <p>Für Grundschulen stehen Arbeitsblätter mit KABU zum kostenlosen Download bereit. Alle Rätsel und Aufgaben aus dem Buch sind hier nochmal als Kopiervorlagen aufbereitet.</p>
+        <a class="btn-kabu" href="https://www.studioimnetz.de/projekte/kabu/materialien/" target="_blank" rel="noopener">Zu den Materialien ↗</a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="ueber-section">
+    <h2>👥 Beirat</h2>
+    <p>Die App-Inhalte werden von einer Kinderredaktion unter Anleitung der medienpädagogischen Facheinrichtung „SIN – Studio im Netz" erstellt.</p>
+    <p>Zur fachlichen Beratung wurde ein Beirat einberufen, in dem folgende Personen mitwirken:</p>
+    <ul class="beirat-list">
+      <li>Christine Aumiller (Erzieherin, Landeshauptstadt München)</li>
+      <li>Dr. Marc Batschkus (Medizinische Informatik)</li>
+      <li>U. Essig (Lehrerin, Medienpädagogische Beratung und Beratung digitale Bildung)</li>
+      <li>Dr. Christine Feil (Medienpädagogin im Ruhestand, ehem. Deutsches Jugendinstitut)</li>
+      <li>Grit Nossek (Landeshauptstadt München, Referat für Bildung und Sport, Pädagogisches Institut)</li>
+      <li>Sabine Ritz (Erzieherin, Landeshauptstadt München)</li>
+      <li>Klaus Schwarzer (Landeshauptstadt München, Sozialreferat/Stadtjugendamt)</li>
+      <li>Dr. Marc Urlen (Deutsches Jugendinstitut, DJI)</li>
+      <li>Julia Walz (Auerbach Stiftung)</li>
+      <li>Katja Weilbach (Bayerische Landeszentrale für neue Medien, BLM)</li>
+    </ul>
+  </section>
+
+  
+  <section class="ueber-section ueber-credits">
+    <div class="credits-grid">
+      <div>
+        <strong>Konzeption &amp; Redaktion:</strong><br>
+        <a href="https://www.studioimnetz.de/" target="_blank" rel="noopener">SIN – Studio im Netz</a>
+      </div>
+      <div>
+        <strong>Mit finanzieller Unterstützung durch:</strong><br>
+        <a href="http://www.auerbach-stiftung.de/" target="_blank" rel="noopener">Auerbach-Stiftung</a> und das
+        <a href="https://www.muenchen.de/rathaus/Stadtverwaltung/Sozialreferat/Jugendamt.html" target="_blank" rel="noopener">Sozialreferat/Stadtjugendamt</a> der Landeshauptstadt München
+      </div>
+      <div>
+        <strong>Technische Realisation:</strong><br>
+        Hengstenberg &amp; Kovats, Cribster
+      </div>
+      <div>
+        <strong>Illustration / Characterdesign:</strong><br>
+        <a href="http://www.stefan-leuchtenberg.de" target="_blank" rel="noopener">Stefan Leuchtenberg</a>
+      </div>
+    </div>
+
+    <div class="social-section">
+      <h3>Folgt uns!</h3>
+      <div class="social-links">
+        <a href="https://www.facebook.com/Kabu.KinderApp/" target="_blank" rel="noopener" class="social-btn social-fb">📘 Facebook</a>
+        <a href="https://www.instagram.com/kabu_app/" target="_blank" rel="noopener" class="social-btn social-ig">📷 Instagram</a>
+        <a href="https://vimeo.com/kabuapp" target="_blank" rel="noopener" class="social-btn social-vm">🎬 Vimeo</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>
