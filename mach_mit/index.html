@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mach mit – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <h1>Mach mit</h1>
+  <p>33 Beiträge</p>
+</div>
+
+<div class="posts-section">
+  <div class="posts-grid">
+    
+    
+
+
+<a class="post-card" href="/mach_mit/dem-mai-auf-der-spur/">
+  
+    <img class="post-card-img" src="/images/202634_KABU-Grafiken%20%282%29.png" alt="Dem Mai auf der Spur!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Dem Mai auf der Spur!</h2>
+    <div class="post-card-date">24.05.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/zaubertrick/">
+  
+    <img class="post-card-img" src="/images/202342_5.png" alt="Zaubertrick" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Zaubertrick</h2>
+    <div class="post-card-date">24.06.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/witz-des-monats-2/">
+  
+    <img class="post-card-img" src="/images/202352_128.png" alt="Witz des Monats" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Witz des Monats</h2>
+    <div class="post-card-date">10.06.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/maerchenhafte-geschichten/">
+  
+    <img class="post-card-img" src="/images/2022111_103.jpg" alt="Märchenhafte Geschichten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Märchenhafte Geschichten</h2>
+    <div class="post-card-date">14.01.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/vorgelesene-geschichten/">
+  
+    <img class="post-card-img" src="/images/2022104_lesenuvorlesen22.jpg" alt="Vorgelesene Geschichten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Vorgelesene Geschichten</h2>
+    <div class="post-card-date">17.11.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/witz-des-monats-oktober/">
+  
+    <img class="post-card-img" src="/images/202295_48.jpg" alt="Witz des Monats Oktober" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Witz des Monats Oktober</h2>
+    <div class="post-card-date">08.10.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/witz-des-monats/">
+  
+    <img class="post-card-img" src="/images/202275_Vorschau_Witz.jpg" alt="Witz des Monats" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Witz des Monats</h2>
+    <div class="post-card-date">10.09.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/muttertag/">
+  
+    <img class="post-card-img" src="/images/202243_Vorschaubild.jpg" alt="Muttertag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Muttertag</h2>
+    <div class="post-card-date">07.05.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/umwelt-und-nachhaltigkeit/">
+  
+    <img class="post-card-img" src="/images/2021102_Vorschau_Forelle.jpg" alt="Umwelt und Nachhaltigkeit" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Umwelt und Nachhaltigkeit</h2>
+    <div class="post-card-date">04.02.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/freizeit-tipps/">
+  
+    <img class="post-card-img" src="/images/202184_Titelbild1.jpg" alt="Freizeit-Tipps" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Freizeit-Tipps</h2>
+    <div class="post-card-date">15.09.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/wie-zeichne-ich-kabu/">
+  
+    <img class="post-card-img" src="/images/202151_Unbenanntes_Projekt.jpg" alt="Wie zeichne ich KABU?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Wie zeichne ich KABU?</h2>
+    <div class="post-card-date">06.06.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/zum-4-advent-2/">
+  
+    <img class="post-card-img" src="/images/2020115_advent-4-vorschau.jpg" alt="Zum 4. Advent " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Zum 4. Advent </h2>
+    <div class="post-card-date">18.12.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/zum-2-advent/">
+  
+    <img class="post-card-img" src="/images/2020113_advent-2.jpg" alt="Zum 2. Advent" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Zum 2. Advent</h2>
+    <div class="post-card-date">05.12.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/circular-monday/">
+  
+    <img class="post-card-img" src="/images/2020105_Circular_Monday.png" alt="Circular Monday" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Circular Monday</h2>
+    <div class="post-card-date">19.11.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/halloween-trotz-corona/">
+  
+    <img class="post-card-img" src="/images/202093_Titlelbild_Ohne%20Kabu.jpg" alt="Halloween trotz Corona" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Halloween trotz Corona</h2>
+    <div class="post-card-date">29.10.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/lass-blumen-bluehen/">
+  
+    <img class="post-card-img" src="/images/202032_Blumen-Vorschaubild.jpg" alt="Lass Blumen blühen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Lass Blumen blühen</h2>
+    <div class="post-card-date">07.04.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/mundschutz-ohne-naehen/">
+  
+    <img class="post-card-img" src="/images/202034_Mundschutz%20Vorschaubild.png" alt="Mundschutz (ohne nähen!)" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Mundschutz (ohne nähen!)</h2>
+    <div class="post-card-date">03.04.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/tierische-gedanken/">
+  
+    <img class="post-card-img" src="/images/202025_ElefantmitText.jpg" alt="Tierische Gedanken" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Tierische Gedanken</h2>
+    <div class="post-card-date">27.02.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/weihnachtsgewinnspiel-2019/">
+  
+    <img class="post-card-img" src="/images/2019105_KABU-Weihanchtsaufsteller-2019.jpg" alt="Weihnachtsgewinnspiel 2019" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Weihnachtsgewinnspiel 2019</h2>
+    <div class="post-card-date">22.12.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/lasse-einen-drachen-steigen/">
+  
+    <img class="post-card-img" src="/images/201995_Vorschaubild%20Kabu.jpg" alt="Lasse einen Drachen steigen " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Lasse einen Drachen steigen </h2>
+    <div class="post-card-date">16.10.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/vermeide-plastik/">
+  
+    <img class="post-card-img" src="/images/Plastik-Vorschaubild.jpg" alt="Vermeide Plastik" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Vermeide Plastik</h2>
+    <div class="post-card-date">05.08.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/sommer-gewinnspiel/">
+  
+    <img class="post-card-img" src="/images/sommer-vorschaubild.jpg" alt="Sommer-Gewinnspiel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Sommer-Gewinnspiel</h2>
+    <div class="post-card-date">10.07.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/spieletipp-wolkenpusten/">
+  
+    <img class="post-card-img" src="/images/Strohhalmspiel.jpg" alt="Spieletipp Wolkenpusten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Spieletipp Wolkenpusten</h2>
+    <div class="post-card-date">24.01.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/was-du-im-herbst-tun-musst/">
+  
+    <img class="post-card-img" src="/images/herbst-kabu.jpg" alt="Was du im Herbst tun musst" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Was du im Herbst tun musst</h2>
+    <div class="post-card-date">06.11.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/wie-wichtig-ist-dein-handy/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Wie wichtig ist dein Handy?</h2>
+    <div class="post-card-date">04.10.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/wer-bin-ich/">
+  
+    <img class="post-card-img" src="/images/SpieletippsVorschaubild.jpg" alt="Wer bin ich?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Wer bin ich?</h2>
+    <div class="post-card-date">30.08.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/fortnite-umfrage/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Fortnite-Umfrage</h2>
+    <div class="post-card-date">24.05.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/tierisches-geplapper/">
+  
+    <img class="post-card-img" src="/images/Affen1.jpg" alt="Tierisches Geplapper" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Tierisches Geplapper</h2>
+    <div class="post-card-date">09.04.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/kabus-faschings-fragerunde/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>KABUs Faschings-Fragerunde</h2>
+    <div class="post-card-date">07.02.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/umfrage-deine-kindheit/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Umfrage: Deine Kindheit</h2>
+    <div class="post-card-date">31.10.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/apps-was-ist-in-out/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Apps: Was ist in &amp; out?</h2>
+    <div class="post-card-date">21.04.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/umfrage-was-magst-du/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Umfrage: Was magst du?</h2>
+    <div class="post-card-date">20.03.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/luftballon-tausch-tanz/">
+  
+    <img class="post-card-img" src="/images/Luftballons-pixabay-CC0.jpg" alt="Luftballon-Tausch-Tanz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Luftballon-Tausch-Tanz</h2>
+    <div class="post-card-date">12.03.2017</div>
+  </div>
+</a>
+
+    
+  </div>
+
+  
+		<ul class="pagination pagination-default">
+			<li class="page-item disabled">
+				<a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item disabled">
+			<a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item">
+				<a href="/mach_mit/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+			<li class="page-item">
+				<a href="/mach_mit/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+			</li>
+			<li class="page-item">
+				<a href="/mach_mit/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+			</li>
+		<li class="page-item">
+			<a href="/mach_mit/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/mach_mit/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KABU-Faltspiel – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    KABU-Faltspiel
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>KABU-Faltspiel</h1>
+      <div class="meta">16. July 2022</div>
+    </div>
+    
+      <img src="/images/202264_Vorschaubild.jpg" alt="KABU-Faltspiel" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="kabu-faltspiel">KABU-Faltspiel</h1>
+<p>Kennst du das Spiel <strong>Pfeffer und Salz</strong> oder auch bekannt als <strong>Himmel und Hölle</strong>?</p>
+<p>KABU zeigt dir heute wie du ein kleines <strong>Faltspiel</strong> oder eine <strong>KABU-Figur</strong> basteln kannst!</p>
+<p>Die Anleitung findest du in diesem Video:</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/729976379?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>Die KABU-Bastelvorlagen kannst du <strong>kostenlos</strong> herunterladen. Scanne hierzu den QR-Code. Frage deine Eltern um Hilfe, wenn du nicht sicher bist, wie das funktioniert oder schreibe dem KABU-Team eine Nachricht!</p>
+<p><img src="/images/202264_QR-COde.jpg" alt="Bild"></p>
+<p>Den Link zu den Bastelvorlagen findest auch bei dem Erklärvideo in der Videobeschreibung!</p>
+<p>Viel Spaß beim Basteln!</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Viel Spaß beim Basteln!</p>
+</blockquote>
+<h2 id="eine-möglichkeit-wie-du-das-faltspiel-nutzen-kannst">Eine Möglichkeit, wie du das Faltspiel nutzen kannst:</h2>
+<p>Du kannst die inneren Seiten der Bastelvorlage mit Zahlen von 1 bis 8 beschriften.</p>
+<p>Klappe nun den Flügel hoch und schreibe dort für jede Zahl eine Aufgabe auf. Beliebte Aufgaben sind beispielsweise <strong>Springe auf einem Bein</strong> oder <strong>Singe dein Lieblingslied</strong>. Hier sind deiner Kreativität keine Grenzen gesetzt! Wenn du dir 8 Aufgaben überlegt hast, kann es auch schon losgehen!</p>
+<p><img src="/images/202264_beschriften.jpg" alt="Bild"></p>
+<p>Ab jetzt brauchst du eine weitere Person, die das Faltspiel mit dir spielt. <strong>Frage deinen Gegenüber</strong> nach einer Zahl! Schaue nun was unter der Zahl steht! Diese <strong>Aufgabe</strong> müsst ihr dann lösen!</p>
+<p>Zeig uns gern dein Faltspiel! Das geht ganz einfach in dem du auf den blauen Button <strong>Schreib dem KABU-Team</strong> klickst!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

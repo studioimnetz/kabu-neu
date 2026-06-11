@@ -1,0 +1,4395 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alle Beiträge – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <h1>📋 Alle Beiträge</h1>
+  <p>254 Beiträge insgesamt</p>
+</div>
+
+<div class="posts-section">
+  <div class="posts-grid">
+    
+      
+        
+
+
+<a class="post-card" href="/allgemein/markuptest-versteckt/">
+  
+    <div class="post-card-img-placeholder">📄</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">allgemein</div>
+    <h2>Markuptest (versteckt)</h2>
+    <div class="post-card-date">11.06.2026</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/dem-mai-auf-der-spur/">
+  
+    <img class="post-card-img" src="/images/202634_KABU-Grafiken%20%282%29.png" alt="Dem Mai auf der Spur!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Dem Mai auf der Spur!</h2>
+    <div class="post-card-date">24.05.2026</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zum-mutter-und-vatertag-2/">
+  
+    <img class="post-card-img" src="/images/202631_Vorschaubild%20ohne%20KABU.png" alt="Quiz zum Mutter- und Vatertag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zum Mutter- und Vatertag</h2>
+    <div class="post-card-date">09.05.2026</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/medien-nachhaltig-nutzen/">
+  
+    <img class="post-card-img" src="/images/202611_Titelblatt_ohne_Kabu.png" alt="Medien nachhaltig nutzen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Medien nachhaltig nutzen</h2>
+    <div class="post-card-date">28.04.2026</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/fruehlingsquiz/">
+  
+    <img class="post-card-img" src="/images/202633_Fr%c3%bchlingsquiz%20ohne%20KABU.png" alt="Frühlingsquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Frühlingsquiz</h2>
+    <div class="post-card-date">07.04.2026</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/cybergrooming/">
+  
+    <img class="post-card-img" src="/images/202614_Grafik%20ohne%20KABU.png" alt="Cybergrooming" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Cybergrooming</h2>
+    <div class="post-card-date">25.02.2026</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/werbung/">
+  
+    <img class="post-card-img" src="/images/202521_WERBUNG.png" alt="Werbung " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Werbung </h2>
+    <div class="post-card-date">03.01.2026</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/zum-weihnachtsfest/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Zum Weihnachtsfest" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Zum Weihnachtsfest</h2>
+    <div class="post-card-date">22.12.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/mikroskop-paare-finden/">
+  
+    <img class="post-card-img" src="/images/202592_KABU-Grafiken.png" alt="Mikroskop-Paare finden" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Mikroskop-Paare finden</h2>
+    <div class="post-card-date">15.11.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/halloween-das-steckt-dahinter/">
+  
+    <img class="post-card-img" src="/images/201994_halloween-vorschaubild.jpg" alt="Halloween: Das steckt dahinter" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Halloween: Das steckt dahinter</h2>
+    <div class="post-card-date">26.10.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/tierquiz/">
+  
+    <img class="post-card-img" src="/images/202574_Vorschau_Quiz_.png" alt="Tierquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Tierquiz</h2>
+    <div class="post-card-date">24.09.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/baue-deine-eigene-klimaanlage/">
+  
+    <img class="post-card-img" src="/images/202574_Klima_Vorschau.png" alt="Baue deine eigene Klimaanlage!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Baue deine eigene Klimaanlage!</h2>
+    <div class="post-card-date">26.08.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/taschengeld/">
+  
+    <img class="post-card-img" src="/images/202563_Taschengeld%20KABU%20ohne%20KABU.png" alt="Taschengeld" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Taschengeld</h2>
+    <div class="post-card-date">28.07.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zum-mutter-und-vatertag/">
+  
+    <img class="post-card-img" src="/images/202423_KABU-Grafiken%20%2812%29.png" alt="Quiz zum Mutter- und Vatertag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zum Mutter- und Vatertag</h2>
+    <div class="post-card-date">10.05.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/kleiner-faschingsfilm/">
+  
+    <img class="post-card-img" src="/images/202521_Bild%20Faschingsparty%202%20-%20Kleinere%20Aufl%c3%b6sung.jpg" alt="Kleiner Faschingsfilm" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Kleiner Faschingsfilm</h2>
+    <div class="post-card-date">01.03.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/faschingsquiz/">
+  
+    <img class="post-card-img" src="/images/202521_Bild%20Faschingsparty%202%20-%20Kleinere%20Aufl%c3%b6sung.jpg" alt="Faschingsquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Faschingsquiz</h2>
+    <div class="post-card-date">01.03.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/handy-fake-nachrichten/">
+  
+    <img class="post-card-img" src="/images/202512_SID%2025%20Vorschaubild%20.png" alt="Handy Fake-Nachrichten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Handy Fake-Nachrichten</h2>
+    <div class="post-card-date">10.02.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/minecraft-quiz/">
+  
+    <img class="post-card-img" src="/images/202474_Vorschaubild.png" alt="Minecraft-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Minecraft-Quiz</h2>
+    <div class="post-card-date">19.01.2025</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/filmtipps/">
+  
+    <img class="post-card-img" src="/images/2024113_Vorschaubild%20Filmtipps%20ohne%20KABU.jpg" alt="Filmtipps" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Filmtipps</h2>
+    <div class="post-card-date">21.12.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/weihnachtliche-3d-klappkarte/">
+  
+    <img class="post-card-img" src="/images/2024104_210.png" alt="Weihnachtliche 3D-Klappkarte " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Weihnachtliche 3D-Klappkarte </h2>
+    <div class="post-card-date">14.12.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/bastle-deinen-eigenen-roboter/">
+  
+    <img class="post-card-img" src="/images/2024103_188.png" alt="Bastle deinen eigenen Roboter!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Bastle deinen eigenen Roboter!</h2>
+    <div class="post-card-date">30.11.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/kabu-halloween-quiz/">
+  
+    <img class="post-card-img" src="/images/202492_KABU-Grafiken%20%2813%29.png" alt="KABU Halloween Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>KABU Halloween Quiz</h2>
+    <div class="post-card-date">30.10.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/online-spiele-kostenlos/">
+  
+    <img class="post-card-img" src="/images/202471_Vorschaubild%20Online-Spiele_mit%20Titel_klein.png" alt="Online-Spiele - kostenlos?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Online-Spiele - kostenlos?</h2>
+    <div class="post-card-date">07.10.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/ki-einfach-erklaert/">
+  
+    <img class="post-card-img" src="/images/202471_Vorschaubild%20KI_mit%20Titel_klein.png" alt="KI einfach erklärt" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>KI einfach erklärt</h2>
+    <div class="post-card-date">08.09.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/8-tipps-fuer-deine-ferien/">
+  
+    <img class="post-card-img" src="/images/202472_Vorschau.png" alt="8 Tipps für deine Ferien" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>8 Tipps für deine Ferien</h2>
+    <div class="post-card-date">17.08.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-sind-die-olympischen-spiele/">
+  
+    <img class="post-card-img" src="/images/202465_KABU-olympia24.jpg" alt="Was sind die Olympischen Spiele?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was sind die Olympischen Spiele?</h2>
+    <div class="post-card-date">24.07.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-ist-die-europaeische-union/">
+  
+    <img class="post-card-img" src="/images/202431_KABU-Grafiken.jpg" alt="Was ist die Europäische Union?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist die Europäische Union?</h2>
+    <div class="post-card-date">02.06.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/april-im-zeitraffer/">
+  
+    <img class="post-card-img" src="/images/202434_KABU-Grafiken%20%281%29.jpg" alt="April im Zeitraffer" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>April im Zeitraffer</h2>
+    <div class="post-card-date">27.04.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/erdgummibeere/">
+  
+    <img class="post-card-img" src="/images/202224_Vorschau_erd.jpg" alt="Erdgummibeere" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Erdgummibeere</h2>
+    <div class="post-card-date">31.03.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/weisst-du-warum-tiktok-nichts-fuer-kinder-ist/">
+  
+    <img class="post-card-img" src="/images/202424_TikTok%20KABU.png" alt="Weißt du, warum TikTok nichts für Kinder ist?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Weißt du, warum TikTok nichts für Kinder ist?</h2>
+    <div class="post-card-date">25.03.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-ist-ein-schaltjahr/">
+  
+    <img class="post-card-img" src="/images/202411_Vorschaubild.png" alt="Was ist ein Schaltjahr" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist ein Schaltjahr</h2>
+    <div class="post-card-date">21.02.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/mein-handy-und-ich/">
+  
+    <img class="post-card-img" src="/images/202012_Mein-Handy-und-Ich---Titelbild.png" alt="Mein Handy und ich" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Mein Handy und ich</h2>
+    <div class="post-card-date">05.02.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/hast-du-gepupst-tag/">
+  
+    <img class="post-card-img" src="/images/202401_KABU-Grafiken%20%2810%29.png" alt="Hast-du-gepupst?-Tag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Hast-du-gepupst?-Tag</h2>
+    <div class="post-card-date">03.02.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/planet-schule/">
+  
+    <img class="post-card-img" src="/images/202404_KABU-Vorschaubild.png" alt="Planet Schule" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Planet Schule</h2>
+    <div class="post-card-date">20.01.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/weisst-du-s-schon/">
+  
+    <img class="post-card-img" src="/images/2023112_KABU-Grafiken%20%286%29.png" alt="Weißt du&#39;s schon?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Weißt du&#39;s schon?</h2>
+    <div class="post-card-date">06.01.2024</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/horse-tales/">
+  
+    <img class="post-card-img" src="/images/2023103_Vorschau.png" alt="Horse Tales" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Horse Tales</h2>
+    <div class="post-card-date">25.11.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-teil-6-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_6.png" alt="Märchenhafte Geschichten Teil 6/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten Teil 6/6</h2>
+    <div class="post-card-date">11.11.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-5-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_5.png" alt="Märchenhafte Geschichten 5/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten 5/6</h2>
+    <div class="post-card-date">28.10.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/erstelle-dein-eigenes-memory/">
+  
+    <img class="post-card-img" src="/images/202364_115.png" alt="Erstelle dein eigenes Memory" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Erstelle dein eigenes Memory</h2>
+    <div class="post-card-date">14.10.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/memory/">
+  
+    <img class="post-card-img" src="/images/202392_115.png" alt="Memory" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Memory</h2>
+    <div class="post-card-date">13.10.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-teil-4-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_4.png" alt="Märchenhafte Geschichten Teil 4/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten Teil 4/6</h2>
+    <div class="post-card-date">30.09.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-3-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_3.png" alt="Märchenhafte Geschichten  3/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten  3/6</h2>
+    <div class="post-card-date">18.09.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/herbstanfang/">
+  
+    <img class="post-card-img" src="/images/202385_121.png" alt="Herbstanfang" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Herbstanfang</h2>
+    <div class="post-card-date">02.09.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/wen-suchen-wir/">
+  
+    <img class="post-card-img" src="/images/202361_118.png" alt="Wen suchen wir?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Wen suchen wir?</h2>
+    <div class="post-card-date">19.08.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-2-6/">
+  
+    <img class="post-card-img" src="/images/202365_Vorschau_2.png" alt="Märchenhafte Geschichten 2/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten 2/6</h2>
+    <div class="post-card-date">05.08.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-1-6/">
+  
+    <img class="post-card-img" src="/images/202365_Vorschau_1.png" alt="Märchenhafte Geschichten 1/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten 1/6</h2>
+    <div class="post-card-date">24.07.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/audio-adventure/">
+  
+    <img class="post-card-img" src="/images/202364_Insta-Grafiken.png" alt="Audio Adventure" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Audio Adventure</h2>
+    <div class="post-card-date">08.07.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/zaubertrick/">
+  
+    <img class="post-card-img" src="/images/202342_5.png" alt="Zaubertrick" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Zaubertrick</h2>
+    <div class="post-card-date">24.06.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/witz-des-monats-2/">
+  
+    <img class="post-card-img" src="/images/202352_128.png" alt="Witz des Monats" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Witz des Monats</h2>
+    <div class="post-card-date">10.06.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/3d-klappkarte-fuer-besondere-anlaesse/">
+  
+    <img class="post-card-img" src="/images/202342_KABU-Grafiken%20%284%29.png" alt="3D-Klappkarte für besondere Anlässe" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>3D-Klappkarte für besondere Anlässe</h2>
+    <div class="post-card-date">11.05.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/abenteuer-regenwald/">
+  
+    <img class="post-card-img" src="/images/202332_3%20%282%29.png" alt="Abenteuer Regenwald" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Abenteuer Regenwald</h2>
+    <div class="post-card-date">29.04.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/whatsapp-kettenbriefe/">
+  
+    <img class="post-card-img" src="/images/202335_Kettenbrief-Vorschaubild2.jpg" alt="WhatsApp-Kettenbriefe" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>WhatsApp-Kettenbriefe</h2>
+    <div class="post-card-date">15.04.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/oster-quiz/">
+  
+    <img class="post-card-img" src="/images/202325_KABU-Grafiken%20%282%29.jpg" alt="Oster-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Oster-Quiz</h2>
+    <div class="post-card-date">08.04.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/apico/">
+  
+    <img class="post-card-img" src="/images/202322_Vorschau_Bild.jpg" alt="Apico" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Apico</h2>
+    <div class="post-card-date">25.03.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/wie-gut-kennst-du-spider-man/">
+  
+    <img class="post-card-img" src="/images/202324_115.jpg" alt="Wie gut kennst du Spider-Man?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Wie gut kennst du Spider-Man?</h2>
+    <div class="post-card-date">18.03.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/gibbon/">
+  
+    <img class="post-card-img" src="/images/202315_Vorschau_Bild.jpg" alt="Gibbon" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Gibbon</h2>
+    <div class="post-card-date">25.02.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/sid-23-gestresst-im-netz/">
+  
+    <img class="post-card-img" src="/images/202301_KABU-Grafiken%282%29.png" alt="SID 23: Gestresst im Netz? " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>SID 23: Gestresst im Netz? </h2>
+    <div class="post-card-date">06.02.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/digitale-spiele/">
+  
+    <img class="post-card-img" src="/images/202303_KABU-Grafiken%281%29.png" alt="Digitale Spiele" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Digitale Spiele</h2>
+    <div class="post-card-date">28.01.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/maerchenhafte-geschichten/">
+  
+    <img class="post-card-img" src="/images/2022111_103.jpg" alt="Märchenhafte Geschichten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Märchenhafte Geschichten</h2>
+    <div class="post-card-date">14.01.2023</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/vorgelesene-geschichten/">
+  
+    <img class="post-card-img" src="/images/2022104_lesenuvorlesen22.jpg" alt="Vorgelesene Geschichten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Vorgelesene Geschichten</h2>
+    <div class="post-card-date">17.11.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/der-heilige-sankt-martin/">
+  
+    <img class="post-card-img" src="/images/2021104_Lina.jpg" alt="Der heilige Sankt Martin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Der heilige Sankt Martin</h2>
+    <div class="post-card-date">10.11.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/basteltipps-fuer-sankt-martin/">
+  
+    <img class="post-card-img" src="/images/2021104_Lina.jpg" alt="Basteltipps für Sankt Martin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipps für Sankt Martin</h2>
+    <div class="post-card-date">08.11.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/eselsbruecke-zur-zeitumstellung/">
+  
+    <img class="post-card-img" src="/images/202224_Vorschau_Zeitumstellung.jpg" alt="Eselsbrücke zur Zeitumstellung " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Eselsbrücke zur Zeitumstellung </h2>
+    <div class="post-card-date">29.10.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/gesunde-grusel-snacks/">
+  
+    <img class="post-card-img" src="/images/202273_Gruselsnacks1.jpg" alt="Gesunde Grusel-Snacks" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Gesunde Grusel-Snacks</h2>
+    <div class="post-card-date">22.10.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/kannst-du-die-tiere-erraten/">
+  
+    <img class="post-card-img" src="/images/202294_87.jpg" alt="Kannst du die Tiere erraten?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Kannst du die Tiere erraten?</h2>
+    <div class="post-card-date">15.10.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/witz-des-monats-oktober/">
+  
+    <img class="post-card-img" src="/images/202295_48.jpg" alt="Witz des Monats Oktober" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Witz des Monats Oktober</h2>
+    <div class="post-card-date">08.10.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/queen-elisabeth-ii/">
+  
+    <img class="post-card-img" src="/images/202281_queen1.png" alt="Queen Elisabeth II" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Queen Elisabeth II</h2>
+    <div class="post-card-date">25.09.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/serien-und-filme-erraten/">
+  
+    <img class="post-card-img" src="/images/202285_Vorachaubild.jpg" alt="Serien und Filme erraten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Serien und Filme erraten</h2>
+    <div class="post-card-date">17.09.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/witz-des-monats/">
+  
+    <img class="post-card-img" src="/images/202275_Vorschau_Witz.jpg" alt="Witz des Monats" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Witz des Monats</h2>
+    <div class="post-card-date">10.09.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/osmo-coding-starter-kit/">
+  
+    <img class="post-card-img" src="/images/202272_202275_KABU-Grafiken%282%29.png" alt="Osmo Coding Starter Kit" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Osmo Coding Starter Kit</h2>
+    <div class="post-card-date">02.09.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/kabu-lesezeichen/">
+  
+    <img class="post-card-img" src="/images/202273_Basteln%20mit%20KABU.png" alt="KABU Lesezeichen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>KABU Lesezeichen</h2>
+    <div class="post-card-date">06.08.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/mikroskop/">
+  
+    <img class="post-card-img" src="/images/202262_Mikroskop_Vorschau.jpg" alt="Mikroskop " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Mikroskop </h2>
+    <div class="post-card-date">23.07.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/kabu-faltspiel/">
+  
+    <img class="post-card-img" src="/images/202264_Vorschaubild.jpg" alt="KABU-Faltspiel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>KABU-Faltspiel</h2>
+    <div class="post-card-date">16.07.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/steinzeit-aufloesung/">
+  
+    <img class="post-card-img" src="/images/202261_Vorschau.jpg" alt="Steinzeit - Auflösung " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Steinzeit - Auflösung </h2>
+    <div class="post-card-date">09.07.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/steinzeit/">
+  
+    <img class="post-card-img" src="/images/202254_Vorschau1.jpg" alt="Steinzeit" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Steinzeit</h2>
+    <div class="post-card-date">02.07.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-ist-eigentlich-dieser-treibhauseffekt/">
+  
+    <img class="post-card-img" src="/images/202252_lab-g1943ed158_1920.jpg" alt="Was ist eigentlich dieser Treibhauseffekt? " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist eigentlich dieser Treibhauseffekt? </h2>
+    <div class="post-card-date">21.06.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/stop-motion/">
+  
+    <img class="post-card-img" src="/images/202245_KABU-Grafiken%281%29.png" alt="Stop Motion" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Stop Motion</h2>
+    <div class="post-card-date">25.05.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/lazuli-und-die-woerter/">
+  
+    <img class="post-card-img" src="/images/202234_KABUS%20Medientipp%202.png" alt="Lazuli und die Wörter" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Lazuli und die Wörter</h2>
+    <div class="post-card-date">16.05.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/muttertag/">
+  
+    <img class="post-card-img" src="/images/202243_Vorschaubild.jpg" alt="Muttertag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Muttertag</h2>
+    <div class="post-card-date">07.05.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/tanzen-heute-nacht-die-hexen-und-hexenmeister/">
+  
+    <img class="post-card-img" src="/images/202232_Vorschau_Walpurgisjpg.jpg" alt="Tanzen heute Nacht die Hexen und Hexenmeister?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tanzen heute Nacht die Hexen und Hexenmeister?</h2>
+    <div class="post-card-date">29.04.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/welttag-des-buches/">
+  
+    <img class="post-card-img" src="/images/202234_Welttag%20des%20Buches.png" alt="Welttag des Buches" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Welttag des Buches</h2>
+    <div class="post-card-date">22.04.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/osterquiz/">
+  
+    <img class="post-card-img" src="/images/202222_Vorschau1.jpg" alt="Osterquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Osterquiz</h2>
+    <div class="post-card-date">16.04.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/kika-player/">
+  
+    <img class="post-card-img" src="/images/202223_KiKa-Vorschau.jpg" alt="KiKA-Player" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>KiKA-Player</h2>
+    <div class="post-card-date">25.03.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/foto-tipps-fuer-kinderfotopreis/">
+  
+    <img class="post-card-img" src="/images/202226_Neues_Vorschaubild_KABU_Fototipps.png" alt="Foto-Tipps für Kinderfotopreis" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Foto-Tipps für Kinderfotopreis</h2>
+    <div class="post-card-date">17.03.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/el-hijo/">
+  
+    <img class="post-card-img" src="/images/202225_Vorschaubild_El_Hijo_Kabu.png" alt="El Hijo" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>El Hijo</h2>
+    <div class="post-card-date">09.03.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/weltfrauentag/">
+  
+    <img class="post-card-img" src="/images/202222_Frauentag%20%28800%20%c3%97%20800%20px%29.png" alt="Weltfrauentag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Weltfrauentag</h2>
+    <div class="post-card-date">07.03.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/ukrainekrise/">
+  
+    <img class="post-card-img" src="/images/202225_Flagge.png" alt="Ukrainekrise" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Ukrainekrise</h2>
+    <div class="post-card-date">02.03.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/demokratie/">
+  
+    <img class="post-card-img" src="/images/202211_Demokratie_KABU.jpg" alt="Demokratie" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Demokratie</h2>
+    <div class="post-card-date">07.02.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/umwelt-und-nachhaltigkeit/">
+  
+    <img class="post-card-img" src="/images/2021102_Vorschau_Forelle.jpg" alt="Umwelt und Nachhaltigkeit" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Umwelt und Nachhaltigkeit</h2>
+    <div class="post-card-date">04.02.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-ist-kabu-fuer-ein-besonderes-tier/">
+  
+    <img class="post-card-img" src="/images/2021114_Fabelwesen.jpg" alt="Was ist KABU für ein besonderes Tier?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist KABU für ein besonderes Tier?</h2>
+    <div class="post-card-date">28.01.2022</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/schon-einmal-schach-probiert/">
+  
+    <img class="post-card-img" src="/images/2021113_2021105_Vorschaubild_App_alleFiguren.jpg" alt="Schon einmal Schach probiert?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Schon einmal Schach probiert?</h2>
+    <div class="post-card-date">01.12.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/freizeit-raetselspass/">
+  
+    <img class="post-card-img" src="/images/202184_Vorschau-Ratsel.jpg" alt="Freizeit-Rätselspaß" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Freizeit-Rätselspaß</h2>
+    <div class="post-card-date">03.10.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/freizeit-tipps/">
+  
+    <img class="post-card-img" src="/images/202184_Titelbild1.jpg" alt="Freizeit-Tipps" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Freizeit-Tipps</h2>
+    <div class="post-card-date">15.09.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/der-goldene-spatz-2021/">
+  
+    <img class="post-card-img" src="/images/202174_Unbenannt-1.jpg" alt="Der Goldene Spatz 2021" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Der Goldene Spatz 2021</h2>
+    <div class="post-card-date">27.08.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-4/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 4&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 4&#39;</h2>
+    <div class="post-card-date">14.08.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/hotel-fuer-krabbeltiere/">
+  
+    <img class="post-card-img" src="/images/202165_Bild_App.jpg" alt="Hotel für Krabbeltiere" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Hotel für Krabbeltiere</h2>
+    <div class="post-card-date">29.07.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/antonapp/">
+  
+    <img class="post-card-img" src="/images/202164_anton_logo.jpg" alt="AntonApp" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>AntonApp</h2>
+    <div class="post-card-date">01.07.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/die-regenbogenflagge/">
+  
+    <img class="post-card-img" src="/images/202155_Trennbild%202.jpg" alt="Die Regenbogenflagge" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Die Regenbogenflagge</h2>
+    <div class="post-card-date">23.06.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/wie-zeichne-ich-kabu/">
+  
+    <img class="post-card-img" src="/images/202151_Unbenanntes_Projekt.jpg" alt="Wie zeichne ich KABU?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Wie zeichne ich KABU?</h2>
+    <div class="post-card-date">06.06.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/wollknollis-basteln/">
+  
+    <img class="post-card-img" src="/images/202145_Design%20ohne%20Titel.png" alt="Wollknollis basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Wollknollis basteln</h2>
+    <div class="post-card-date">19.05.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/was-ist-eigentlich-ein-supermond/">
+  
+    <img class="post-card-img" src="/images/202141_KABU%20Titelbild.jpg" alt="Was ist eigentlich ein Supermond?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Was ist eigentlich ein Supermond?</h2>
+    <div class="post-card-date">07.05.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/online-fluesterpost-mit-garticphone/">
+  
+    <img class="post-card-img" src="/images/202135_gartic%20kabu.jpg" alt="Online-Flüsterpost mit GarticPhone" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Online-Flüsterpost mit GarticPhone</h2>
+    <div class="post-card-date">19.04.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zum-ersten-april/">
+  
+    <img class="post-card-img" src="/images/202122_wiese1.jpg" alt="Quiz zum ersten April" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zum ersten April</h2>
+    <div class="post-card-date">31.03.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/wie-funktioniert-ein-bumerang/">
+  
+    <img class="post-card-img" src="/images/202124_IMG_1202.JPG" alt="Wie funktioniert ein Bumerang?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Wie funktioniert ein Bumerang?</h2>
+    <div class="post-card-date">11.03.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/elli-online/">
+  
+    <img class="post-card-img" src="/images/202125_Ellionline.jpg" alt="Elli Online " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Elli Online </h2>
+    <div class="post-card-date">04.03.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/fruehlingsboten/">
+  
+    <img class="post-card-img" src="/images/202114_butterflies-1127666_1920.jpg" alt="Frühlingsboten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Frühlingsboten</h2>
+    <div class="post-card-date">18.02.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/was-ist-fakt-was-ist-fake/">
+  
+    <img class="post-card-img" src="/images/202115_fakes-2021.jpg" alt="Was ist Fakt, was ist Fake?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Was ist Fakt, was ist Fake?</h2>
+    <div class="post-card-date">07.02.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-3/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 3&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 3&#39;</h2>
+    <div class="post-card-date">21.01.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/neujahrs-quiz/">
+  
+    <img class="post-card-img" src="/images/202105_Kabu-Neujahr.jpg" alt="Neujahrs-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Neujahrs-Quiz</h2>
+    <div class="post-card-date">06.01.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/frohes-neues-jahr/">
+  
+    <img class="post-card-img" src="/images/202105_silvest1.jpg" alt="Frohes Neues Jahr!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Frohes Neues Jahr!</h2>
+    <div class="post-card-date">06.01.2021</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/zum-4-advent-2/">
+  
+    <img class="post-card-img" src="/images/2020115_advent-4-vorschau.jpg" alt="Zum 4. Advent " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Zum 4. Advent </h2>
+    <div class="post-card-date">18.12.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/zum-3-advent/">
+  
+    <img class="post-card-img" src="/images/2020113_advent-3.jpg" alt="Zum 3.Advent" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Zum 3.Advent</h2>
+    <div class="post-card-date">11.12.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/zum-2-advent/">
+  
+    <img class="post-card-img" src="/images/2020113_advent-2.jpg" alt="Zum 2. Advent" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Zum 2. Advent</h2>
+    <div class="post-card-date">05.12.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/zum-1-advent/">
+  
+    <img class="post-card-img" src="/images/2020105_advent-1.jpg" alt="Zum 1. Advent" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Zum 1. Advent</h2>
+    <div class="post-card-date">28.11.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/onlinespiele-waehrend-corona/">
+  
+    <img class="post-card-img" src="/images/2020105_videochat%20bild%20Kabu.png" alt="Onlinespiele während Corona" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Onlinespiele während Corona</h2>
+    <div class="post-card-date">21.11.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/circular-monday/">
+  
+    <img class="post-card-img" src="/images/2020105_Circular_Monday.png" alt="Circular Monday" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Circular Monday</h2>
+    <div class="post-card-date">19.11.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/wahl-in-den-usa-kurz-erklaert/">
+  
+    <img class="post-card-img" src="/images/2020105_us-wahl-02.jpg" alt="Wahl in den USA - kurz erklärt" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Wahl in den USA - kurz erklärt</h2>
+    <div class="post-card-date">06.11.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/halloween-trotz-corona/">
+  
+    <img class="post-card-img" src="/images/202093_Titlelbild_Ohne%20Kabu.jpg" alt="Halloween trotz Corona" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Halloween trotz Corona</h2>
+    <div class="post-card-date">29.10.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/leckere-gruselfinger/">
+  
+    <img class="post-card-img" src="/images/VorschaubildGruselfinger.jpg" alt="Leckere Gruselfinger" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Leckere Gruselfinger</h2>
+    <div class="post-card-date">27.10.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/herbstquiz/">
+  
+    <img class="post-card-img" src="/images/202095_DSC04333.jpg" alt="Herbstquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Herbstquiz</h2>
+    <div class="post-card-date">14.10.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/passwortschutz/">
+  
+    <img class="post-card-img" src="/images/202085_Titelbild%20wei%c3%9fer%20Rand2.jpg" alt="Passwortschutz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Passwortschutz</h2>
+    <div class="post-card-date">23.09.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/basteltipp-fuchslesezeichen/">
+  
+    <img class="post-card-img" src="/images/202065_KABU_Vorschau_Fuchslesezeichen.jpg" alt="Basteltipp: Fuchslesezeichen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipp: Fuchslesezeichen</h2>
+    <div class="post-card-date">11.09.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-2/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 2&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 2&#39;</h2>
+    <div class="post-card-date">03.09.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/tipps-zum-streaming/">
+  
+    <img class="post-card-img" src="/images/202072_Vorschaubild_Streaming.jpg" alt="Tipps zum Streaming" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Tipps zum Streaming</h2>
+    <div class="post-card-date">21.08.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/die-drei-kids/">
+  
+    <img class="post-card-img" src="/images/202072_dreifragezeichen-vorschau.jpg" alt="Die drei ??? Kids" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Die drei ??? Kids</h2>
+    <div class="post-card-date">08.08.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/basteltipp-bilderrahmen/">
+  
+    <img class="post-card-img" src="/images/202065_Kabu_Vorschau_Bilderrahmen.jpg" alt="Basteltipp: Bilderrahmen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipp: Bilderrahmen</h2>
+    <div class="post-card-date">23.07.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/liebe-eltern-hoert-mal-her-1/">
+  
+    <img class="post-card-img" src="/images/202055_Titelbild--Liebe-Eltern.jpg" alt="&#39;Liebe Eltern, hört mal her! 1&#39;" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>&#39;Liebe Eltern, hört mal her! 1&#39;</h2>
+    <div class="post-card-date">08.07.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/sternbilder/">
+  
+    <img class="post-card-img" src="/images/202054_komprimiertstar-2630050_1920.jpg" alt="Sternbilder" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Sternbilder</h2>
+    <div class="post-card-date">23.06.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/basteltipp-vase/">
+  
+    <img class="post-card-img" src="/images/202055_Anmerkung%202020-06-12%20102115.jpg" alt="Basteltipp: Vase" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipp: Vase</h2>
+    <div class="post-card-date">10.06.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/fotografieren-fuer-anfaenger/">
+  
+    <img class="post-card-img" src="/images/202032_photographie-vorschau.jpg" alt="Fotografieren für Anfänger" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Fotografieren für Anfänger</h2>
+    <div class="post-card-date">16.04.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/lass-blumen-bluehen/">
+  
+    <img class="post-card-img" src="/images/202032_Blumen-Vorschaubild.jpg" alt="Lass Blumen blühen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Lass Blumen blühen</h2>
+    <div class="post-card-date">07.04.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/mundschutz-ohne-naehen/">
+  
+    <img class="post-card-img" src="/images/202034_Mundschutz%20Vorschaubild.png" alt="Mundschutz (ohne nähen!)" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Mundschutz (ohne nähen!)</h2>
+    <div class="post-card-date">03.04.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/fensterbilder-malen/">
+  
+    <img class="post-card-img" src="/images/202022_Malen.jpg" alt="Fensterbilder malen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Fensterbilder malen</h2>
+    <div class="post-card-date">01.04.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/tierische-gedanken/">
+  
+    <img class="post-card-img" src="/images/202025_ElefantmitText.jpg" alt="Tierische Gedanken" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Tierische Gedanken</h2>
+    <div class="post-card-date">27.02.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/hallo-ich-bin-kabu-2/">
+  
+    <img class="post-card-img" src="/images/roboter-mit-kabu-icon.jpg" alt="Hallo, ich bin KABU!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Hallo, ich bin KABU!</h2>
+    <div class="post-card-date">11.02.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-ist-kuenstliche-intelligenz/">
+  
+    <img class="post-card-img" src="/images/202005_KI_Screenshot2.jpg" alt="Was ist Künstliche Intelligenz?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist Künstliche Intelligenz?</h2>
+    <div class="post-card-date">29.01.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/kuenstliche-intelligenz-quiz/">
+  
+    <img class="post-card-img" src="/images/202005_KI_Screenshot2.jpg" alt="Künstliche Intelligenz - Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Künstliche Intelligenz - Quiz</h2>
+    <div class="post-card-date">29.01.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/pumuckl-abenteuergeschichten/">
+  
+    <img class="post-card-img" src="/images/202003_pumuckl-cover.jpg" alt="Pumuckl Abenteuergeschichten " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Pumuckl Abenteuergeschichten </h2>
+    <div class="post-card-date">10.01.2020</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/weihnachtsgewinnspiel-2019/">
+  
+    <img class="post-card-img" src="/images/2019105_KABU-Weihanchtsaufsteller-2019.jpg" alt="Weihnachtsgewinnspiel 2019" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Weihnachtsgewinnspiel 2019</h2>
+    <div class="post-card-date">22.12.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/was-weisst-du-ueber-die-antike/">
+  
+    <img class="post-card-img" src="/images/compass-3408928_1920.jpg" alt="Was weißt Du über die Antike?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Was weißt Du über die Antike?</h2>
+    <div class="post-card-date">21.11.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-sind-sprachassistenten/">
+  
+    <img class="post-card-img" src="/images/2019105_sprachassistent-vorschaubild.jpg" alt="Was sind Sprachassistenten?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was sind Sprachassistenten?</h2>
+    <div class="post-card-date">13.11.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/raetsel-zu-handydaten/">
+  
+    <img class="post-card-img" src="/images/201993_Bild%20Handy.jpg" alt="Rätsel zu Handydaten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Rätsel zu Handydaten</h2>
+    <div class="post-card-date">01.11.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/lasse-einen-drachen-steigen/">
+  
+    <img class="post-card-img" src="/images/201995_Vorschaubild%20Kabu.jpg" alt="Lasse einen Drachen steigen " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Lasse einen Drachen steigen </h2>
+    <div class="post-card-date">16.10.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/daten-quiz/">
+  
+    <img class="post-card-img" src="/images/networks-1987215_960_720.jpg" alt="Daten-Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Daten-Quiz</h2>
+    <div class="post-card-date">25.09.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/was-ist-fridays-for-future/">
+  
+    <img class="post-card-img" src="/images/Bild1JPG.JPG" alt="Was ist &#39;Fridays for Future&#39;?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Was ist &#39;Fridays for Future&#39;?</h2>
+    <div class="post-card-date">19.09.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/bewegung-mit-der-kitu-app/">
+  
+    <img class="post-card-img" src="/images/kitu-app-vorschaubild.jpg" alt="Bewegung mit der KiTu-App" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Bewegung mit der KiTu-App</h2>
+    <div class="post-card-date">11.09.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/was-weiss-dein-handy/">
+  
+    <img class="post-card-img" src="/images/handydaten-vorschaubild.jpg" alt="Was weiß dein Handy?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Was weiß dein Handy?</h2>
+    <div class="post-card-date">02.09.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/vermeide-plastik/">
+  
+    <img class="post-card-img" src="/images/Plastik-Vorschaubild.jpg" alt="Vermeide Plastik" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Vermeide Plastik</h2>
+    <div class="post-card-date">05.08.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/streichholzschachtelregale/">
+  
+    <img class="post-card-img" src="/images/VorschaubildohneKabu.jpg" alt="Streichholzschachtelregale" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Streichholzschachtelregale</h2>
+    <div class="post-card-date">18.07.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/amseln-am-fenster/">
+  
+    <img class="post-card-img" src="/images/amseln-am-fenster-4.jpg" alt="Amseln am Fenster" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Amseln am Fenster</h2>
+    <div class="post-card-date">12.07.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/was-sind-qr-barcodes/">
+  
+    <img class="post-card-img" src="/images/qr-barcode-vorschau.jpg" alt="Was sind QR- &amp; Barcodes?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Was sind QR- &amp; Barcodes?</h2>
+    <div class="post-card-date">11.07.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/sommer-gewinnspiel/">
+  
+    <img class="post-card-img" src="/images/sommer-vorschaubild.jpg" alt="Sommer-Gewinnspiel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Sommer-Gewinnspiel</h2>
+    <div class="post-card-date">10.07.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/medien-umweltbewusst-nutzen/">
+  
+    <img class="post-card-img" src="/images/medien-umwelt.jpg" alt="Medien umweltbewusst nutzen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Medien umweltbewusst nutzen</h2>
+    <div class="post-card-date">30.06.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/so-machst-du-tolle-fotos/">
+  
+    <img class="post-card-img" src="/images/perspektive-vorschaubild.jpg" alt="So machst du tolle Fotos" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>So machst du tolle Fotos</h2>
+    <div class="post-card-date">09.06.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/bedeutung-von-chatkuerzeln/">
+  
+    <img class="post-card-img" src="/images/Vorschaubild.jpg" alt="Bedeutung von Chatkürzeln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Bedeutung von Chatkürzeln</h2>
+    <div class="post-card-date">30.05.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/selbstgemachte-kresse/">
+  
+    <img class="post-card-img" src="/images/KresseVorschau.jpg" alt="Selbstgemachte Kresse" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Selbstgemachte Kresse</h2>
+    <div class="post-card-date">23.05.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/japanische-kindermedien/">
+  
+    <img class="post-card-img" src="/images/pokemonvorschau.jpg" alt="Japanische Kindermedien" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Japanische Kindermedien</h2>
+    <div class="post-card-date">16.05.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/foto-paare-finden/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Foto-Paare finden</h2>
+    <div class="post-card-date">10.05.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/spielkonsolen-und-ihre-namen/">
+  
+    <img class="post-card-img" src="/images/VorschaubildKABU.jpg" alt="Spielkonsolen und ihre Namen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Spielkonsolen und ihre Namen</h2>
+    <div class="post-card-date">01.05.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/fingerfarben-osterkarten/">
+  
+    <img class="post-card-img" src="/images/Ostern.jpg" alt="Fingerfarben-Osterkarten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Fingerfarben-Osterkarten</h2>
+    <div class="post-card-date">12.04.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/urheberrecht-das-ist-wichtig/">
+  
+    <img class="post-card-img" src="/images/UrheberrechtVorschaubild.jpg" alt="Urheberrecht - das ist wichtig" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Urheberrecht - das ist wichtig</h2>
+    <div class="post-card-date">22.03.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/emoji-lexikon/">
+  
+    <img class="post-card-img" src="/images/VorschaubildEmojis.jpg" alt="Emoji-Lexikon" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Emoji-Lexikon</h2>
+    <div class="post-card-date">15.03.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/buecher-puzzle/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Bücher-Puzzle</h2>
+    <div class="post-card-date">22.02.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/timster-das-medienmagazin/">
+  
+    <img class="post-card-img" src="/images/timster1.jpg" alt="Timster, das Medienmagazin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Timster, das Medienmagazin</h2>
+    <div class="post-card-date">21.02.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/nein-zu-cybermobbing/">
+  
+    <img class="post-card-img" src="/images/mobbing1.png" alt="Nein zu Cybermobbing!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Nein zu Cybermobbing!</h2>
+    <div class="post-card-date">20.02.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/spieletipp-wolkenpusten/">
+  
+    <img class="post-card-img" src="/images/Strohhalmspiel.jpg" alt="Spieletipp Wolkenpusten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Spieletipp Wolkenpusten</h2>
+    <div class="post-card-date">24.01.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/teste-dich-mit-schlaukopf/">
+  
+    <img class="post-card-img" src="/images/schlaukopf.jpg" alt="Teste dich mit Schlaukopf" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Teste dich mit Schlaukopf</h2>
+    <div class="post-card-date">10.01.2019</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/medien-memory/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Medien-Memory</h2>
+    <div class="post-card-date">22.11.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/programmieren-mit-scratch/">
+  
+    <img class="post-card-img" src="/images/KABU-Pong.jpg" alt="Programmieren mit Scratch" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Programmieren mit Scratch</h2>
+    <div class="post-card-date">15.11.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/der-fall-der-berliner-mauer/">
+  
+    <img class="post-card-img" src="/images/berlinermauer1.jpg" alt="Der Fall der Berliner Mauer" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Der Fall der Berliner Mauer</h2>
+    <div class="post-card-date">07.11.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/was-du-im-herbst-tun-musst/">
+  
+    <img class="post-card-img" src="/images/herbst-kabu.jpg" alt="Was du im Herbst tun musst" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Was du im Herbst tun musst</h2>
+    <div class="post-card-date">06.11.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/wie-wichtig-ist-dein-handy/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Wie wichtig ist dein Handy?</h2>
+    <div class="post-card-date">04.10.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/medien-wie-wichtig-sind-sie/">
+  
+    <img class="post-card-img" src="/images/Studie.jpg" alt="Medien - Wie wichtig sind sie?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Medien - Wie wichtig sind sie?</h2>
+    <div class="post-card-date">04.10.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/himmel-und-hoelle-basteln/">
+  
+    <img class="post-card-img" src="/images/HimmelHoelle.jpg" alt="Himmel und Hölle basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Himmel und Hölle basteln</h2>
+    <div class="post-card-date">29.09.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/ueber-qwerty-und-qwertz/">
+  
+    <img class="post-card-img" src="/images/VorschaubildTastatur.jpg" alt="Über QWERTY und QWERTZ" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Über QWERTY und QWERTZ</h2>
+    <div class="post-card-date">28.09.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/spiele-apps-zum-lernen/">
+  
+    <img class="post-card-img" src="/images/KinderComputer.jpg" alt="Spiele-Apps zum Lernen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Spiele-Apps zum Lernen</h2>
+    <div class="post-card-date">14.09.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/kruemel-im-internet/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Krümel im Internet</h2>
+    <div class="post-card-date">07.09.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/alle-moegen-cookies-oder/">
+  
+    <img class="post-card-img" src="/images/cookies.jpg" alt="Alle mögen Cookies - oder!?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Alle mögen Cookies - oder!?</h2>
+    <div class="post-card-date">06.09.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/ein-bett-fuer-dein-handy/">
+  
+    <img class="post-card-img" src="/images/HandybettVorschaubild.jpg" alt="Ein Bett für dein Handy" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Ein Bett für dein Handy</h2>
+    <div class="post-card-date">31.08.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/wer-bin-ich/">
+  
+    <img class="post-card-img" src="/images/SpieletippsVorschaubild.jpg" alt="Wer bin ich?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Wer bin ich?</h2>
+    <div class="post-card-date">30.08.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/fremdsprachen-test/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Fremdsprachen-Test</h2>
+    <div class="post-card-date">24.08.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/so-eine-hitze/">
+  
+    <img class="post-card-img" src="/images/kamel.jpg" alt="So eine Hitze..." loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>So eine Hitze...</h2>
+    <div class="post-card-date">18.08.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/kreativ-werden-im-malduell/">
+  
+    <img class="post-card-img" src="/images/MalduellVorschaubild.jpg" alt="Kreativ werden im Malduell" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Kreativ werden im Malduell</h2>
+    <div class="post-card-date">17.08.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/sommer-suchspiel/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Sommer-Suchspiel</h2>
+    <div class="post-card-date">10.08.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/tipps-zum-sonnenschutz/">
+  
+    <img class="post-card-img" src="/images/strandkabu.jpg" alt="Tipps zum Sonnenschutz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tipps zum Sonnenschutz</h2>
+    <div class="post-card-date">26.07.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/neue-scherzfragen/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Neue Scherzfragen</h2>
+    <div class="post-card-date">18.07.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/info-fuer-eltern/">
+  
+    <img class="post-card-img" src="/images/kabu&#43;robo.jpg" alt="Info für Eltern" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Info für Eltern</h2>
+    <div class="post-card-date">15.07.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/zeichne-dein-spiel/">
+  
+    <img class="post-card-img" src="/images/draw-your-game.jpg" alt="Zeichne dein Spiel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Zeichne dein Spiel</h2>
+    <div class="post-card-date">12.07.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/sind-meine-daten-sicher/">
+  
+    <img class="post-card-img" src="/images/Datenschutz1.jpg" alt="Sind meine Daten sicher?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Sind meine Daten sicher?</h2>
+    <div class="post-card-date">05.07.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/bunte-stadt-dank-saatbomben/">
+  
+    <img class="post-card-img" src="/images/SaatbombenVorschaubildKabu.jpg" alt="Bunte Stadt dank Saatbomben" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Bunte Stadt dank Saatbomben</h2>
+    <div class="post-card-date">21.06.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/fussball-wm-quiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Fußball-WM-Quiz</h2>
+    <div class="post-card-date">15.06.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/astro-alex-im-all/">
+  
+    <img class="post-card-img" src="/images/nasa2explore-15295337250-kabu.jpg" alt="Astro-Alex im All" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Astro-Alex im All</h2>
+    <div class="post-card-date">11.06.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/schlauer-fuchs-das-tierquiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Schlauer Fuchs - das Tierquiz</h2>
+    <div class="post-card-date">30.05.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/gehe-auf-kinderweltreise/">
+  
+    <img class="post-card-img" src="/images/KinderweltreiseVorschaubildmitText.jpg" alt="Gehe auf Kinderweltreise" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Gehe auf Kinderweltreise</h2>
+    <div class="post-card-date">28.05.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/fortnite-umfrage/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Fortnite-Umfrage</h2>
+    <div class="post-card-date">24.05.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/faszination-fortnite/">
+  
+    <img class="post-card-img" src="/images/FortniteVorschaubildNeu.jpg" alt="Faszination Fortnite" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Faszination Fortnite</h2>
+    <div class="post-card-date">24.05.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/ratespiel-altersfreigaben/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Ratespiel: Altersfreigaben</h2>
+    <div class="post-card-date">11.05.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/1-2-oder-3-hinter-den-kulissen/">
+  
+    <img class="post-card-img" src="/images/1,2oder3VorschaubildKabu.jpg" alt="1, 2 oder 3: Hinter den Kulissen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>1, 2 oder 3: Hinter den Kulissen</h2>
+    <div class="post-card-date">03.05.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/fruehlingsfotos-knipsen/">
+  
+    <img class="post-card-img" src="/images/Fr%c3%bchling1.JPG" alt="Frühlingsfotos knipsen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Frühlingsfotos knipsen</h2>
+    <div class="post-card-date">20.04.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/star-quiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Star-Quiz</h2>
+    <div class="post-card-date">12.04.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/tierisches-geplapper/">
+  
+    <img class="post-card-img" src="/images/Affen1.jpg" alt="Tierisches Geplapper" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Tierisches Geplapper</h2>
+    <div class="post-card-date">09.04.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/fake-news/">
+  
+    <img class="post-card-img" src="/images/FakeNewsVorschaubildNeu.jpg" alt="Fake News" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Fake News</h2>
+    <div class="post-card-date">07.04.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/scherzfragen/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Scherzfragen</h2>
+    <div class="post-card-date">01.04.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/verschneite-osterferien/">
+  
+    <img class="post-card-img" src="/images/schnee-ostern2017.jpg" alt="Verschneite Osterferien?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Verschneite Osterferien?</h2>
+    <div class="post-card-date">30.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/safer-selfie-basteln/">
+  
+    <img class="post-card-img" src="/images/FroheOstern.GIF" alt="Safer-Selfie basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Safer-Selfie basteln</h2>
+    <div class="post-card-date">28.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/tierische-fakten/">
+  
+    <img class="post-card-img" src="/images/schmetterling.jpg" alt="Tierische Fakten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tierische Fakten</h2>
+    <div class="post-card-date">15.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/thinkrolls-denken-rollen/">
+  
+    <img class="post-card-img" src="/images/ThinkrollsVorschaubild.jpg" alt="Thinkrolls: Denken &amp; Rollen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Thinkrolls: Denken &amp; Rollen</h2>
+    <div class="post-card-date">15.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/safer-internet-sicher-im-netz/">
+  
+    <img class="post-card-img" src="/images/sid2018.jpg" alt="Safer Internet: Sicher im Netz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Safer Internet: Sicher im Netz</h2>
+    <div class="post-card-date">11.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/hauptstaedte-in-europa/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Hauptstädte in Europa</h2>
+    <div class="post-card-date">10.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/upcycling-regal-aus-abfall/">
+  
+    <img class="post-card-img" src="/images/Upcycling_Vorschaubild.JPG" alt="Upcycling: Regal aus Abfall" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Upcycling: Regal aus Abfall</h2>
+    <div class="post-card-date">09.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/die-plastikreporter/">
+  
+    <img class="post-card-img" src="/images/Plastik-M%c3%bcll.jpg" alt="Die Plastikreporter" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Die Plastikreporter</h2>
+    <div class="post-card-date">03.03.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/fotos-sprechen-mit-chatterpix/">
+  
+    <img class="post-card-img" src="/images/chatterpix.jpg" alt="Fotos sprechen mit ChatterPix" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Fotos sprechen mit ChatterPix</h2>
+    <div class="post-card-date">16.02.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/kabus-faschings-fragerunde/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>KABUs Faschings-Fragerunde</h2>
+    <div class="post-card-date">07.02.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/helau-alaaf-schon-gewusst/">
+  
+    <img class="post-card-img" src="/images/202011_faschings-kabu.png" alt="Helau &amp; Alaaf: Schon gewusst?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Helau &amp; Alaaf: Schon gewusst?</h2>
+    <div class="post-card-date">07.02.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/online-oder-offline/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Online oder offline?</h2>
+    <div class="post-card-date">01.02.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/bauen-fahren-mit-fiete-cars/">
+  
+    <img class="post-card-img" src="/images/Fiete-Cars.jpg" alt="Bauen &amp; Fahren mit Fiete Cars" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Bauen &amp; Fahren mit Fiete Cars</h2>
+    <div class="post-card-date">11.01.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/big-five-gefaehrliche-wildtiere/">
+  
+    <div class="post-card-img-placeholder">📚</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Big Five: Gefährliche Wildtiere</h2>
+    <div class="post-card-date">10.01.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/alles-ueber-altersfreigaben/">
+  
+    <img class="post-card-img" src="/images/USK-Titel.JPG" alt="Alles über Altersfreigaben" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Alles über Altersfreigaben</h2>
+    <div class="post-card-date">10.01.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/drehe-deinen-eigenen-trickfilm/">
+  
+    <img class="post-card-img" src="/images/stopmotion.JPG" alt="Drehe deinen eigenen Trickfilm!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Drehe deinen eigenen Trickfilm!</h2>
+    <div class="post-card-date">05.01.2018</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/raetsel-zum-jahreswechsel/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Rätsel zum Jahreswechsel</h2>
+    <div class="post-card-date">30.12.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/schneeflockenfensterbilder/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Schneeflockenfensterbilder" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Schneeflockenfensterbilder</h2>
+    <div class="post-card-date">18.12.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/leckere-butterkekshaeuschen/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Leckere Butterkekshäuschen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Leckere Butterkekshäuschen</h2>
+    <div class="post-card-date">11.12.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/sei-nett-im-netz/">
+  
+    <img class="post-card-img" src="/images/nohatespeech.jpg" alt="Sei nett im Netz!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Sei nett im Netz!</h2>
+    <div class="post-card-date">02.12.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/weihnachtskarte-basteln/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Weihnachtskarte basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Weihnachtskarte basteln</h2>
+    <div class="post-card-date">27.11.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/geschichtenwerkstatt-app/">
+  
+    <img class="post-card-img" src="/images/Knietzsche-neu.jpg" alt="Geschichtenwerkstatt-App" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Geschichtenwerkstatt-App</h2>
+    <div class="post-card-date">02.11.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/quiz-medien-alt-neu/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz: Medien alt &amp; neu</h2>
+    <div class="post-card-date">01.11.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/umfrage-deine-kindheit/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Umfrage: Deine Kindheit</h2>
+    <div class="post-card-date">31.10.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/basteln-mit-klopapierrollen/">
+  
+    <img class="post-card-img" src="/images/Fischspiel%20%282%29.JPG" alt="Basteln mit Klopapierrollen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteln mit Klopapierrollen</h2>
+    <div class="post-card-date">28.08.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/minecraft-kreativ-spielen/">
+  
+    <div class="post-card-img-placeholder">📱</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Minecraft - kreativ spielen</h2>
+    <div class="post-card-date">27.08.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/buchstabensalat/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Buchstabensalat</h2>
+    <div class="post-card-date">26.08.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/was-sind-bildrechte/">
+  
+    <img class="post-card-img" src="/images/bildrecht.png" alt="Was sind Bildrechte?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Was sind Bildrechte?</h2>
+    <div class="post-card-date">21.07.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/welche-werbung-gibt-es/">
+  
+    <img class="post-card-img" src="/images/Zeitschriftenwerbung_Pixabay.jpg" alt="Welche Werbung gibt es?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Welche Werbung gibt es?</h2>
+    <div class="post-card-date">06.07.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/teste-dein-werbe-wissen/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Teste dein Werbe-Wissen</h2>
+    <div class="post-card-date">05.07.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/zauberglaeser-basteln/">
+  
+    <img class="post-card-img" src="/images/zauberglas-pixabay-CC0.jpg" alt="Zaubergläser basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Zaubergläser basteln</h2>
+    <div class="post-card-date">23.04.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/tipps_tricks/hast-du-ein-sicheres-passwort/">
+  
+    <img class="post-card-img" src="/images/Passwort1.jpg" alt="Hast du ein sicheres Passwort?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Hast du ein sicheres Passwort?</h2>
+    <div class="post-card-date">22.04.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/apps-was-ist-in-out/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Apps: Was ist in &amp; out?</h2>
+    <div class="post-card-date">21.04.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/film-fernseh-quiz/">
+  
+    <div class="post-card-img-placeholder">🎮</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Film- &amp; Fernseh-Quiz</h2>
+    <div class="post-card-date">20.04.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/fragfinn-kinder-suchmaschine/">
+  
+    <img class="post-card-img" src="/images/fragfinn.png" alt="fragFinn: Kinder-Suchmaschine" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>fragFinn: Kinder-Suchmaschine</h2>
+    <div class="post-card-date">19.04.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/das-groesste-tier-der-welt/">
+  
+    <img class="post-card-img" src="/images/blauwal.png" alt="Das größte Tier der Welt" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Das größte Tier der Welt</h2>
+    <div class="post-card-date">18.04.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/kreatives/maeander-malen/">
+  
+    <img class="post-card-img" src="/images/maeander1.png" alt="Mäander malen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Mäander malen</h2>
+    <div class="post-card-date">28.03.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/umfrage-was-magst-du/">
+  
+    <div class="post-card-img-placeholder">🙋</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Umfrage: Was magst du?</h2>
+    <div class="post-card-date">20.03.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/tropfsteine/">
+  
+    <img class="post-card-img" src="/images/Tropfsteine1.jpg" alt="Tropfsteine" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>Tropfsteine</h2>
+    <div class="post-card-date">15.03.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/mach_mit/luftballon-tausch-tanz/">
+  
+    <img class="post-card-img" src="/images/Luftballons-pixabay-CC0.jpg" alt="Luftballon-Tausch-Tanz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Luftballon-Tausch-Tanz</h2>
+    <div class="post-card-date">12.03.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/medientipps/klexikon-das-kinder-lexikon/">
+  
+    <img class="post-card-img" src="/images/Klexikon-Obama.jpg" alt="Klexikon - das Kinder-Lexikon" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Klexikon - das Kinder-Lexikon</h2>
+    <div class="post-card-date">27.02.2017</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/4-advent-das-vulkan-experiment/">
+  
+    <img class="post-card-img" src="/images/2025102_9.png" alt="4. Advent: Das Vulkan-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>4. Advent: Das Vulkan-Experiment</h2>
+    <div class="post-card-date">20.12.2000</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/3-advent-das-regenbogen-experiment/">
+  
+    <img class="post-card-img" src="/images/202574_Vorschau_regen.png" alt="3. Advent: Das Regenbogen-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>3. Advent: Das Regenbogen-Experiment</h2>
+    <div class="post-card-date">13.12.2000</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/2-advent-das-pfeffer-experiment/">
+  
+    <img class="post-card-img" src="/images/202574_VorschauPF.png" alt="2. Advent: Das Pfeffer-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>2. Advent: Das Pfeffer-Experiment</h2>
+    <div class="post-card-date">06.12.2000</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/weihnachtliches-raetsel/">
+  
+    <img class="post-card-img" src="/images/2025102_26.png" alt="Weihnachtliches Rätsel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Weihnachtliches Rätsel</h2>
+    <div class="post-card-date">05.12.2000</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/wissenswertes/1-advent-das-gummibaerchen-experiment/">
+  
+    <img class="post-card-img" src="/images/2025100_Vorschau.png" alt="1. Advent: Das Gummibärchen-Experiment" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Wissenswertes</div>
+    <h2>1. Advent: Das Gummibärchen-Experiment</h2>
+    <div class="post-card-date">29.11.2000</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zu-sankt-martin/">
+  
+    <img class="post-card-img" src="/images/2025102_21.png" alt="Quiz zu Sankt Martin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zu Sankt Martin</h2>
+    <div class="post-card-date">09.11.2000</div>
+  </div>
+</a>
+
+      
+    
+      
+        
+
+
+<a class="post-card" href="/spiel_quiz/halloween-das-quiz/">
+  
+    <img class="post-card-img" src="/images/202595_18.png" alt="Halloween - das Quiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Halloween - das Quiz</h2>
+    <div class="post-card-date">30.10.2000</div>
+  </div>
+</a>
+
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

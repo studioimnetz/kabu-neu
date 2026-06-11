@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Himmel und Hölle basteln – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Himmel und Hölle basteln
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Himmel und Hölle basteln</h1>
+      <div class="meta">29. September 2018</div>
+    </div>
+    
+      <img src="/images/HimmelHoelle.jpg" alt="Himmel und Hölle basteln" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/HimmelHoelle.jpg" alt="Bild"></p>
+<p>Kennst du <strong>Himmel</strong> <strong>und</strong> <strong>Hölle</strong>? Damit kannst du die Zukunft vorhersagen oder deinen Freunden lustige Aufgaben geben und sie dir. Im Video erklären wir dir, wie du dein eigenes Spiel falten kannst:</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/294125445?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<h1 id="spielvarianten">Spielvarianten</h1>
+<h2 id="das-orakel">Das Orakel</h2>
+<ul>
+<li>
+<p>Hiermit kann die Zukunft vorausgesagt werden.</p>
+</li>
+<li>
+<p>Die klassische Bemalung sieht nur die Farben „rot“ und „blau“ vor: Blau = Himmel, Rot = Hölle.</p>
+</li>
+<li>
+<p>Es werden die jeweils gegenüberliegenden Dreiecke bemalt.</p>
+</li>
+<li>
+<p>Zeigefinger und Daumen werden in die Hütchen gesteckt, so kann das Spiel auf und zu geklappt werden.</p>
+</li>
+<li>
+<p>Ein Spieler hält das Spiel geschlossen, damit keine Farbe mehr zu sehen ist.</p>
+</li>
+<li>
+<p>Ein Spieler (Spielleiter) fragt seinen Mitspieler nach einer beliebigen Zahl. So oft, wie die Höhe der genannten Zahl, muss der Spielleiter das Papier öffnen und schließen.</p>
+</li>
+<li>
+<p>Je nachdem, ob jetzt „blau“ oder „rot“ zu sehen ist, kommt der Mitspieler in den Himmel oder in die Hölle. (Natürlich nur im Spiel ;)).</p>
+</li>
+</ul>
+<h2 id="das-pflichtspiel">Das Pflichtspiel</h2>
+<ul>
+<li>
+<p>Auf die Felder, die sich in der Mitte befinden, werden Zahlen von 1-4 geschrieben.</p>
+</li>
+<li>
+<p>Auf die Felder unter den Zahlen schreibst du kleine Aufgaben oder Sprüche.</p>
+</li>
+<li>
+<p>Der Spielleiter hält das Spiel nun wieder geschlossen.</p>
+</li>
+<li>
+<p>Der Mitspieler nennt auch hier eine Zahl zwischen 1 und 4.</p>
+</li>
+<li>
+<p>Der Spielleiter öffnet das Feld unter der genannten Zahl und der Mitspieler muss die Aufgabe erfüllen („Hüpf auf einem Bein“, „Sing ein Lied“, „Zähle 5 Tiere auf“, &hellip; ).</p>
+</li>
+</ul>
+<p>So richtig Spaß macht es bei beiden Varianten, wenn sich Spielleiter und Mitspieler in ihren Rollen abwechseln und du und deine Freunde euch eigene kreative Sprüche und Aufgaben ausdenkt.</p>
+<p>KABU und seine Redaktion wünschen dir und deinen Freunden viel Spaß beim Nachbasteln und Ausprobieren :) !</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

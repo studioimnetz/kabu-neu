@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geschichtenwerkstatt-App – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/medientipps/">Medientipps</a> ›
+    Geschichtenwerkstatt-App
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-medientipps" href="/medientipps/">Medientipps</a>
+      <h1>Geschichtenwerkstatt-App</h1>
+      <div class="meta">02. November 2017</div>
+    </div>
+    
+      <img src="/images/Knietzsche-neu.jpg" alt="Geschichtenwerkstatt-App" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p>Vielleicht kennst du Knietzsche aus dem Fernsehen? Dort ist der kleine Philosoph schon lange zu sehen, und nun hat er auch eine eigene App.</p>
+<p><img src="/images/Knietzsche-neu.jpg" alt="Bild"></p>
+<p>Mit &ldquo;Knietzsches Geschichtenwerkstatt&rdquo; kannst du eigene Geschichten erzählen und als Bildergeschichte gestalten. Du hast verschiedene Figuren, Hintergründe und weitere Elemente zur Auswahl, die du im Bild anordnen kannst. Dazu kannst du einen Text erfinden und das Ergebnis abspeichern, versenden oder ausdrucken. Wir zeigen dir das in einem kurzen Video:</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/244010734?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>Die App kostet nichts und enthält keine Werbung. Außerdem wurde sie mit dem „Pädagogischen Medienpreis 2017“ ausgezeichnet. Wir wünschen dir viel Spaß beim Geschichten-Erzählen!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

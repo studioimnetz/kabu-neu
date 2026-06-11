@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Der Goldene Spatz 2021 – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/medientipps/">Medientipps</a> ›
+    Der Goldene Spatz 2021
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-medientipps" href="/medientipps/">Medientipps</a>
+      <h1>Der Goldene Spatz 2021</h1>
+      <div class="meta">27. August 2021</div>
+    </div>
+    
+      <img src="/images/202174_Unbenannt-1.jpg" alt="Der Goldene Spatz 2021" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="goldener-spatz-2021">Goldener Spatz 2021</h1>
+<p>Spannende Serien und großes Kino. Am Freitag, den <strong>11. Juni 2021</strong>, war es wieder so weit: Auf der <strong>Preisverleihung des 29. Deutschen Kinder Medien Festivals Goldener Spatz</strong> wurden verschiedene Film-, Fernseh- und Medienangebote von den Kinderjurys ausgezeichnet.</p>
+<p>![Bild](/images/202171_4_Preisverleihung GS 2021_Foto_Carlo Bansini.jpg)</p>
+<p>Quelle: Goldener Spatz 2021_Foto: Carlo Bansini</p>
+<h1 id="filme">Filme:</h1>
+<h2 id="max-und-die-wilde-7">Max und die Wilde 7</h2>
+<p>Max wohnt mit seiner Mutter und seinem Kater Motzkopf im Altenheim auf der Burg Geroldstein. Mit den schrulligen alten Bewohnern kann er nicht viel anfangen, bis plötzlich ein Einbrecher in der Burg sein Unwesen treibt. Max, der gerne ein Detektiv wäre, und drei Senioren vom Tisch Nr. 7 stellen sich dem Übeltäter &hellip; Und schon bald sind sie ihm dicht auf den Fersen.</p>
+<h2 id="fuchs-für-edgar">Fuchs für Edgar</h2>
+<p>Edgar hat Geburtstag und eigentlich sollte das sein schönster Tag werden. Aber seine Eltern haben keine Zeit für ihn, denn sie sind mit ihren Laptops und Smartphones beschäftigt. Im Internet gibt es schließlich viel zu tun! Aber Edgar will etwas unternehmen und geht alleine in den Wald. Dort trifft er einen Fuchs. Er verbringt den ganzen Tag mit ihm. Erst am Abend merken seine Eltern, dass ihr Sohn nicht da ist. Besorgt machen sie sich auf die Suche.</p>
+<p>(Preis: Kinderjury Kino-TV, Kurzfilm)</p>
+<p>Wir stellen Euch ein paar Filme und Fernsehserien vor!</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Wir stellen Euch ein paar Filme und Fernsehserien vor!</p>
+</blockquote>
+<h2 id="mission-ulja-funk">Mission Ulja Funk</h2>
+<p>In wenigen Tagen wird der Asteroid VR-24-1720 auf der Erde - genau genommen in Patzschurk - einschlagen. Da ist sich die 12-jährige Hobbyastronomin Ulja Funk ganz sicher. Doch niemand glaubt ihr und so macht sie sich alleine mit ihrem Klassenkameraden Henk auf den Weg nach Weißrussland. Eine abenteuerliche Reise durch Osteuropa beginnt.</p>
+<p>(Preis: Kinderjury Kino-TV, Langfilm)</p>
+<h1 id="fernsehserie">Fernsehserie:</h1>
+<h2 id="pan-tau-folge-2">Pan Tau, Folge 2</h2>
+<p>Karlotta ist die Einzige in ihrer Schule, die nicht auf die Swordstone-Fantasy-Romane abfährt. Deshalb reist Pan Tau, das magische Schulmaskottchen der Westpark-Schule, mit ihr in die fantastische Welt des Romans und prompt wird sie zur Prinzessin von Swordstone gekührt. Doch leider will der schwarze Lord das Königreich an sich reißen und Karlotta muss es zusammen mit Pan Tau beschützen.</p>
+<p>Hast Du eine Lieblingsserie oder Film? Schreibe gerne der KABU-Redaktion!</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Hast Du eine Lieblingsserie oder Film? Schreibe gerne der KABU-Redaktion!</p>
+</blockquote>
+<h1 id="über-das-festival-goldener-spatz">Über das Festival Goldener Spatz</h1>
+<p>Das <strong>Deutsche Kinder Medien Festival Goldener Spatz</strong> findet jedes Jahr in Gera und Erfurt statt. Es ist eines der größten <strong>Kindermedienfestivals</strong> in Deutschland.</p>
+<p>Neben Filmvorführungen für
+Kinder und Jugendliche, bietet das <strong>Festival</strong> auch einen Austausch für Fachleute aus dem
+Medienbereich.</p>
+<p>Außerdem gibt es eine <strong>Preisverleihung</strong>, bei der spannende <strong>Kinofilme</strong>, <strong>Fernsehsendungen</strong> und <strong>digitale Medienangebote</strong> für Kinder von zwei Kinderjurys ausgezeichnet werden.</p>
+<p>![Bild](/images/202171_1_Eröffnung GS 2021_Foto_René Löffler.jpg)</p>
+<p>Quelle: Goldener Spatz 2021_Foto: René Löffler</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

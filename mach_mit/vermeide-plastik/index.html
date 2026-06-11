@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vermeide Plastik – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/mach_mit/">Mach mit</a> ›
+    Vermeide Plastik
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-mach_mit" href="/mach_mit/">Mach mit</a>
+      <h1>Vermeide Plastik</h1>
+      <div class="meta">05. August 2019</div>
+    </div>
+    
+      <img src="/images/Plastik-Vorschaubild.jpg" alt="Vermeide Plastik" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/Plastik-Titelbild.jpg" alt="Bild"></p>
+<p>Schone die Umwelt und vermeide Plastikmüll!</p>
+<p>Wir haben dazu einige Tipps für dich!</p>
+<p>Zunächst erklären wir dir aber, warum wir alle weniger Plastik verbrauchen sollten.</p>
+<h2 id="plastik-ist-überall">Plastik ist überall</h2>
+<p>Hast du heute schon ein Produkt aus Plastik verwendet?<br>
+Bestimmt! Denn in unserem Alltag gibt es so viel Plastik.</p>
+<p>Joghurtbecher, Zahnbürsten oder Trinkflaschen zum Beispiel.</p>
+<p>Auch Obst, Gemüse und andere Lebensmittel sind oft in Plastik verpackt.</p>
+<p><img src="/images/Plastik-1.jpg" alt="Bild"></p>
+<h2 id="was-ist-so-schlimm-an-plastik">Was ist so schlimm an Plastik?</h2>
+<p>Wenn Plastik im Müll landet und verbrannt wird, entstehen zahlreiche Giftstoffe in der Luft.</p>
+<p>Der Anteil des Plastiks, der recycled, also wiederverwendet wird, ist leider gering. Oft wird der Plastikmüll auch einfach im Meer versenkt. Dort löst er sich auf, schwimmt dann in Form von „Mikroplastik“ durchs Wasser und wird von Meerestieren gegessen.</p>
+<p>Diese Tiere haben dann den giftigen Müll in ihrem Körper und wenn wir Fische oder andere Meerestiere essen, gelangen die Giftstoffe auch in unseren Körper.</p>
+<p>Pro Jahr sterben ca. 100.000 Meerestiere und 1 Million Vögel durch Plastik.</p>
+<h2 id="wie-kannst-du-plastik-vermeiden">Wie kannst du Plastik vermeiden?</h2>
+<h3 id="videoclip">Videoclip:</h3>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/349665243?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<h3 id="die-tipps-zum-nachlesen">Die Tipps zum Nachlesen:</h3>
+<p>•	Nimm eigene Stofftaschen mit, wenn du zum Einkaufen gehst. Auch Obst und Gemüse kannst du in selbst mitgebrachten Stofftüten oder –netzen transportieren. Kaufe Obst und Gemüse auch mal auf dem Markt!</p>
+<p>•	Benutze zum Trinken Flaschen aus Metall, Glas oder Mehrweg-Flaschen. Auch Strohhalme gibt es mittlerweile aus Papier, Metall oder Glas. Unterwegs nimmst du am besten eine Brotzeitbox und keine Wegwerftüten mit.</p>
+<p>•	Vermeide Frischhalte- und Alufolie, um Lebensmittel aufzubewahren. Nutze stattdessen Boxen oder Wachstücher, die abwaschbar und wiederverwendbar sind.</p>
+<p>•	Suche dir Spielzeug aus, das wenig oder kein Plastik beinhaltet.</p>
+<p>•	Schreibe mit Füller oder Bleistift, denn Kugelschreiber oder Druckbleistifte stecken auch in Plastikhüllen.</p>
+<p>•	Wasche dir die Hände mit Kernseife statt mit Flüssigseife, die du in einer Plastikverpackung kaufen müsstest. Sogar Shampoo gibt es mittlerweile als Seifenstück und auch Zahnbürsten kannst du aus Bambusholz kaufen.</p>
+<p>•	Trage Klamotten, die aus Naturfasern, wie Baumwolle, Viskose oder Leinen bestehen, nicht aus den Chemiefasern, wie Polyester.</p>
+<p>•	Gestalte deine nächste Geburtstagsparty plastikfrei: vermeide Plastikteller und -besteck, Luftballons und Einweg-Girladen. Es geht auch ohne!</p>
+<p>Niemand ist perfekt, aber wenn alle ihr Bestes tun, haben wir schon eine Menge unnötiges Plastik eingespart. Wir sollten gemeinsam an unsere schöne Erde denken und versuchen, die Umwelt zu schonen anstatt sie mit Plastik zuzumüllen. Denn nur so wird es der Erde und uns Menschen auch in Zukunft gut gehen.</p>
+<h3 id="vielen-dank-für-deine-mithilfe">Vielen Dank für deine Mithilfe!</h3>
+<p><img src="/images/Plastik-2.jpg" alt="Bild"></p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

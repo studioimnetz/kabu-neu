@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freizeit-Tipps – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/mach_mit/">Mach mit</a> ›
+    Freizeit-Tipps
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-mach_mit" href="/mach_mit/">Mach mit</a>
+      <h1>Freizeit-Tipps</h1>
+      <div class="meta">15. September 2021</div>
+    </div>
+    
+      <img src="/images/202184_Titelbild1.jpg" alt="Freizeit-Tipps" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="freizeit-tipps">Freizeit-Tipps</h1>
+<p>Die <strong>Ferien</strong> sind um und das KABU-Team hat Kinder in deinem Alter gefragt, wie sie die Ferienzeit genutzt haben. Vielleicht sind ein paar gute <strong>Tipps</strong> für dich dabei, die du nicht nur in den Ferien, sondern auch am <strong>Wochenende</strong> nutzen kannst!</p>
+<p>Die Kinder haben zusätzlich tolle Bilder von ihren Lieblingsbeschäftigungen gemalt!</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Die Kinder haben zusätzlich tolle Bilder von ihren Lieblingsbeschäftigungen gemalt!</p>
+</blockquote>
+<h2 id="tipp-nummer-1-freunde-treffen">Tipp Nummer 1: Freunde treffen</h2>
+<p>Egal, ob du bei einem Freund <strong>übernachtet</strong> hast, ihr gemeinsam <strong>raus gegangen</strong> oder <strong>Rad gefahren seid</strong>, ihr am <strong>Zocken</strong> wart oder vielleicht <strong>Fußball gespielt habt</strong>: Gemeinsame Aktivitäten standen auch dieses Jahr in den Sommerferien im Mittelpunkt.</p>
+<p><img src="/images/202184_Zombieball.jpg" alt="Bild"></p>
+<p>Kennst du schon das Spiel Könifgsfrei?</p>
+<h2 id="tipp-nummer-2-spielen">Tipp Nummer 2: Spielen</h2>
+<p>Neben der <strong>gemeinsamen Zeit</strong> mit Freunden, gehen viele Kinder gerne <strong>Schwimmen</strong>, um sich bei heißen Tagen abzukühlen. Auch <strong>Fußball spielen, Reiten, Turnen</strong> und <strong>Spazieren gehen</strong> sind Freizeitbeschäftigungen in den Ferien.
+KABU hat nachgefragt, welche <strong>Spiele</strong> und <strong>Orte</strong> besonders schön sind, um sich die Zeit zu vertreiben und hat prompt folgende Antwort erhalten:</p>
+<h3 id="skaterpark">Skaterpark</h3>
+<p><img src="/images/202184_Skater.jpg" alt="Bild"></p>
+<p><img src="/images/202184_ska-2.jpg" alt="Bild"></p>
+<h3 id="spielplätze">Spielplätze</h3>
+<p><img src="/images/202184_Spiel.jpg" alt="Bild"></p>
+<p>Geht es dir genauso und du verbringst viel Zeit draußen gemeinsam mit deinen Freunden?</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Geht es dir genauso und du verbringst viel Zeit draußen gemeinsam mit deinen Freunden?</p>
+</blockquote>
+<h3 id="schwimmbad-oder-see">Schwimmbad oder See</h3>
+<p><img src="/images/202184_Schwimmen_Sport.png" alt="Bild"></p>
+<h2 id="tipp-nummer-3-medientipps-und-spiele">Tipp Nummer 3: Medientipps und Spiele</h2>
+<h1 id="uno">Uno</h1>
+<p>Egal, ob mit Freunden oder der Familie. Das Kartenspiel Uno ist noch immer sehr beliebt:</p>
+<p><img src="/images/202184_uni.jpg" alt="Bild"></p>
+<p><img src="/images/202184_Uno-2.jpg" alt="Bild"></p>
+<h2 id="medientipps">Medientipps</h2>
+<p>Kennst du schon den Film <strong>„Rocca verändert die Welt“?</strong> Die Kinder waren so nett und haben Dir ihren Lieblingsfilm beschrieben! Die Altersempfehlung ist für Kinder ab <strong>8 Jahren</strong>.</p>
+<p><img src="/images/202184_Roca.png" alt="Bild"></p>
+<p><img src="/images/202184_So.jpg" alt="Bild"></p>
+<p>Frage vorher deine Eltern nach der Altersfreigabe!</p>
+<blockquote>
+<p>💭 <strong>Denkblase</strong>
+Frage vorher deine Eltern nach der Altersfreigabe!</p>
+</blockquote>
+<h2 id="tipp-nummer-4-zeit-für-ein-hobby">Tipp Nummer 4: Zeit für ein Hobby</h2>
+<p><strong>Zeichnen</strong> und <strong>Lesen</strong> sind nur ein paar der Lieblingsfreizeitbeschäftigungen!</p>
+<p><img src="/images/202184_Hobby_Tanzen.png" alt="Bild"></p>
+<p><img src="/images/202184_Tenn2.jpg" alt="Bild"></p>
+<h2 id="tipp-nummer-5-abkühlung-für-naschkatzen">Tipp Nummer 5: Abkühlung für Naschkatzen</h2>
+<p>Neben Tipps und Freizeitbeschäftigungen haben die Kinder ein paar Rezeptideen und Essensvorschläge für dich aufgeschrieben - hier sind auch ein paar Lieblingsgerichte zu finden! Frag am besten deine <strong>Eltern</strong>, wenn du etwas davon nachmachen möchtest!</p>
+<p><img src="/images/202184_Pizza.png" alt="Bild"></p>
+<p><img src="/images/202184_smoo2.jpg" alt="Bild"></p>
+<p><img src="/images/202184_Unbenannt-2.jpg" alt="Bild"></p>
+<p><img src="/images/202184_eiskakai.jpg" alt="Bild"></p>
+<p><img src="/images/202184_eis.jpg" alt="Bild"></p>
+<p>Hast du noch ein paar <strong>Freizeit- oder Ferientipps</strong>? Schreibe gerne der <strong>KABU-Redaktion</strong>!</p>
+<p>Das geht ganz einfach, indem du auf den blauen Button <strong>Schreib dem KABU-Team</strong> tippst, den du am Ende des Beitrags siehst. Wenn du möchtest, veröffentlichen wir auch deine Antwort!</p>
+<p><strong>Dein KABU-Team</strong></p>
+<p><strong>Auflösung Rätsel</strong></p>
+<p>Hier findest du die Lösung zu unserem Quiz &ldquo;Freizeit-Rätselpaß&rdquo;. Die richtige Antwort ist &ldquo;C&rdquo;. Die Kinder möchten gemeinsam Tennis spielen.</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

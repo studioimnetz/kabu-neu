@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basteltipps für Sankt Martin – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Basteltipps für Sankt Martin
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Basteltipps für Sankt Martin</h1>
+      <div class="meta">08. November 2022</div>
+    </div>
+    
+      <img src="/images/2021104_Lina.jpg" alt="Basteltipps für Sankt Martin" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="basteltipps-für-sankt-martin">Basteltipps für Sankt Martin</h1>
+<p>Diesen Freitag ist es wieder soweit: Wir feiern <strong>Sankt Martin</strong>. Vielerorts werden am 11. November Lagerfeuer abgehalten und Menschen singen zusammen und laufen bei Dunkelheit mit Laternen durch die Straßen. Am meisten freuen sich Kinder über die Martinszüge und basteln fleißig ihre eigenen Laternen und Dekorationen.</p>
+<p>Du hast auch Lust Sankt Martin zu feiern und suchst noch tolle Bastelideen? Dann bist du hier genau richtig!</p>
+<p><em>KABU</em> zeigt dir, wie du deine eigene Laterne basteln kannst und wünscht dir viel Spaß beim Nachmachen!</p>
+<h2 id="1-bastelanleitung-für-eine-laterne-aus-papier">1. Bastelanleitung für eine Laterne aus Papier</h2>
+<h3 id="das-brauchst-du-zum-basteln">Das brauchst du zum Basteln:</h3>
+<ul>
+<li>Eine leere Papiertüte</li>
+<li>Einen Bleistift</li>
+<li>Etwas buntes Transparentpapier (die Farben darfst du dir selbst aussuchen)</li>
+<li>Einen Kleber oder Tesafilm</li>
+<li>Eine Schere</li>
+<li>Einen Laternenstab mit Licht</li>
+<li>Etwas Schnur</li>
+</ul>
+<p>Und los geht&rsquo;s!</p>
+<blockquote>
+<p>💭 <strong>RoboBoard</strong>
+Und los geht&rsquo;s!</p>
+</blockquote>
+<h3 id="so-bastelst-du-deine-laterne">So bastelst du deine Laterne:</h3>
+<ol>
+<li>
+<p>Suche dir eine passende Papiertüte in deiner gewünschten Größe. Am besten eignen sich dafür einfarbige Papiertüten.</p>
+</li>
+<li>
+<p>Male mit einem Bleistift verschiedene Muster und Formen wie Sterne oder Kreise auf die Vorder- und Rückseite deiner Papiertüte.</p>
+</li>
+<li>
+<p>Schneide die aufgemalten Muster und Formen vorsichtig mit einer Schere aus. Lass dir dabei von deinen Eltern oder älteren Geschwister helfen.</p>
+</li>
+</ol>
+<p><img src="/images/2021104_Jan_Anleitung_Tuete_1.jpg" alt="Bild"></p>
+<ol start="4">
+<li>Nehme nun das bunte Transparentpapier und lege es hinter die ausgeschnittenen Muster und Formen. Wichtig ist, dass du das Transparentpapier in die Innenseite deiner Papiertüte legst. Bei Bedarf kannst du das Transparentpapier auch noch in die passende Größe zuschneiden. Als nächstes musst du mit einem Kleber oder Tesafilm  das Transparentpapier in der Innenseite festkleben.</li>
+</ol>
+<p><img src="/images/2021104_Jan_Anleitung_Tuete_2.jpg" alt="Bild"></p>
+<p>Tipp: Je nach Wunsch kannst du deinen Laternenschirm noch mit Bunt- und Filzstiften weiter verzieren.</p>
+<p><img src="/images/2021104_Jan_Anleitung_Tuete_3.jpg" alt="Bild"></p>
+<ol start="5">
+<li>Zum Schluss musst du nur noch den Laternenstab mit Licht in die Öffnung der Papiertüte stecken und an den Papiertütenhenkeln mit der Schnur festbinden. Fertig ist deine Laterne aus Papier!</li>
+</ol>
+<p><img src="/images/2021104_Jan_Anleitung_Tuete_4.jpg" alt="Bild"></p>
+<h2 id="2-bastelanleitung-für-eine-laterne-aus-glas">2. Bastelanleitung für eine Laterne aus Glas</h2>
+<h3 id="das-brauchst-du-zum-basteln-1">Das brauchst du zum Basteln:</h3>
+<ul>
+<li>Ein leeres Einweckglas</li>
+<li>Etwas buntes Transparentpapier (die Farben kannst du dir selbst aussuchen)</li>
+<li>Einen Kleister</li>
+<li>Ein Teelicht oder elektronisches Licht</li>
+</ul>
+<p><img src="/images/2021104_Darin.jpg" alt="Bild"></p>
+<h3 id="so-bastelst-du-deine-laterne-1">So bastelst du deine Laterne:</h3>
+<ol>
+<li>
+<p>Suche dir ein passendes Einweckglas in deiner gewünschten Größe. Am besten fragst du dazu deine Eltern, ob sie dir ein leeres Einweckglas aus der Küche geben können. Den Deckel brauchst du zum Basteln nicht.</p>
+</li>
+<li>
+<p>Als erstes zerreißt du das bunte Transparentpapier in kleine Stücke.</p>
+</li>
+<li>
+<p>Als nächstes musst du den Kleister in einer kleinen Schüssel anrühren, damit du die Schnipsel auf das Einwegglas kleben kannst. Beim Anrühren des Klebers kannst du deine Eltern oder älteren Geschwister um Hilfe fragen.</p>
+</li>
+<li>
+<p>Jetzt kannst du die Papierschnipsel in den Kleister tunken und auf das Einwegglas kleben. Wichtig ist, dass du höchstens 2 Schichten auf das Einwegglas klebst, denn je mehr Schichten du bildest, desto undurchsichtiger wird das Glas.</p>
+</li>
+</ol>
+<p>Tipp: Je nach Wunsch kannst du deine Laternenglas noch weiter verzieren, z.B. mit Gesichtern aus Pappe. Alternativ kannst du das Laternenglas auch mit Acrylfarben bemalen.</p>
+<ol start="5">
+<li>
+<p>Jetzt muss das beklebte Glas 1-2 Tage lang trocknen.</p>
+</li>
+<li>
+<p>Zum Schluss musst du nur noch ein Teelicht oder ein elektronisches Licht vorsichtig in die Öffnung des Glases stellen.</p>
+</li>
+</ol>
+<p><em>Fertig ist deine Laterne aus Glas zum Dekorieren!</em></p>
+<p>Wichtig: Die Kerze solltest du nur gemeinsam und mit Erlaubnis deiner Eltern anzünden.</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Wichtig: Die Kerze solltest du nur gemeinsam und mit Erlaubnis deiner Eltern anzünden.</p>
+</blockquote>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

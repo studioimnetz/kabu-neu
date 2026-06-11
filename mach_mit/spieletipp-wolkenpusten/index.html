@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spieletipp Wolkenpusten – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/mach_mit/">Mach mit</a> ›
+    Spieletipp Wolkenpusten
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-mach_mit" href="/mach_mit/">Mach mit</a>
+      <h1>Spieletipp Wolkenpusten</h1>
+      <div class="meta">24. January 2019</div>
+    </div>
+    
+      <img src="/images/Strohhalmspiel.jpg" alt="Spieletipp Wolkenpusten" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="wolkenpusten">Wolkenpusten</h1>
+<p>Wenn du deinen Kopf mal nicht anstrengen, sondern deine Geschicklichkeit überprüfen willst, ist <strong>Wolkenpusten</strong> genau das Richtige für dich. Es geht darum, eine Wattebausch-Kugel schneller als der Gegner mit einem Strohhalm durch einen Parcours zu pusten.</p>
+<p><img src="/images/Strohhalmspiel.jpg" alt="Bild"></p>
+<h2 id="anzahl-der-spieler">Anzahl der Spieler:</h2>
+<p>2 Spieler, die gegeneinander antreten oder mehrere Spieler, die in Teams gegeneinander spielen (es muss aber immer eine gerade Anzahl sein)</p>
+<h2 id="material">Material:</h2>
+<ul>
+<li>
+<p>1 bis 2 Wattebausch-Kugeln</p>
+</li>
+<li>
+<p>1 Strohhalm pro Spieler</p>
+</li>
+<li>
+<p>1 Stoppuhr</p>
+</li>
+<li>
+<p>Parcoursmarkierungen (z.B. Klebeband oder Maßband bzw. Meterstab)</p>
+</li>
+<li>
+<p>Gegenstände als Hindernisse (z.B. eine Klopapierrolle als Tunnel, ein Buch als Brücke oder einen Löffel als Zwischenstopp, auf dem die Wattebausch-Kugel kurz liegen bleiben muss, bevor sie weiterrollt)</p>
+</li>
+</ul>
+<h2 id="vorbereitungen">Vorbereitungen:</h2>
+<p>Legt zuerst eine Strecke fest, von wo bis wo euer Parcours gehen soll. Sucht euch dazu am besten eine Strecke mit glattem Untergrund (Parkett, Fliesen) aus, damit die Wattebausch-Kugel auch gut rollen kann. Überlegt euch, welche Gegenstände ihr als Hindernisse nehmen könnt und verteilt sie auf der Parcoursstrecke.</p>
+<p>Wenn alles aufgebaut ist, kann’s auch schon losgehen.</p>
+<h2 id="spielablauf">Spielablauf:</h2>
+<p>Der erste Spieler geht am Startpunkt des Parcours auf die Knie, nimmt den Strohhalm in den Mund und legt die Watte-Wolke vor sich. Ein Mitspieler gibt das Loszeichen und startet die Stoppuhr. Der erste Spieler versucht, den Parcours so schnell wie möglich zu durchqueren, indem er die Wattebausch-Kugel mit dem Strohhalm vor sich her pustet, ohne dass sie außerhalb des Spielfelds gerät. Sollte sie doch aus dem Feld rollen, muss wieder beim Start angefangen werden. Sobald der erste Spieler die Wolke über die Ziellinie pustet, wird die Zeit angehalten und notiert.</p>
+<p>Nun ist der nächste Spieler an der Reihe, der natürlich versucht, die Zeit des ersten Spielers zu unterbieten und schneller zu sein. Wenn ihr gleichzeitig gegeneinander antreten wollt, geht das natürlich auch. Dann müsst ihr aber den Parcours zweimal aufbauen.</p>
+<h2 id="ende">Ende:</h2>
+<p><strong>Wolkenpusten</strong> ist dann zu Ende, wenn jeder Spieler einmal dran war. Der Spieler mit der besten Zeit gewinnt. Spielt ihr in Teams, so werden einfach die Zeiten der einzelnen Teammitglieder zusammengezählt. Das Team, welches die wenigsten Minuten auf den Zettel bringt, ist das Sieger-Team.</p>
+<p><img src="/images/Uhr.jpg" alt="Bild"></p>
+<p><strong>Wichtiger Hinweis:</strong> Bitte denkt der Umwelt zuliebe daran, dass ihr Plastikstrohhalme nach dem Spiel nicht sofort wegwerft, sondern abwascht, um sie wiederzubenutzen. Alternativ dazu könnt ihr auch Papier- oder Silikonstrohhalme für das Spiel verwenden.</p>
+<p>KABU wünscht euch viel Spaß beim Ausprobieren von <strong>Wolkenpusten</strong>!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

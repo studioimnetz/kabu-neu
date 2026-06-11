@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kreatives – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <h1>Kreatives</h1>
+  <p>43 Beiträge</p>
+</div>
+
+<div class="posts-section">
+  <div class="posts-grid">
+    
+    
+
+
+<a class="post-card" href="/kreatives/baue-deine-eigene-klimaanlage/">
+  
+    <img class="post-card-img" src="/images/202574_Klima_Vorschau.png" alt="Baue deine eigene Klimaanlage!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Baue deine eigene Klimaanlage!</h2>
+    <div class="post-card-date">26.08.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/kleiner-faschingsfilm/">
+  
+    <img class="post-card-img" src="/images/202521_Bild%20Faschingsparty%202%20-%20Kleinere%20Aufl%c3%b6sung.jpg" alt="Kleiner Faschingsfilm" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Kleiner Faschingsfilm</h2>
+    <div class="post-card-date">01.03.2025</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/weihnachtliche-3d-klappkarte/">
+  
+    <img class="post-card-img" src="/images/2024104_210.png" alt="Weihnachtliche 3D-Klappkarte " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Weihnachtliche 3D-Klappkarte </h2>
+    <div class="post-card-date">14.12.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/bastle-deinen-eigenen-roboter/">
+  
+    <img class="post-card-img" src="/images/2024103_188.png" alt="Bastle deinen eigenen Roboter!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Bastle deinen eigenen Roboter!</h2>
+    <div class="post-card-date">30.11.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-teil-6-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_6.png" alt="Märchenhafte Geschichten Teil 6/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten Teil 6/6</h2>
+    <div class="post-card-date">11.11.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-5-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_5.png" alt="Märchenhafte Geschichten 5/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten 5/6</h2>
+    <div class="post-card-date">28.10.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/erstelle-dein-eigenes-memory/">
+  
+    <img class="post-card-img" src="/images/202364_115.png" alt="Erstelle dein eigenes Memory" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Erstelle dein eigenes Memory</h2>
+    <div class="post-card-date">14.10.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-teil-4-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_4.png" alt="Märchenhafte Geschichten Teil 4/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten Teil 4/6</h2>
+    <div class="post-card-date">30.09.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-3-6/">
+  
+    <img class="post-card-img" src="/images/202381_Vorschau_3.png" alt="Märchenhafte Geschichten  3/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten  3/6</h2>
+    <div class="post-card-date">18.09.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-2-6/">
+  
+    <img class="post-card-img" src="/images/202365_Vorschau_2.png" alt="Märchenhafte Geschichten 2/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten 2/6</h2>
+    <div class="post-card-date">05.08.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/maerchenhafte-geschichten-1-6/">
+  
+    <img class="post-card-img" src="/images/202365_Vorschau_1.png" alt="Märchenhafte Geschichten 1/6" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Märchenhafte Geschichten 1/6</h2>
+    <div class="post-card-date">24.07.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/3d-klappkarte-fuer-besondere-anlaesse/">
+  
+    <img class="post-card-img" src="/images/202342_KABU-Grafiken%20%284%29.png" alt="3D-Klappkarte für besondere Anlässe" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>3D-Klappkarte für besondere Anlässe</h2>
+    <div class="post-card-date">11.05.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/basteltipps-fuer-sankt-martin/">
+  
+    <img class="post-card-img" src="/images/2021104_Lina.jpg" alt="Basteltipps für Sankt Martin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipps für Sankt Martin</h2>
+    <div class="post-card-date">08.11.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/gesunde-grusel-snacks/">
+  
+    <img class="post-card-img" src="/images/202273_Gruselsnacks1.jpg" alt="Gesunde Grusel-Snacks" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Gesunde Grusel-Snacks</h2>
+    <div class="post-card-date">22.10.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/kabu-lesezeichen/">
+  
+    <img class="post-card-img" src="/images/202273_Basteln%20mit%20KABU.png" alt="KABU Lesezeichen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>KABU Lesezeichen</h2>
+    <div class="post-card-date">06.08.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/kabu-faltspiel/">
+  
+    <img class="post-card-img" src="/images/202264_Vorschaubild.jpg" alt="KABU-Faltspiel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>KABU-Faltspiel</h2>
+    <div class="post-card-date">16.07.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/stop-motion/">
+  
+    <img class="post-card-img" src="/images/202245_KABU-Grafiken%281%29.png" alt="Stop Motion" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Stop Motion</h2>
+    <div class="post-card-date">25.05.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/hotel-fuer-krabbeltiere/">
+  
+    <img class="post-card-img" src="/images/202165_Bild_App.jpg" alt="Hotel für Krabbeltiere" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Hotel für Krabbeltiere</h2>
+    <div class="post-card-date">29.07.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/wollknollis-basteln/">
+  
+    <img class="post-card-img" src="/images/202145_Design%20ohne%20Titel.png" alt="Wollknollis basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Wollknollis basteln</h2>
+    <div class="post-card-date">19.05.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/wie-funktioniert-ein-bumerang/">
+  
+    <img class="post-card-img" src="/images/202124_IMG_1202.JPG" alt="Wie funktioniert ein Bumerang?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Wie funktioniert ein Bumerang?</h2>
+    <div class="post-card-date">11.03.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/zum-3-advent/">
+  
+    <img class="post-card-img" src="/images/2020113_advent-3.jpg" alt="Zum 3.Advent" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Zum 3.Advent</h2>
+    <div class="post-card-date">11.12.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/zum-1-advent/">
+  
+    <img class="post-card-img" src="/images/2020105_advent-1.jpg" alt="Zum 1. Advent" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Zum 1. Advent</h2>
+    <div class="post-card-date">28.11.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/leckere-gruselfinger/">
+  
+    <img class="post-card-img" src="/images/VorschaubildGruselfinger.jpg" alt="Leckere Gruselfinger" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Leckere Gruselfinger</h2>
+    <div class="post-card-date">27.10.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/basteltipp-fuchslesezeichen/">
+  
+    <img class="post-card-img" src="/images/202065_KABU_Vorschau_Fuchslesezeichen.jpg" alt="Basteltipp: Fuchslesezeichen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipp: Fuchslesezeichen</h2>
+    <div class="post-card-date">11.09.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/basteltipp-bilderrahmen/">
+  
+    <img class="post-card-img" src="/images/202065_Kabu_Vorschau_Bilderrahmen.jpg" alt="Basteltipp: Bilderrahmen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipp: Bilderrahmen</h2>
+    <div class="post-card-date">23.07.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/basteltipp-vase/">
+  
+    <img class="post-card-img" src="/images/202055_Anmerkung%202020-06-12%20102115.jpg" alt="Basteltipp: Vase" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteltipp: Vase</h2>
+    <div class="post-card-date">10.06.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/fensterbilder-malen/">
+  
+    <img class="post-card-img" src="/images/202022_Malen.jpg" alt="Fensterbilder malen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Fensterbilder malen</h2>
+    <div class="post-card-date">01.04.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/streichholzschachtelregale/">
+  
+    <img class="post-card-img" src="/images/VorschaubildohneKabu.jpg" alt="Streichholzschachtelregale" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Streichholzschachtelregale</h2>
+    <div class="post-card-date">18.07.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/selbstgemachte-kresse/">
+  
+    <img class="post-card-img" src="/images/KresseVorschau.jpg" alt="Selbstgemachte Kresse" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Selbstgemachte Kresse</h2>
+    <div class="post-card-date">23.05.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/fingerfarben-osterkarten/">
+  
+    <img class="post-card-img" src="/images/Ostern.jpg" alt="Fingerfarben-Osterkarten" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Fingerfarben-Osterkarten</h2>
+    <div class="post-card-date">12.04.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/himmel-und-hoelle-basteln/">
+  
+    <img class="post-card-img" src="/images/HimmelHoelle.jpg" alt="Himmel und Hölle basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Himmel und Hölle basteln</h2>
+    <div class="post-card-date">29.09.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/ein-bett-fuer-dein-handy/">
+  
+    <img class="post-card-img" src="/images/HandybettVorschaubild.jpg" alt="Ein Bett für dein Handy" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Ein Bett für dein Handy</h2>
+    <div class="post-card-date">31.08.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/bunte-stadt-dank-saatbomben/">
+  
+    <img class="post-card-img" src="/images/SaatbombenVorschaubildKabu.jpg" alt="Bunte Stadt dank Saatbomben" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Bunte Stadt dank Saatbomben</h2>
+    <div class="post-card-date">21.06.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/fruehlingsfotos-knipsen/">
+  
+    <img class="post-card-img" src="/images/Fr%c3%bchling1.JPG" alt="Frühlingsfotos knipsen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Frühlingsfotos knipsen</h2>
+    <div class="post-card-date">20.04.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/safer-selfie-basteln/">
+  
+    <img class="post-card-img" src="/images/FroheOstern.GIF" alt="Safer-Selfie basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Safer-Selfie basteln</h2>
+    <div class="post-card-date">28.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/upcycling-regal-aus-abfall/">
+  
+    <img class="post-card-img" src="/images/Upcycling_Vorschaubild.JPG" alt="Upcycling: Regal aus Abfall" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Upcycling: Regal aus Abfall</h2>
+    <div class="post-card-date">09.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/drehe-deinen-eigenen-trickfilm/">
+  
+    <img class="post-card-img" src="/images/stopmotion.JPG" alt="Drehe deinen eigenen Trickfilm!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Drehe deinen eigenen Trickfilm!</h2>
+    <div class="post-card-date">05.01.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/schneeflockenfensterbilder/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Schneeflockenfensterbilder" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Schneeflockenfensterbilder</h2>
+    <div class="post-card-date">18.12.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/leckere-butterkekshaeuschen/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Leckere Butterkekshäuschen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Leckere Butterkekshäuschen</h2>
+    <div class="post-card-date">11.12.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/weihnachtskarte-basteln/">
+  
+    <img class="post-card-img" src="/images/2019105_christmas-card-2999091.jpg" alt="Weihnachtskarte basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Weihnachtskarte basteln</h2>
+    <div class="post-card-date">27.11.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/basteln-mit-klopapierrollen/">
+  
+    <img class="post-card-img" src="/images/Fischspiel%20%282%29.JPG" alt="Basteln mit Klopapierrollen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Basteln mit Klopapierrollen</h2>
+    <div class="post-card-date">28.08.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/zauberglaeser-basteln/">
+  
+    <img class="post-card-img" src="/images/zauberglas-pixabay-CC0.jpg" alt="Zaubergläser basteln" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Zaubergläser basteln</h2>
+    <div class="post-card-date">23.04.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/kreatives/maeander-malen/">
+  
+    <img class="post-card-img" src="/images/maeander1.png" alt="Mäander malen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Kreatives</div>
+    <h2>Mäander malen</h2>
+    <div class="post-card-date">28.03.2017</div>
+  </div>
+</a>
+
+    
+  </div>
+
+  
+		<ul class="pagination pagination-default">
+			<li class="page-item">
+				<a href="/kreatives/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item">
+			<a href="/kreatives/page/3/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/kreatives/" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item">
+				<a href="/kreatives/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+			<li class="page-item">
+				<a href="/kreatives/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+			</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 4" class="page-link" role="button">4</a>
+			</li>
+			<li class="page-item">
+				<a href="/kreatives/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+			</li>
+		<li class="page-item">
+			<a href="/kreatives/page/5/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/kreatives/page/5/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

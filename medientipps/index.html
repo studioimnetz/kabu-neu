@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medientipps – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <h1>Medientipps</h1>
+  <p>36 Beiträge</p>
+</div>
+
+<div class="posts-section">
+  <div class="posts-grid">
+    
+    
+
+
+<a class="post-card" href="/medientipps/filmtipps/">
+  
+    <img class="post-card-img" src="/images/2024113_Vorschaubild%20Filmtipps%20ohne%20KABU.jpg" alt="Filmtipps" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Filmtipps</h2>
+    <div class="post-card-date">21.12.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/planet-schule/">
+  
+    <img class="post-card-img" src="/images/202404_KABU-Vorschaubild.png" alt="Planet Schule" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Planet Schule</h2>
+    <div class="post-card-date">20.01.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/weisst-du-s-schon/">
+  
+    <img class="post-card-img" src="/images/2023112_KABU-Grafiken%20%286%29.png" alt="Weißt du&#39;s schon?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Weißt du&#39;s schon?</h2>
+    <div class="post-card-date">06.01.2024</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/horse-tales/">
+  
+    <img class="post-card-img" src="/images/2023103_Vorschau.png" alt="Horse Tales" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Horse Tales</h2>
+    <div class="post-card-date">25.11.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/audio-adventure/">
+  
+    <img class="post-card-img" src="/images/202364_Insta-Grafiken.png" alt="Audio Adventure" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Audio Adventure</h2>
+    <div class="post-card-date">08.07.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/abenteuer-regenwald/">
+  
+    <img class="post-card-img" src="/images/202332_3%20%282%29.png" alt="Abenteuer Regenwald" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Abenteuer Regenwald</h2>
+    <div class="post-card-date">29.04.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/apico/">
+  
+    <img class="post-card-img" src="/images/202322_Vorschau_Bild.jpg" alt="Apico" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Apico</h2>
+    <div class="post-card-date">25.03.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/gibbon/">
+  
+    <img class="post-card-img" src="/images/202315_Vorschau_Bild.jpg" alt="Gibbon" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Gibbon</h2>
+    <div class="post-card-date">25.02.2023</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/osmo-coding-starter-kit/">
+  
+    <img class="post-card-img" src="/images/202272_202275_KABU-Grafiken%282%29.png" alt="Osmo Coding Starter Kit" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Osmo Coding Starter Kit</h2>
+    <div class="post-card-date">02.09.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/mikroskop/">
+  
+    <img class="post-card-img" src="/images/202262_Mikroskop_Vorschau.jpg" alt="Mikroskop " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Mikroskop </h2>
+    <div class="post-card-date">23.07.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/lazuli-und-die-woerter/">
+  
+    <img class="post-card-img" src="/images/202234_KABUS%20Medientipp%202.png" alt="Lazuli und die Wörter" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Lazuli und die Wörter</h2>
+    <div class="post-card-date">16.05.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/kika-player/">
+  
+    <img class="post-card-img" src="/images/202223_KiKa-Vorschau.jpg" alt="KiKA-Player" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>KiKA-Player</h2>
+    <div class="post-card-date">25.03.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/el-hijo/">
+  
+    <img class="post-card-img" src="/images/202225_Vorschaubild_El_Hijo_Kabu.png" alt="El Hijo" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>El Hijo</h2>
+    <div class="post-card-date">09.03.2022</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/schon-einmal-schach-probiert/">
+  
+    <img class="post-card-img" src="/images/2021113_2021105_Vorschaubild_App_alleFiguren.jpg" alt="Schon einmal Schach probiert?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Schon einmal Schach probiert?</h2>
+    <div class="post-card-date">01.12.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/der-goldene-spatz-2021/">
+  
+    <img class="post-card-img" src="/images/202174_Unbenannt-1.jpg" alt="Der Goldene Spatz 2021" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Der Goldene Spatz 2021</h2>
+    <div class="post-card-date">27.08.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/antonapp/">
+  
+    <img class="post-card-img" src="/images/202164_anton_logo.jpg" alt="AntonApp" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>AntonApp</h2>
+    <div class="post-card-date">01.07.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/online-fluesterpost-mit-garticphone/">
+  
+    <img class="post-card-img" src="/images/202135_gartic%20kabu.jpg" alt="Online-Flüsterpost mit GarticPhone" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Online-Flüsterpost mit GarticPhone</h2>
+    <div class="post-card-date">19.04.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/elli-online/">
+  
+    <img class="post-card-img" src="/images/202125_Ellionline.jpg" alt="Elli Online " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Elli Online </h2>
+    <div class="post-card-date">04.03.2021</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/die-drei-kids/">
+  
+    <img class="post-card-img" src="/images/202072_dreifragezeichen-vorschau.jpg" alt="Die drei ??? Kids" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Die drei ??? Kids</h2>
+    <div class="post-card-date">08.08.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/pumuckl-abenteuergeschichten/">
+  
+    <img class="post-card-img" src="/images/202003_pumuckl-cover.jpg" alt="Pumuckl Abenteuergeschichten " loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Pumuckl Abenteuergeschichten </h2>
+    <div class="post-card-date">10.01.2020</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/bewegung-mit-der-kitu-app/">
+  
+    <img class="post-card-img" src="/images/kitu-app-vorschaubild.jpg" alt="Bewegung mit der KiTu-App" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Bewegung mit der KiTu-App</h2>
+    <div class="post-card-date">11.09.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/was-sind-qr-barcodes/">
+  
+    <img class="post-card-img" src="/images/qr-barcode-vorschau.jpg" alt="Was sind QR- &amp; Barcodes?" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Was sind QR- &amp; Barcodes?</h2>
+    <div class="post-card-date">11.07.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/timster-das-medienmagazin/">
+  
+    <img class="post-card-img" src="/images/timster1.jpg" alt="Timster, das Medienmagazin" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Timster, das Medienmagazin</h2>
+    <div class="post-card-date">21.02.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/teste-dich-mit-schlaukopf/">
+  
+    <img class="post-card-img" src="/images/schlaukopf.jpg" alt="Teste dich mit Schlaukopf" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Teste dich mit Schlaukopf</h2>
+    <div class="post-card-date">10.01.2019</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/programmieren-mit-scratch/">
+  
+    <img class="post-card-img" src="/images/KABU-Pong.jpg" alt="Programmieren mit Scratch" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Programmieren mit Scratch</h2>
+    <div class="post-card-date">15.11.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/spiele-apps-zum-lernen/">
+  
+    <img class="post-card-img" src="/images/KinderComputer.jpg" alt="Spiele-Apps zum Lernen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Spiele-Apps zum Lernen</h2>
+    <div class="post-card-date">14.09.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/kreativ-werden-im-malduell/">
+  
+    <img class="post-card-img" src="/images/MalduellVorschaubild.jpg" alt="Kreativ werden im Malduell" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Kreativ werden im Malduell</h2>
+    <div class="post-card-date">17.08.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/zeichne-dein-spiel/">
+  
+    <img class="post-card-img" src="/images/draw-your-game.jpg" alt="Zeichne dein Spiel" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Zeichne dein Spiel</h2>
+    <div class="post-card-date">12.07.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/gehe-auf-kinderweltreise/">
+  
+    <img class="post-card-img" src="/images/KinderweltreiseVorschaubildmitText.jpg" alt="Gehe auf Kinderweltreise" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Gehe auf Kinderweltreise</h2>
+    <div class="post-card-date">28.05.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/thinkrolls-denken-rollen/">
+  
+    <img class="post-card-img" src="/images/ThinkrollsVorschaubild.jpg" alt="Thinkrolls: Denken &amp; Rollen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Thinkrolls: Denken &amp; Rollen</h2>
+    <div class="post-card-date">15.03.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/fotos-sprechen-mit-chatterpix/">
+  
+    <img class="post-card-img" src="/images/chatterpix.jpg" alt="Fotos sprechen mit ChatterPix" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Fotos sprechen mit ChatterPix</h2>
+    <div class="post-card-date">16.02.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/bauen-fahren-mit-fiete-cars/">
+  
+    <img class="post-card-img" src="/images/Fiete-Cars.jpg" alt="Bauen &amp; Fahren mit Fiete Cars" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Bauen &amp; Fahren mit Fiete Cars</h2>
+    <div class="post-card-date">11.01.2018</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/geschichtenwerkstatt-app/">
+  
+    <img class="post-card-img" src="/images/Knietzsche-neu.jpg" alt="Geschichtenwerkstatt-App" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Geschichtenwerkstatt-App</h2>
+    <div class="post-card-date">02.11.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/minecraft-kreativ-spielen/">
+  
+    <div class="post-card-img-placeholder">📱</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Minecraft - kreativ spielen</h2>
+    <div class="post-card-date">27.08.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/fragfinn-kinder-suchmaschine/">
+  
+    <img class="post-card-img" src="/images/fragfinn.png" alt="fragFinn: Kinder-Suchmaschine" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>fragFinn: Kinder-Suchmaschine</h2>
+    <div class="post-card-date">19.04.2017</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/medientipps/klexikon-das-kinder-lexikon/">
+  
+    <img class="post-card-img" src="/images/Klexikon-Obama.jpg" alt="Klexikon - das Kinder-Lexikon" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Medientipps</div>
+    <h2>Klexikon - das Kinder-Lexikon</h2>
+    <div class="post-card-date">27.02.2017</div>
+  </div>
+</a>
+
+    
+  </div>
+
+  
+		<ul class="pagination pagination-default">
+			<li class="page-item disabled">
+				<a aria-disabled="true" aria-label="First" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;&laquo;</span></a>
+			</li>
+		<li class="page-item disabled">
+			<a aria-disabled="true" aria-label="Previous" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&laquo;</span></a>
+		</li>
+			<li class="page-item active">
+				<a aria-current="page" aria-label="Page 1" class="page-link" role="button">1</a>
+			</li>
+			<li class="page-item">
+				<a href="/medientipps/page/2/" aria-label="Page 2" class="page-link" role="button">2</a>
+			</li>
+			<li class="page-item">
+				<a href="/medientipps/page/3/" aria-label="Page 3" class="page-link" role="button">3</a>
+			</li>
+			<li class="page-item">
+				<a href="/medientipps/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+			</li>
+		<li class="page-item">
+			<a href="/medientipps/page/2/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+		</li>
+			<li class="page-item">
+				<a href="/medientipps/page/4/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+			</li>
+		</ul>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

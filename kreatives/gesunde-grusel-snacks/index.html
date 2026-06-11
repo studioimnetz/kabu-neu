@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gesunde Grusel-Snacks – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Gesunde Grusel-Snacks
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Gesunde Grusel-Snacks</h1>
+      <div class="meta">22. October 2022</div>
+    </div>
+    
+      <img src="/images/202273_Gruselsnacks1.jpg" alt="Gesunde Grusel-Snacks" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="grusel-snacks-für-halloween">Grusel Snacks für Halloween</h1>
+<p><strong>Süßes sonst gibt’s saures!</strong></p>
+<p>Übernächsten Montag ist schon Halloween!  KABU freut sich schon auf ein schaurig, schönes Fest mit Freunden und Freundinnen. Doch dafür werden noch einige gruselige Snacks benötigt. Damit du noch genug Zeit für die Vorbereitung hast, stellt dir KABU heute schon vier Favoriten-Snacks vor!</p>
+<p>Keine Sorge! Diese sind super schnell vorbereitet!</p>
+<blockquote>
+<p>💭 <strong>Denkblase</strong>
+Keine Sorge! Diese sind super schnell vorbereitet!</p>
+</blockquote>
+<h2 id="nummer-1-mandarinen-kürbisse">Nummer 1: Mandarinen Kürbisse</h2>
+<p>Dieser Snack schaut super aus und benötigt auch nur <strong>zwei</strong> Zutaten!</p>
+<p><img src="/images/202295_mandarine1.jpg" alt="Bild"></p>
+<p>Im ersten Schritt musst du die Mandarine Schälen! Diese dient später als <strong>Kürbis</strong>! Für den Kürbisstil benötigst du den Strunk einer Paprika! Stecke den Strunk oben in die Mandarine! <strong>Boohooo</strong> - fertig ist dein kleiner <strong>Kürbis</strong>!</p>
+<h2 id="nummer-2-mandarinen-spinne">Nummer 2: Mandarinen Spinne</h2>
+<p>aus den <strong>restlichen Mandarinen</strong> kannst du ganz einfach eine gruselige <strong>Kürbisspinne</strong> legen!</p>
+<p><img src="/images/202275_Soinp.jpg" alt="Bild"></p>
+<p>Auch hier benötigst du nur <strong>zwei Zutaten</strong>. Schäle drei Mandarinen. Die erste Mandarine benötigst du komplett für den Körper. Für den Kopf halbierst du die zweite Mandarine und legst diese an die erste Mandarine.</p>
+<p>Jetzt bekommt deine Spinne Beine: Lege die acht Mandarinenstücken rundherum.</p>
+<p>Wenn du möchtest, kannst du mit zwei halbierten Mandarinenstücken die Pedialpen der Spinne legen. Bei den Pedialpen handelt es sich um zwei Gliedmaßen, die sich am Kopf der Spinne befinden und von dieser als Tast- und Greiforgane oder als weitere Laufbeine genutzt werden können.</p>
+<p>Wenn du magst, kannst du der Spinne noch essbare Augen verpassen! Ist das nicht schaurig schön?</p>
+<p><img src="/images/202275_Mandarinen_spinne.jpg" alt="Bild"></p>
+<h2 id="nummer-3-bananen-gespenster">Nummer 3: Bananen Gespenster</h2>
+<p>Schnell, schneller, Bananen-Gespenster!</p>
+<p><img src="/images/202295_gesp.jpg" alt="Bild"></p>
+<p>Schäle eine Banane und schneide diese in der Mitte durch. Lege nun zwei Schokoaugen auf das Ende der Banane!</p>
+<p><strong>Tipp</strong>: Damit die Bananen nicht so schnell braun werden, kannst du etwas Zitronensaft darauf geben!</p>
+<h2 id="nummer-4-frankenstein-kiwis">Nummer 4: Frankenstein-Kiwis</h2>
+<p>Der letzte Snack ist etwas schwieriger! Bitte doch zum Beispiel deine Eltern, Oma und oder Opa, ältere Geschwister um Hilfe!</p>
+<p><img src="/images/202273_Franken.jpg" alt="Bild"></p>
+<p>Als erstes schneidest du eine Kiwi in der Mitte auseinander. Diese Hälfte schälst du aber nur bis zur Hälfte. Als nächstes brichst du eine <strong>Salzstange</strong> auseinander und steckst die Enden in die Kiwi.
+Durch die <strong>essbaren</strong> Augen und die Schokodrops erweckst du dein Frankenstein-Monsterchen <strong>(fast)</strong> zum Leben!</p>
+<p><img src="/images/202275_Frankenjpg.jpg" alt="Bild"></p>
+<h2 id="viel-spaß-beim-ausprobieren">Viel Spaß beim Ausprobieren!</h2>
+<p>Hast du noch weitere Ideen für gesunde Halloween-Snacks? Dann schreibe doch gerne der KABU-Redaktion! Das geht ganz einfach in dem du auf den blauen Button <strong>Schreib dem KABU-Team</strong> klickst!</p>
+<p>Bei den Kürbissen aus Mandarinen, den Frankenstein-Kiwis und den gespenstischen Bananen haben wir uns übrigens im Internet von Nicola Pohl (2019) inspirieren lassen von der Website gofeminin. Die Idee mit der Mandarinen-Spinne haben wir aus dem Internet von Chris (2021) von der Website sparbaby.de.</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

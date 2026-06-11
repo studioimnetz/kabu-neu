@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Die drei ??? Kids – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/medientipps/">Medientipps</a> ›
+    Die drei ??? Kids
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-medientipps" href="/medientipps/">Medientipps</a>
+      <h1>Die drei ??? Kids</h1>
+      <div class="meta">08. August 2020</div>
+    </div>
+    
+      <img src="/images/202072_dreifragezeichen-vorschau.jpg" alt="Die drei ??? Kids" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/202072_dreifragezeichen-01.jpg" alt="Bild"></p>
+<p>Wir stellen dir heute &ldquo;Die drei ??? Kids&rdquo; vor. Das sind drei junge Detektive, die in Rocky Beach leben, einer Kleinstadt in Kalifornien in den USA. (Diese Stadt gibt es aber nur in den Geschichten.)</p>
+<h2 id="das-sind-die-drei-">Das sind die Drei ???</h2>
+<p>Justus ist der Anführer der Bande, da er der schlauste Junge der Stadt ist. Peter ist der zweite Detektiv, er ist sehr sportlich, aber manchmal auch ein Angsthase. Bob ist eine Leseratte, er ist oft in der Bibliothek und sucht dort nach Infos.
+Die drei Jungs arbeiten mit Kommissar Reynolds zusammen, dem sie schon bei vielen Fällen geholfen haben.</p>
+<p>Aus der Reihe der &ldquo;Drei ??? Kids&rdquo; gibt es Bücher, Hörspiele und Videospiele.</p>
+<p><img src="/images/202072_dreifragezeichen-02.jpg" alt="Bild"></p>
+<h2 id="die-geheimnisvolle-schatulle-handy-spiel">&ldquo;Die geheimnisvolle Schatulle&rdquo; (Handy-Spiel)</h2>
+<p>Wir haben für dich das Spiel mit der &ldquo;geheimnisvollen Schatulle&rdquo; getestet. Das ist die Geschichte und deine Aufgabe im Spiel:
+Onkel Titus, der Onkel von Justus, entrümpelt eines Tages die Farm der Familie Steinberger. Doch dort taucht ein unbekannter Mann auf, und Peter, Justus und Bob wollen herausfinden, was der Mann hier sucht. Das würden sie ohne deine Hilfe niemals schaffen! Hilf ihnen, indem du die Teile einer geheimnisvollen Schatzkarte suchst und alle Teile in die richtige Reihenfolge bringst. Was dann passiert, wollen wir noch nicht verraten - probiert es einfach selbst aus!</p>
+<p>Dieses Spiel ist als App für Android und iOS erhältlich. Andere Spiele aus der Reihe gibt es auch für PC und Mac.</p>
+<p><img src="/images/202072_drei-fragezeichen-kids-3.png" alt="Bild"></p>
+<h2 id="bücher-hörspiele-und-mehr">Bücher, Hörspiele und mehr</h2>
+<p>Es gibt auch viele Bücher und Hörspiele aus dieser Serie. Eines unserer Lieblingsbücher ist &ldquo;Ein Fall für Superhelden&rdquo;, in dem sich der Anführer Justus Jonas in einen Superhelden verwandelt.
+Insgesamt gibt es bereits 85 Bücher, so dass ihr eine Menge zu lesen habt.</p>
+<p>Die meisten Geschichten wurden auch als Hörspiele aufgenommen, die ihr als CDs kaufen könnt. Auch in vielen Musikportalen wie Spotify, Amazon und Apple Music sind die Geschichten zu hören.</p>
+<p>Außerdem gibt es auch Brettspiele, Kartenspiele und Puzzles mit den drei Spürnasen - dir wird also so schnell nicht langweilig werden!</p>
+<p>Wir wünschen dir viel Spaß mit den spannenden Abenteuern der Drei ??? Kids!</p>
+<p>Deine KABU-Kinderredaktion</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

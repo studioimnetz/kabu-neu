@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta name="generator" content="Hugo 0.163.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+<div class="hero">
+  <div class="hero-inner">
+    <img class="hero-logo" src="/images/kabu-winkend.png" alt="KABU" onerror="this.style.display='none'">
+    <h1>Willkommen bei KABU!</h1>
+    <p>Die Info-App für Kinder – kostenlos und werbefrei</p>
+  </div>
+</div>
+
+<div class="category-grid">
+  <a class="category-card cat-tipps"   href="/tipps_tricks/"><span class="emoji">💡</span><h3>Tipps &amp; Tricks</h3></a>
+  <a class="category-card cat-spiel"   href="/spiel_quiz/"><span class="emoji">🎮</span><h3>Spiel &amp; Quiz</h3></a>
+  <a class="category-card cat-mach"    href="/mach_mit/"><span class="emoji">🙋</span><h3>Mach mit</h3></a>
+  <a class="category-card cat-wissen"  href="/wissenswertes/"><span class="emoji">📚</span><h3>Wissenswertes</h3></a>
+  <a class="category-card cat-medien"  href="/medientipps/"><span class="emoji">📱</span><h3>Medientipps</h3></a>
+  <a class="category-card cat-kreativ" href="/kreatives/"><span class="emoji">🎨</span><h3>Kreatives</h3></a>
+</div>
+
+<div class="posts-section">
+  <h2 class="section-title">Neueste Beiträge</h2>
+  <div class="posts-grid">
+    
+    
+
+
+<a class="post-card" href="/allgemein/markuptest-versteckt/">
+  
+    <div class="post-card-img-placeholder">📄</div>
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">allgemein</div>
+    <h2>Markuptest (versteckt)</h2>
+    <div class="post-card-date">11.06.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/mach_mit/dem-mai-auf-der-spur/">
+  
+    <img class="post-card-img" src="/images/202634_KABU-Grafiken%20%282%29.png" alt="Dem Mai auf der Spur!" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Mach mit</div>
+    <h2>Dem Mai auf der Spur!</h2>
+    <div class="post-card-date">24.05.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/quiz-zum-mutter-und-vatertag-2/">
+  
+    <img class="post-card-img" src="/images/202631_Vorschaubild%20ohne%20KABU.png" alt="Quiz zum Mutter- und Vatertag" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Quiz zum Mutter- und Vatertag</h2>
+    <div class="post-card-date">09.05.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/medien-nachhaltig-nutzen/">
+  
+    <img class="post-card-img" src="/images/202611_Titelblatt_ohne_Kabu.png" alt="Medien nachhaltig nutzen" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Medien nachhaltig nutzen</h2>
+    <div class="post-card-date">28.04.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/spiel_quiz/fruehlingsquiz/">
+  
+    <img class="post-card-img" src="/images/202633_Fr%c3%bchlingsquiz%20ohne%20KABU.png" alt="Frühlingsquiz" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Spiel &amp; Quiz</div>
+    <h2>Frühlingsquiz</h2>
+    <div class="post-card-date">07.04.2026</div>
+  </div>
+</a>
+
+    
+    
+
+
+<a class="post-card" href="/tipps_tricks/cybergrooming/">
+  
+    <img class="post-card-img" src="/images/202614_Grafik%20ohne%20KABU.png" alt="Cybergrooming" loading="lazy">
+  
+  <div class="post-card-body">
+    <div class="post-card-cat">Tipps &amp; Tricks</div>
+    <h2>Cybergrooming</h2>
+    <div class="post-card-date">25.02.2026</div>
+  </div>
+</a>
+
+    
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basteln mit Klopapierrollen – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Basteln mit Klopapierrollen
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Basteln mit Klopapierrollen</h1>
+      <div class="meta">28. August 2017</div>
+    </div>
+    
+      <img src="/images/Fischspiel%20%282%29.JPG" alt="Basteln mit Klopapierrollen" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p>Du denkst, leere Klopapierrollen sind zu nichts mehr zu gebrauchen? Pustekuchen: man kann daraus Dekorationen, Spiele oder sinnvolle Aufbewahrungsmittel basteln.</p>
+<p>Heute zeigen wir dir, wie du aus Klopapierrollen ein Spiel bastelst, mit dem du deine Geschicklichkeit testen und deine Wurfgenauigkeit trainieren kannst. Um ein lustiges Fischspiel zu bekommen, brauchst du nur:</p>
+<ul>
+<li>
+<p>eine Klopapierrolle</p>
+</li>
+<li>
+<p>etwas Tonpapier</p>
+</li>
+<li>
+<p>eine Schnur</p>
+</li>
+<li>
+<p>eine Schere</p>
+</li>
+<li>
+<p>eine kleine Holzperle mit zwei Löchern</p>
+</li>
+<li>
+<p>einen Tacker</p>
+</li>
+<li>
+<p>ein paar Filzstifte</p>
+</li>
+</ul>
+<p>![Bild](/images/Fischspiel (2).JPG)</p>
+<p>Beklebe zuerst die Klopapierrolle mit einer Tonpapierfarbe deiner Wahl – aus dieser wird später dein Fisch. Falte dann das eine Ende der Rolle so, dass du die Ränder zueinander führst. Schneide nun mit der Schere ca. 60 cm von deiner Schnur ab. Wenn du die richtige Länge hast, befestige die Holzperle mit einigen Knoten am Ende der Schnur.</p>
+<p>![Bild](/images/Fischspiel (3).JPG)</p>
+<p>Als nächstes muss die Schnur mit der Perle in der Klopapierrolle fixiert werden, damit der Fisch später seine Beute schnappen kann. Dazu legst du das kugellose Ende der Schnur in die Klopapierrolle und führst sie am gefalteten Ende von der rechten auf die linke Seite und dann wieder in die Mitte. Wenn sie nicht von alleine hält, kannst du sie mit Tesafilm fixieren.</p>
+<p>![Bild](/images/Fischspiel (4).JPG)</p>
+<p>Jetzt muss die Schnur an der Klopapierrolle festgetackert und dadurch gleichzeitig das Ende der Rolle zugetackert werden. Hole dir für diesen Schritt am besten einen Erwachsenen, der dir hilft. Der Erwachsene hat nun die Aufgabe, das gefaltete Ende der Klopapierrolle einfach von außen mit drei bis vier Tackerklammern zuzutackern. Tipp: den Tacker dabei am besten so ansetzen, dass er senkrecht zum Klopapierrollenende steht und nicht parallel dazu; so könnt ihr sichergehen, dass die Schnur im Inneren der Rolle tatsächlich mitbefestigt wird.</p>
+<p>![Bild](/images/Fischspiel (5).JPG)</p>
+<p>Nun kannst du dein Wurfspiel noch mit Filzstiften bemalen, damit es auch wirklich zu einem Fisch wird. Tipp: Fang mit den Augen an, damit diese auch einen guten Platz finden!</p>
+<p>![Bild](/images/Fischspiel (6).JPG)</p>
+<p>![Bild](/images/Fischspiel (7).JPG)</p>
+<p>![Bild](/images/Fischspiel (8).JPG)</p>
+<p>Geschafft! Jetzt kannst du deinen Fisch mit Beute füttern, indem du versuchst, die Holzperle durch eine geschickte Wurftechnik in den Schlund des Fisches zu befördern.</p>
+<p>![Bild](/images/Fischspiel (9).JPG)</p>
+<p>![Bild](/images/Fischspiel (10).JPG)</p>
+<p>![Bild](/images/Fischspiel (11).JPG)</p>
+<p>Viel Spaß beim Spielen!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>
