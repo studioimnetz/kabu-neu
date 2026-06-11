@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiele-Apps zum Lernen – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/medientipps/">Medientipps</a> ›
+    Spiele-Apps zum Lernen
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-medientipps" href="/medientipps/">Medientipps</a>
+      <h1>Spiele-Apps zum Lernen</h1>
+      <div class="meta">14. September 2018</div>
+    </div>
+    
+      <img src="/images/KinderComputer.jpg" alt="Spiele-Apps zum Lernen" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/289837548?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>„Ernste Spiele“ - was soll das denn sein? Sollten Spiele nicht einfach Spaß machen?! Doch! Und genau das tun diese sogenannten ernsten Spiele auch.</p>
+<p>„Serious Games“, wie man auch zu Lernspielen sagt, sollen genau so viel Spaß machen wie „normale“ Spiele, nur, dass du dabei auch noch zusätzlich etwas lernen kannst.                                                           Deshalb hat dir KABU passend zum Schulanfang einige dieser „ernsten Spiele“ heraus gesucht, um dir das Lernen zu versüßen. Denn wer lernt schon nicht gerne beim Spielen anstatt über den Heften und Büchern zu brüten?!</p>
+<p><img src="/images/KinderComputer.jpg" alt="Bild"></p>
+<p>Sieh dir hier an, mit welchen Spielen du dich auf die Schulfächer Deutsch, Heimat und Sachkunde, Mathematik und English ganz spielerisch vorbereiten kannst:</p>
+<p><strong>Mathematik und Deutsch</strong></p>
+<h2 id="emil--pauline-auf-dem-hausboot---rechnen-und-lesen-für-vorschule-und-grundschule">Emil &amp; Pauline auf dem Hausboot - Rechnen und Lesen für Vorschule und Grundschule</h2>
+<p><img src="/images/EmilPauline.PNG" alt="Bild"></p>
+<p>Emil und Pauline, ein Eisbär und eine Pinguindame, sind mit ihrem Hausboot unterwegs und entdecken auf ihrer Reise eine Menge lustiger Mathematik- und Deutschspiele. Am Anfang des Spiels kannst du dich entscheiden, welches Fach du gerade üben möchtest, entweder Mathematik oder Deutsch. Emil und Pauline unterhalten dich mit ihren Geschichten, während ihr zusammen auf dem Hausboot fahrt und Aufgaben löst. Auf der Webseite von Emil und Pauline „https://www.emil-und-pauline.de/online-spielen.html“ findest du zusätzlich einige kostenlose Browserspiele.&quot;</p>
+<p><strong>Englisch</strong></p>
+<h2 id="vocabicar">Vocabicar</h2>
+<p><img src="/images/Vocabicar.PNG" alt="Bild"></p>
+<p>Die Vocabicar-App verbindet Spaß mit Lernerfolg, für das Lernen von Vokabeln ab der 3. bis zur 6.Klasse. Wähle ein Thema und ein Auto und ab geht die Post. Du steuerst die Spielzeugautos durch spannende Welten und sammelst - je nach Spielbrett - Buchstaben, Wörter oder Objekte. Möchtest du die englischen Begriffe für die Tiere lernen, fährst du durch eine Farm. Wenn du im Unterricht aber gerade über das Essen lernst, fahr durch die Küche und sammle hier die richtigen Gegenstände ein.</p>
+<p><strong>Allgemeinwissen</strong></p>
+<h2 id="doktor-lilliput">Doktor Lilliput</h2>
+<p><img src="/images/DoktorLilliput.png" alt="Bild"></p>
+<p>Doktor Lilliput erklärt dir die verschiedenen Geräte, die Ärzte so benutzen. Er hat vier Arztpraxen, in jeder dieser Praxen gilt es die wichtigsten Geräte zu finden und dich anschließend in einem Minispiel an die richtigen Instrumente zu erinnern.</p>
+<h2 id="flik--flak---lerne-die-uhr-zu-lesen">Flik &amp; Flak - Lerne die Uhr zu lesen</h2>
+<p><img src="/images/flik_flak_564.jpg" alt="Bild"></p>
+<p>Die Geschwister Flik und Flak (Minuten- und Stundenzeiger) benötigen deine Hilfe, denn sie haben über den Tag verteilt einiges zu tun. Sie erleben die gleichen Alltagssituationen wie du, müssen morgens Zähneputzen, danach in die Schule gehen und dürfen nach den Hausaufgaben spielen. Doch um welche Uhrzeit passiert all dies? Hilf ihnen das in sechs Minispielen herauszufinden und lerne die Uhr lesen.</p>
+<h2 id="die-maus">Die Maus</h2>
+<p><img src="/images/diemaus.png" alt="Bild"></p>
+<p>Du kennst bestimmt „Die Sendung mit der Maus“ hierzu gibt es auch eine App. Du kannst die Maus hier durch vier verschiedene Gebiete bewegen, dir alle Folgen der „Die Sendung mit der Maus“ ansehen und witzige Minispiele spielen.</p>
+<p><strong>Deutsch als Fremdsprache</strong></p>
+<h2 id="lernabenteuer-deutsch--das-geheimnis-der-himmelsscheibe">Lernabenteuer Deutsch &mdash; Das Geheimnis der Himmelsscheibe</h2>
+<p><img src="/images/Himmelsscheibe.PNG" alt="Bild"></p>
+<p>Für diejenigen Kinder, die erst vor kurzem nach Deutschland gekommen sind, hat KABU noch eine spezielle App gefunden. Mit „Das Geheimnis der Himmelsscheibe“ ist ein Abenteuerspiel für Kinder, die bereits ein bisschen Deutsch können. Im Spiel bist du ein Detektiv, der einen Kunstraub aufklären muss und reist dafür mit deinem Kollegen durch ganz Deutschland.</p>
+<p>Alle beschriebenen Apps gibt es sowohl für Android als auch für iOS im jeweiligen App Store zum Herunterladen. Die Preise für die Apps liegen zwischen 0,00 Euro und 4,49 Euro.</p>
+<p><img src="/images/androidios.jpg" alt="Bild"></p>
+<p>Ihr seht schon, mit „Serious Games“ kann man eine Menge Spaß haben und dabei noch lernen. Vergesst aber nicht, dass die Spiele nur als Zusatz zu euren Hausaufgaben dienen und diese nicht ersetzen können.</p>
+<p><strong>KABU</strong> hofft, dass etwas für dich dabei ist und wünscht dir viel Spaß beim Lernen! :)</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

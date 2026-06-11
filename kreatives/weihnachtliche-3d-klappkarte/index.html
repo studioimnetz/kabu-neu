@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weihnachtliche 3D-Klappkarte  – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Weihnachtliche 3D-Klappkarte 
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Weihnachtliche 3D-Klappkarte </h1>
+      <div class="meta">14. December 2024</div>
+    </div>
+    
+      <img src="/images/2024104_210.png" alt="Weihnachtliche 3D-Klappkarte " style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h1 id="weihnachtliche-3d-klappkarte">Weihnachtliche 3D-Klappkarte</h1>
+<p>Weihnachten rückt immer näher und vielleicht hast du - falls du Weihnachten feierst - schon ein paar Geschenke für deine Familie und Freunde gebastelt oder gekauft.</p>
+<p>Wir haben gemeinsam mit einer Kinderredaktion eine Vorlage für eine weihnachtliche 3D-Klappkarte erstellt. Wenn dir also noch etwas Kleines fehlt, dann bastle die Karte gerne nach!</p>
+<p><strong>Du fragst dich, wie?</strong></p>
+<p>Die Kinderredaktion hat jeden Schritt für dich mit Fotos festgehalten. Folge einfach der Anleitung!</p>
+<h2 id="das-benötigst-du-für-die-karte">Das benötigst du für die Karte</h2>
+<ul>
+<li>Die ausgedruckte Vorlage (diese findest du, wenn du den QR-Code einscannst. Wenn du nicht weißt, wie das geht, dann frage zum Beispiel deine Eltern um Hilfe!)</li>
+<li>Tonpapier in deiner Lieblingsfarbe</li>
+<li>Eine Schere</li>
+<li>Einen Klebestift</li>
+<li>Bunte Stifte zum (Aus-)malen</li>
+</ul>
+<p><img src="/images/2024104_scan.JPG" alt="Bild"></p>
+<p>Falls du lieber einem Video folgen möchtest, haben wir dir weiter unten eine Video-Anleitung zu den 3D-Klappkarten eingestellt.</p>
+<h2 id="so-gehts---schritt-1-vorlagen-bemalen">So geht&rsquo;s - Schritt 1: Vorlagen bemalen</h2>
+<p>Nimm dir die KABU-Vorlage (Seite 1) zur Hand und male diese an. Male so viele Figuren, Symbole und Landschaften wie du möchtest.</p>
+<p><img src="/images/2024104_204.png" alt="Bild"></p>
+<p>Als nächstes nimmst du die KABU-Vorlage (Seite 2) und malst in die vorgegeben Kästchen deine Wunschmotive.</p>
+<p><img src="/images/2024104_205.png" alt="Bild"></p>
+<h2 id="schritt-2-ausschneiden">Schritt 2: Ausschneiden</h2>
+<p>Schneide deine Vorlage (Seite 1) an der gestrichelten Linie aus!
+Falte dann die Vorlage in der Mitte und schneide dort zusätzlich an den gestrichelten Linien entlang.</p>
+<p>Wen du damit fertig bist, schneide deine gezeichneten Motive auf Seite 2 aus!</p>
+<p><img src="/images/2024104_Unbenannt.JPG" alt="Bild"></p>
+<h2 id="schritt-3-falten">Schritt 3: Falten</h2>
+<p>Falte nun deine Vorlage (Seite 1) in der Mitte.</p>
+<p><strong>Hinweis</strong>: Ziehe hierbei die eingeschnittenen Bereiche nach Vorne. Wenn du diese faltest, entstehen Laschen, an die du deine eigene Motive kleben kannst.</p>
+<p><img src="/images/2024104_Unbenannt1.JPG" alt="Bild"></p>
+<h2 id="schritt-4-kleben">Schritt 4: Kleben</h2>
+<p>Nimm nun dein farbiges Tonpapier zur Hand und falte es einmal in der Mitte. Klebe dann die Vorlage (Seite 1) mittig hinein!</p>
+<p><strong>Hinweis</strong>: Achte darauf, dass du die im vorherigen Schritt entstandenen Laschen nicht mit einklebst!</p>
+<p><img src="/images/2024104_208.png" alt="Bild"></p>
+<h2 id="schritt-5-motive-einkleben">Schritt 5: Motive einkleben</h2>
+<p>Klebe nun an die entstandenen Stege deine selbst gemalten Motive.</p>
+<p><img src="/images/2024104_209.png" alt="Bild"></p>
+<h2 id="super-du-hast-deine-eigene-3d-klappkarte-für-weihnachten-erstellt">Super! Du hast deine eigene 3D-Klappkarte für Weihnachten erstellt!</h2>
+<h2 id="videoanleitung">Videoanleitung</h2>
+<p>Wenn du lieber mit einer Videoanleitung basteln möchtest, haben wir dir hier das passende Video eingebettet.</p>
+<p><strong>Ein kleiner Hinweis</strong>: Diese Anleitung ist für eine Muttertags 3D-Karte entstanden. Das bedeutet, dass du dort eine andere KABU-Vorlage siehst. Die Weihnachtliche Karte kannst du genauso basteln, wie in der Anleitung gezeigt.</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/825006801?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>KABU wünscht dir viel Spaß beim Ausprobieren und bedankt sich bei der Kinderredaktion für die tolle Foto-Anleitung!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

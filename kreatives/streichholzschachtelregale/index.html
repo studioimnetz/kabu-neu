@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Streichholzschachtelregale – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Streichholzschachtelregale
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Streichholzschachtelregale</h1>
+      <div class="meta">18. July 2019</div>
+    </div>
+    
+      <img src="/images/VorschaubildohneKabu.jpg" alt="Streichholzschachtelregale" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/VorschaubildmitKabu.jpg" alt="Bild"></p>
+<p>Bei dir Zuhause fliegen überall kleine Dinge herum? Du brauchst ein Versteck für geheime Kleinigkeiten?</p>
+<p>Dann haben wir heute genau das Richtige für dich! Ein echt cooles selbstgebautes Streichholzschachtelregal. Das Regal ist praktisch, eine super Dekoration und ein süßes Geschenk.</p>
+<p><img src="/images/Regal1.JPG" alt="Bild"></p>
+<p>In diesem Video zeigen wir dir, welche tollen Variationen von Regalen bei uns entstanden sind:</p>
+<h2 id="videoclip"><strong>Videoclip:</strong></h2>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/349035429?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<h2 id="du-brauchst"><strong>Du brauchst:</strong></h2>
+<ul>
+<li>3 bis 8 leere Streichholzschachteln</li>
+<li>Washi Tapes (= bunte Klebebänder)</li>
+<li>einen spitzen Gegenstand</li>
+<li>einen Holzspieß</li>
+<li>Musterklammern</li>
+<li>Fotoecken oder einen Kleber</li>
+</ul>
+<p><img src="/images/Regal2.JPG" alt="Bild"></p>
+<h2 id="schritt-1"><strong>Schritt 1:</strong></h2>
+<p>Schiebe das Innere aus der Streichholzschachtel heraus.</p>
+<h2 id="schritt-2"><strong>Schritt 2:</strong></h2>
+<p>Nimm einen spitzen Gegenstand und bohre damit ein kleines Loch durch die Mitte der Schachtelvorderseite. Lass dir von einem Erwachsenen dabei helfen, denn das Durchbohren geht etwas schwer!</p>
+<h2 id="schritt-3"><strong>Schritt 3:</strong></h2>
+<p>Beklebe die Vorder- und die Rückseite des Inneren der Schachtel mit Washi Tape.</p>
+<p><strong>Tipp 1:</strong> Die Breite der Washi Tapes passt genau auf die zu beklebenden Seiten der Streichholzschachtel.</p>
+<p><strong>Tipp 2:</strong> Reiße ein etwas längeres Stück vom Washi Tape ab als du eigentlich brauchen würdest und lege es auf die zu beklebende Seite. Schneide die Stücke, die überstehen <strong>NICHT</strong> ab, sondern <strong>KLAPPE</strong> sie nach hinten <strong>UM</strong>.</p>
+<p><strong>Grund:</strong> So bekommst du viel schönere Kanten und die umgeklappten Stellen verschwinden nachher sowieso im Inneren der Schachtel.</p>
+<p><img src="/images/IMG_0273.JPG" alt="Bild"></p>
+<h2 id="schritt-4"><strong>Schritt 4:</strong></h2>
+<p>Piekse jetzt mit dem Holzspieß nochmal an der Stelle durch das Washi Tape, wo du bereits das Loch in die Schachtel gemacht hast. Hier wird später der Griff der Schublade befestigt.</p>
+<h2 id="schritt-5"><strong>Schritt 5:</strong></h2>
+<p>Nimm das Äußere der Streichholzschachtel.</p>
+<h2 id="schritt-6"><strong>Schritt 6:</strong></h2>
+<p>Beklebe die beiden langen Seiten des Äußeren der Schachtel genauso wie gerade eben die Vorder- und Rückseite – das heißt: reiße etwas mehr vom Washi Tape ab als nötig und knicke die überstehenden Stücke (diesmal nach innen) um. So entstehen schöne Kanten.</p>
+<h2 id="schritt-7"><strong>Schritt 7:</strong></h2>
+<p>Jetzt ist die Oberseite der Streichholzschachtel dran. Hier passen längs zwei Streifen Wahi Tape drauf. In der Mitte bleibt dann ein dünnerer Streifen frei – diesen kannst du entweder mit einem dünneren Washi Tape bekleben (gibt es zu kaufen) oder mit einen weiteren dritten Streifen des normal breiten Washi Tapes (vielleicht eines in einem anderen Muster). Die Enden werden auch hier wieder nach innen geklappt, wo man sie nicht sieht.</p>
+<h2 id="schritt-8"><strong>Schritt 8:</strong></h2>
+<p>Nimm eine Musterklammer, stecke sie durch das Loch, das du gemacht hast, und klappe die beiden Enden der Klammer im Inneren der Schachtel in entgegengesetzte Richtungen um. Taadaa: Schon hast du den Griff der ersten Schublade.</p>
+<p>Wiederhole diese Schritte beliebig oft – je nachdem wie viele Schubladen dein Regal am Ende haben soll. Statt wie KABU drei Schubladen übereinander zu machen, kannt du auch ein Regal bauen, das aus sechs Schubladen besteht: also zweimal drei Schachteln übereinander und dann diese beiden Dreierstapel nebeneinander.</p>
+<p><strong>Achtung, mitdenken!</strong> Beklebe bitte nur die Seiten der Streichholzschachteln, die man nachher auch wirklich sieht. Das heißt, du brauchst also nur von einer/zwei Schachteln die Oberseite zu bekleben, denn die Oberseiten der anderen Schachteln sind ja durch die darüberliegenden Schachteln verdeckt.</p>
+<h2 id="schritt-9"><strong>Schritt 9:</strong></h2>
+<p>Zum Schluss müssen nur noch alle Schachteln zu einem Regal zusammengeklebt werden. Überlege dir, in welcher Reihenfolge du die Schachteln anordnen willst. Beklebe dann die Oberseiten aller Schachteln (bis auf die ganz oben) mit 6 Fotoecken und setze jeweils eine Schachtel auf die andere.</p>
+<p><img src="/images/Regal3.JPG" alt="Bild"></p>
+<p><img src="/images/Regal4.JPG" alt="Bild"></p>
+<p>Fertig! Du hast es geschafft! Viel Freude mit deinem einzigartigen selbstgebauten Regal!</p>
+<blockquote>
+<p>💭 <strong>Sprechblase</strong>
+Fertig! Du hast es geschafft! Viel Freude mit deinem einzigartigen selbstgebauten Regal!</p>
+</blockquote>
+<p><img src="/images/Regal5.jpg" alt="Bild"></p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

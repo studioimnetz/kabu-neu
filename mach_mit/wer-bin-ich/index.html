@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wer bin ich? – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/mach_mit/">Mach mit</a> ›
+    Wer bin ich?
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-mach_mit" href="/mach_mit/">Mach mit</a>
+      <h1>Wer bin ich?</h1>
+      <div class="meta">30. August 2018</div>
+    </div>
+    
+      <img src="/images/SpieletippsVorschaubild.jpg" alt="Wer bin ich?" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/SpieletippsVorschaubild.jpg" alt="Bild"></p>
+<p>Deine Freunde und du brauchen neue Spielideen? Dann hat KABU genau das Richtige für dich. Er gibt dir heute nämlich einen <strong>Spieletipp</strong>.
+Wer weiß: Vielleicht wird der Tipp sogar euer neues Lieblingsspiel!</p>
+<h1 id="wer-bin-ich">Wer bin ich?</h1>
+<p><strong>Wer bin ich?</strong> ist ein lustiges Ratespiel, bei dem du herausfinden musst, wer du bist. Und das wiederum bestimmt einer der Mitspieler.</p>
+<p><img src="/images/Werbinich.jpg" alt="Bild"></p>
+<h2 id="anzahl-der-spieler">Anzahl der Spieler:</h2>
+<p>2 oder mehr Spieler</p>
+<h2 id="vorbereitungen">Vorbereitungen:</h2>
+<p>Jeder Spieler denkt sich für EINEN anderen Spieler einen Begriff aus und schreibt ihn auf einen kleinen Zettel mit Klebestreifen. Bei dem Begriff, den du dir ausdenkst, kann es sich zum Beispiel um ein Tier, einen Sänger, eine Sängerin, einen Schauspieler, eine Schauspielerin, einen Sportler, eine Sportlerin, eine Filmfigur oder einen Gegenstand handeln. Legt einfach vor dem Spiel fest, was alles erlaubt ist.</p>
+<p>Achte darauf, dass der Spieler, für den dein Begriff bestimmt ist, nicht sieht, was du auf den Zettel schreibst. Nun klebst du dem Spieler den Zettel, den du für ihn geschrieben hast, auf die Stirn.</p>
+<p>Wenn jeder Spieler einen Zettel auf der Stirn hat und nicht weiß, was darauf steht, kann’s losgehen.</p>
+<h2 id="spielablauf">Spielablauf:</h2>
+<p>Spieler 1 beginnt, eine Frage zu stellen, die man mit JA oder NEIN beantworten kann. Nur solche Fragen sind zugelassen! Alle anderen Mitspieler dürfen darauf antworten. Spieler 1 kann so oft hintereinander Fragen stellen, bis die Mitspieler eine Frage mit NEIN beantworten.</p>
+<h2 id="beispiel">Beispiel:</h2>
+<p>Spieler 1: Bin ich ein Tier?</p>
+<p>Mitspieler: Ja.</p>
+<p>Spieler 1: Bin ich ein Säugetier?</p>
+<p>Mitspieler: Ja.</p>
+<p>Spieler 1: Bin ich ein Tier, das man zu Hause haben kann?</p>
+<p>Mitspieler: Nein.</p>
+<p>Nun ist Spieler 2 an der Reihe mit dem Fragenstellen.</p>
+<h2 id="ende">Ende:</h2>
+<p>Es gibt zwei Möglichkeiten, das Spiel <strong>Wer bin ich?</strong> zu beenden.</p>
+<p><strong>Möglichkeit 1:</strong> Das Spiel ist zu Ende, wenn der erste Spieler erraten hat, wer er ist.</p>
+<p><strong>Möglichkeit 2:</strong> Das Spiel ist zu Ende, wenn alle Spieler erraten haben, wer sie sind.</p>
+<p><img src="/images/Werbinichl%C3%B6sung.jpg" alt="Bild"></p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

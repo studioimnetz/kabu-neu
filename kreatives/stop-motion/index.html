@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop Motion – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Stop Motion
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Stop Motion</h1>
+      <div class="meta">25. May 2022</div>
+    </div>
+    
+      <img src="/images/202245_KABU-Grafiken%281%29.png" alt="Stop Motion" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><h2 id="schaust-du-genauso-gerne-zeichentrickfilme-wie-kabu">Schaust du genauso gerne Zeichentrickfilme wie KABU?</h2>
+<p>KABU liebt es sich in seiner Freizeit Zeichentrickserien und –filme wie Biene Maja, Sandmännchen, Feuerwehrmann Sam und so weiter anzuschauen. Doch wie entstehen solche Filme eigentlich?</p>
+<p>Anders als bei einem „normalen Film“ in unserer echten Welt, wo lediglich Schauspieler*innen und eine Kamera genügen würden, können wir nicht einfach die gezeichneten Figuren abfilmen. Stattdessen muss für jede einzelne Bewegung ein weiteres Bild gezeichnet/ gestellt werden. Im Durchschnitt werden pro Sekunde ganze 25 Bilder benötigt. (Tipp: Probiert es doch mal mit 11 Bildern pro Sekunde.) Werden diese Bilder dann ganz schnell hintereinander abgespielt, sieht es für uns aus wie eine durchgehende Bewegung. So ähnlich wie bei einem Daumenkino, nur eben digital und mit Fotos. Klingt ganz schön aufwendig und kompliziert, oder?</p>
+<p>Aufwendig ist es tatsächlich, kompliziert jedoch nicht. Wir erklären dir in dem Video, wie du ganz einfach deinen eigenen kleinen Film erstellen kannst. Der Fachbegriff für die Methode die wir verwenden ist übrigens „Stop Motion“ (deutsch: „Bewegungen stoppen“).</p>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/714384350?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>Und jetzt, auf die Plätze, fertig und los geht das Ausprobieren!</p>
+<p>Schreib doch gerne der KABU-Redaktion was du für Erfahrungen mit Stop Motion gemacht hast oder schicke uns sogar deine Ergebnisse.</p>
+<p>Bis zum nächsten Mal, euer KABU!</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

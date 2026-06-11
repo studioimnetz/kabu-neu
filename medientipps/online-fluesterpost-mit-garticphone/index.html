@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online-Flüsterpost mit GarticPhone – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/medientipps/">Medientipps</a> ›
+    Online-Flüsterpost mit GarticPhone
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-medientipps" href="/medientipps/">Medientipps</a>
+      <h1>Online-Flüsterpost mit GarticPhone</h1>
+      <div class="meta">19. April 2021</div>
+    </div>
+    
+      <img src="/images/202135_gartic%20kabu.jpg" alt="Online-Flüsterpost mit GarticPhone" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/202135_GarticPhone.jpg" alt="Bild"></p>
+<p>Heute stellen wir dir das Online-Spiel <strong>GarticPhone</strong> vor! Das ist ein Multiplayer-Spiel, also ein Spiel, das mit mehreren Spielern funktioniert. GarticPhone ist <strong>werbefinanziert</strong>. Das heißt, ihr könnt es <strong>kostenlos</strong> spielen, weil Werbung eingeblendet wird.</p>
+<p>Bestimmt kennst du <strong>Flüsterpost</strong> - das Spiel, in dem man sich Wörter oder Sätze einfallen lässt und am Ende vielleicht etwas ganz anders herauskommt. Nach dem gleichen Prinzip funktioniert auch GarticPhone - eben nur digital und online!</p>
+<p>Zuerst schreibt jeder Mitspieler einen (lustigen) Satz in das vorgegebene Textfeld. Dann werden die Sätze durchgemischt und jeder Mitspieler muss versuchen, den Satz eines anderen Mitspielenden in Form eines Bildes zu malen.</p>
+<p>In der nächsten Runde werden nun die Bilder vermischt. Jeder Spieler bekommt dann wieder das Bild eines anderen und schreibt in das Textfeld, was er auf dem Bild sieht. So geht es hin und her bis jede Geschichte vollendet ist. Zum Schluss können sich die Spielenden die Ergebnisse zusammen ansehen.</p>
+<h2 id="spielmodi">Spielmodi:</h2>
+<ul>
+<li><strong>Kein Druck</strong>: man hat mehr Zeit zu malen.</li>
+<li><strong>Geheimnis</strong>: man sieht nicht, was man schreibt oder malt.</li>
+<li><strong>Speedrun</strong>: man hat nur 30 Sekunden Zeit zu malen.</li>
+<li><strong>Imitation</strong>: man muss so gut wie möglich die Bilder der anderen kopieren.</li>
+<li><strong>Sandwich</strong>: man beginnt mit dem Schreiben und malt so lange, bis man am Ende das letze Bild beschreiben muss.</li>
+</ul>
+<p><img src="/images/202135_Fl%C3%BCstern.jpg" alt="Bild"></p>
+<p><strong>GarticPhone</strong> ist das perfekte Spiel für langweilige Tage. Schicke deinen Freunden einfach einen Link über den Chat einer Videokonferenzplattform und ihr könnt zusammen spielen! Solltet ihr keinen Zugang zu einer Videokonferenzplattform haben, könnt ihr den Link auch einfach per E-Mail verschicken und zum Beispiel nebenbei telefonieren.</p>
+<p>Ein neues Spiel erstellst du einfach auf der Webseite des Spiels. Hier der Zugang zur deutschen Version:</p>
+<p><a href="https://garticphone.com/de">https://garticphone.com/de</a></p>
+<p>Bitte spiele nur mit deinen Freunden oder Personen, die du kennst und nicht mit Fremden aus dem Internet!</p>
+<p>Einen ersten Eindruck vom Spiel kannst du dir in unserem kurzen Erklärvideo verschaffen.</p>
+<h2 id="video">Video:</h2>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/537651481?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<p>Viel Spaß beim Ausprobieren!</p>
+<p>Dein KABU-Team</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

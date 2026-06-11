@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zum 1. Advent – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/kreatives/">Kreatives</a> ›
+    Zum 1. Advent
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-kreatives" href="/kreatives/">Kreatives</a>
+      <h1>Zum 1. Advent</h1>
+      <div class="meta">28. November 2020</div>
+    </div>
+    
+      <img src="/images/2020105_advent-1.jpg" alt="Zum 1. Advent" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p>![Bild](/images/2020105_Rubbellosadventskalender Instagram.png)</p>
+<p>Es ist Ende November, die Stadt ist mit schönen Lichtern geschmückt und draußen ist es bitter kalt. Da kommt langsam Weihnachtsstimmung auf.</p>
+<p>Um sich die Wartezeit bis Weihnachten zu versüßen, darf ein traditioneller Adventskalender natürlich nicht fehlen. KABU zeigt dir deshalb heute, wie du einen tollen Adventskalender selbst bastelst, den du an deine Eltern, Geschwister oder Freunde verschenken kannst.</p>
+<p>![Bild](/images/2020105_KABU Weihnachten.png)</p>
+<p>Außerdem erklären wir dir in einem Video, woher die Tradition des Adventskalenders kommt.</p>
+<h2 id="video-adventskalender">Video: Adventskalender</h2>
+<div class="vimeo-wrap">
+  <iframe
+    src="https://player.vimeo.com/video/484463259?dnt=1&color=F47920"
+    allowfullscreen
+    allow="autoplay; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<h2 id="rubbellosadventskalender-basteln">Rubbellosadventskalender basteln</h2>
+<p>Das Beste an diesem Adventskalender ist, dass du die meisten Dinge, die du zum Basteln brauchst, bestimmt schon zuhause hast und direkt loslegen kannst.</p>
+<p>Außerdem musst du kein Geld dafür ausgeben, belastest die Umwelt nicht mit unnötigen Käufen und machst den Beschenkten bestimmt eine große Freude.</p>
+<p><strong>Du brauchst:</strong></p>
+<ul>
+<li>24 kleine Blätter Papier (am besten dickeres Papier; die 24 Zettelchen kannst du auch aus einem großen Blatt Papier ausschneiden)</li>
+<li>durchsichtiges Klebeband</li>
+<li>Schere</li>
+<li>schwarze Acrylfarbe</li>
+<li>Pinsel</li>
+<li>Spülmittel</li>
+<li>Buntstifte</li>
+<li>(Glitzer, Deko…)</li>
+</ul>
+<p><strong>So geht‘s:</strong></p>
+<ol>
+<li>Überlege dir Dinge, die auf den 24 Zettelchen deines Adventskalenders stehen sollen und schreibe sie darauf. Das könnten zum Beispiel kurze Gedichte, Sprüche oder Gutscheine sein. Du kannst aber auch auf jedes Zettelchen eine Sache schreiben, die du an der Person toll findest, der du den Kalender schenkst. Wenn du möchtest, kannst du die Zettelchen noch bemalen, Sticker darauf kleben oder sie mit Glitzer schmücken. Deiner Kreativität sind dabei keine Grenzen gesetzt.</li>
+</ol>
+<p><img src="/images/2020105_Rubbellos1.jpg" alt="Bild"></p>
+<ol start="2">
+<li>Wenn du die Blätter beschrieben und verziert hast, klebe transparentes Klebeband über die Schrift.</li>
+</ol>
+<p><img src="/images/2020105_Rubbellos2.jpg" alt="Bild"></p>
+<ol start="3">
+<li>Nun gibst du etwas schwarze Acrylfarbe in einen Becher oder ein Glas und verrührst sie mit ein bisschen Spülmittel.</li>
+</ol>
+<p><img src="/images/2020105_Rubbellos3.jpg" alt="Bild"></p>
+<ol start="4">
+<li>Diese Mischung wird dann dort aufgetragen, wo du Klebeband über die Schrift geklebt hast. Es ist wichtig, dass du die Farbe gut trocknen lässt.</li>
+</ol>
+<p><img src="/images/2020105_Rubbellos4.jpg" alt="Bild"></p>
+<ol start="5">
+<li>Und schon ist dein selbstgemachter Adventskalender fertig.</li>
+</ol>
+<p><img src="/images/2020105_Rubbellos5.jpg" alt="Bild"></p>
+<p>Den fertigen Adventskalender kannst du jetzt an deine Eltern, Geschwister oder Freunde verschenken. Diese müssen dann die Farbe auf den einzelnen Zettelchen mit einem Geldstück abrubbeln und können sich jeden Tag über eine kleine Nachricht von dir freuen, die unter der Farbe zum Vorschein kommt.</p>
+<p><img src="/images/2020105_Rubbellos6.jpg" alt="Bild"></p>
+<p><strong>Ganz viel Spaß beim Nachbasteln und eine schöne Adventszeit!</strong></p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>

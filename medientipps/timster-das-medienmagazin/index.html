@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timster, das Medienmagazin – KABU – Die Kinder-Info-App</title>
+<meta name="description" content="Informationen für Kinder – einfach, klar und kindgerecht">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <img src="/images/kabu-logo.png" alt="KABU" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="site-logo-text" style="display:none">KABU</span>
+    </a>
+    <nav>
+      
+        <a href="/beitraege/">Alle Beiträge</a>
+      
+        <a href="/tipps_tricks/">Tipps &amp; Tricks</a>
+      
+        <a href="/spiel_quiz/">Spiel &amp; Quiz</a>
+      
+        <a href="/mach_mit/">Mach mit</a>
+      
+        <a href="/wissenswertes/">Wissenswertes</a>
+      
+        <a href="/medientipps/">Medientipps</a>
+      
+        <a href="/kreatives/">Kreatives</a>
+      
+        <a href="/ueber-kabu/">Über KABU</a>
+      
+    </nav>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-input" placeholder="Suchen..." autocomplete="off">
+    </div>
+  </div>
+  <div id="search-results"></div>
+</header>
+
+<script>
+
+let searchIndex = null;
+
+async function loadIndex() {
+  if (searchIndex) return;
+  try {
+    const r = await fetch('/search-index.json');
+    searchIndex = await r.json();
+  } catch(e) { searchIndex = []; }
+}
+
+const input = document.getElementById('search-input');
+const results = document.getElementById('search-results');
+
+const catNames = {
+  tipps_tricks: 'Tipps & Tricks',
+  spiel_quiz: 'Spiel & Quiz',
+  mach_mit: 'Mach mit',
+  wissenswertes: 'Wissenswertes',
+  medientipps: 'Medientipps',
+  kreatives: 'Kreatives'
+};
+
+input.addEventListener('focus', loadIndex);
+input.addEventListener('input', async () => {
+  await loadIndex();
+  const q = input.value.trim().toLowerCase();
+  if (q.length < 2) { results.classList.remove('visible'); return; }
+
+  const hits = searchIndex.filter(p =>
+    p.title.toLowerCase().includes(q) ||
+    (p.content && p.content.toLowerCase().includes(q))
+  ).slice(0, 8);
+
+  if (hits.length === 0) {
+    results.innerHTML = '<div id="search-no-results">Keine Ergebnisse gefunden</div>';
+  } else {
+    results.innerHTML = hits.map(p => `
+      <a class="search-result-item" href="${p.url}">
+        <div class="s-cat">${catNames[p.section] || p.section}</div>
+        <div class="s-title">${p.title}</div>
+      </a>`).join('');
+  }
+  results.classList.add('visible');
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('header')) results.classList.remove('visible');
+});
+</script>
+
+
+
+
+
+
+  <div class="breadcrumb">
+    <a href="/">Startseite</a> ›
+    <a href="/medientipps/">Medientipps</a> ›
+    Timster, das Medienmagazin
+  </div>
+  <article class="post-single">
+    <div class="post-single-header">
+      <a class="cat-badge cat-medientipps" href="/medientipps/">Medientipps</a>
+      <h1>Timster, das Medienmagazin</h1>
+      <div class="meta">21. February 2019</div>
+    </div>
+    
+      <img src="/images/timster1.jpg" alt="Timster, das Medienmagazin" style="width:100%;border-radius:16px;margin-bottom:1.5rem;box-shadow:var(--kabu-shadow)">
+    
+    
+    <div class="post-content"><p><img src="/images/timster1.jpg" alt="Bild"></p>
+<p>Kennst du Timster? Das ist eine Sendung im KIKA, die immer samstags um 17:45 läuft und jederzeit auf kika.de und in der kostenlosen KIKA-App zu sehen ist.</p>
+<p>Timster ist ein Medienmagazin mit Moderator Tim und seinem Hund Luis. Du bekommst in der Sendung viele Tipps und Infos rund um Medien: Tim erklärt dir zum Beispiel, was ein sicheres Passwort ist, was du im Internet glauben kannst oder was dieser Datenschutz eigentlich bedeutet.</p>
+<p><img src="/images/timster2.jpg" alt="Bild"></p>
+<p>Tim zeigt dir in seiner Medienwerkstatt, wie du coole Dinge basteln kannst: einen Ventilator beispielsweise, einen Malroboter oder Glibberschleim. Er schaut mit euch hinter die Kulissen von spannenden Medienberufen oder hat in seiner Sendung zu Besuch. Außerdem stellt Tim tolle neue Apps, Spiele, Filme und Bücher vor.</p>
+<p>Du kannst bei Timster also nicht nur Einiges lernen, sondern dir auch tolle Ideen abholen oder einfach nur witzige Videos anschauen.</p>
+<p>Timster ist toll, schau mal rein! Du findest die Show im TV und in der KIKA-App.</p>
+<blockquote>
+<p>💭 <strong>sprechblase</strong>
+Timster ist toll, schau mal rein! Du findest die Show im TV und in der KIKA-App.</p>
+</blockquote>
+<p>Du kannst auch im Internet auf kika.de/timster nachsehen, denn hier gibt es tolle Infos, Tipps und Anleitungen.</p>
+<p><img src="/images/timster3.jpg" alt="Bild"></p>
+<p>Fotohinweis: alle Bilder von © KiKA / Carlo Bansini</p>
+</div>
+  </article>
+
+
+<footer>
+  <p>© 2026 KABU – Die Kinder-Info-App &nbsp;|&nbsp;
+    <a href="/ueber-kabu/">Über KABU</a> &nbsp;|&nbsp;
+    <a href="/impressum/">Impressum</a> &nbsp;|&nbsp;
+    <a href="/datenschutz/">Datenschutz</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6">
+    Eine Initiative von <a href="https://www.studioimnetz.de/">SIN – Studio im Netz</a>
+  </p>
+</footer>
+
+</body>
+</html>
